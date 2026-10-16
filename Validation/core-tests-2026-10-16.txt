@@ -1,0 +1,51 @@
+PASS Catálogo: todas las soluciones y variantes son ganables
+PASS Miedoso: +18 y umbral estrictamente mayor a 40
+PASS Exagerado: cuatro modificadores exactos
+PASS Mentiroso: inventa y modifica atributos
+PASS Ignorante: reinterpretación semántica determinista
+PASS Ignorante: prioridad de etiquetas definida por catálogo
+PASS Clamping: 500 transformaciones permanecen en rango
+PASS Transformar conserva intacta la entrada
+PASS Bifurcación: aislamiento profundo de atributos e historial
+PASS Orden BFS: origen antes que ramas; destino ordinal
+PASS Determinismo: orden de aristas no cambia resultados
+PASS Alcance incluye origen sin duplicados
+PASS Historial conserva anterior, posterior, razón y destinatarios
+PASS Red rechaza ciclos, incluso desconectados
+PASS Red rechaza relaciones inexistentes
+PASS Red rechaza habitantes inexistentes
+PASS Red rechaza fusiones de ramas
+PASS Red rechaza entrada al origen
+PASS Red rechaza tres salidas sin habilidad
+PASS Red rechaza presupuesto excedido
+PASS Red rechaza subárbol desconectado
+PASS Red vacía: edición permitida, simulación rechazada
+PASS Red rechaza arista duplicada
+PASS Eliminar rama quita descendientes y conserva hermanas
+PASS Objetivos colectivos incluyen ceros de no alcanzados
+PASS Objetivos: todas las condiciones obligatorias cuentan
+PASS Estrellas: límites 0–3 y criterios de nivel
+PASS Mapas: 1000 semillas reproducibles, rutas hasta jefe
+PASS Semillas distintas generan contenido distinto
+PASS Flujo: no permite saltarse nodos
+PASS Edición: deshacer y limpiar conservan red válida
+PASS Resultado: bloquea edición y doble simulación
+PASS Paciencia: reintento paga cada fracaso y termina al tercero
+PASS Fracaso: avanzar no concede recompensa
+PASS Recompensas: elección única y parámetros aplicados
+PASS Pregonero: tercera salida es legal solo en exagerado
+PASS Bonos modifican personalidad sin exceder límites
+PASS Nueva run reinicia mejoras y conserva ajustes
+PASS Evento: recuperar o susurro lleva al siguiente mapa
+PASS Integración: 100 runs completas, rutas y eventos
+PASS Jefe fallido: reintentar o abandonar, nunca victoria
+PASS Guardado: rechaza versiones futuras y mapas alterados
+PASS Guardado: restaurar resultado no cobra paciencia otra vez
+PASS Decisiones: misma semilla y acciones reproducen log y final
+PASS Replay: run con evento, fracaso, reintento y victoria
+PASS Replay: detecta resultado manipulado
+PASS Guardado: rechaza registros nulos y recorrido incompleto
+PASS Guardado: reconstruye historial determinista y rechaza victoria falsa
+PASS Persistencia JSON: roundtrip completo y continuación hasta jefe
+RESULT: 49 passed, 0 failed, 49 executed.
+PASS static Unity wiring: 39 GUIDs, 6 assemblies, scene, catalog, font and pinned package manifest.

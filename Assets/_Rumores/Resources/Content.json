@@ -1,0 +1,1348 @@
+{
+  "rulesVersion": 1,
+  "personalities": [
+    {
+      "id": "miedoso",
+      "name": "Miedoso",
+      "description": "Pánico +18. Si termina por encima de 40, Importancia +5.",
+      "phrase": "¡Esto se nos va de las manos!",
+      "importance": 0,
+      "panic": 18,
+      "credibility": 0,
+      "distortion": 0,
+      "panicThreshold": 40,
+      "thresholdImportance": 5
+    },
+    {
+      "id": "exagerado",
+      "name": "Exagerado",
+      "description": "Importancia +14, Pánico +10, Distorsión +12, Credibilidad −8.",
+      "phrase": "¡Lo vio TODO el pueblo!",
+      "importance": 14,
+      "panic": 10,
+      "credibility": -8,
+      "distortion": 12
+    },
+    {
+      "id": "mentiroso",
+      "name": "Mentiroso",
+      "description": "Inventa un detalle. Distorsión +18, Credibilidad −12, Importancia +5.",
+      "phrase": "Dicen que el alcalde lo organizó desde un submarino.",
+      "importance": 5,
+      "panic": 0,
+      "credibility": -12,
+      "distortion": 18
+    },
+    {
+      "id": "ignorante",
+      "name": "Ignorante",
+      "description": "Distorsión +14. Confunde un concepto según las etiquetas.",
+      "phrase": "No entendí, pero seguro era algo enorme.",
+      "importance": 0,
+      "panic": 0,
+      "credibility": 0,
+      "distortion": 14
+    }
+  ],
+  "semantics": [
+    {
+      "tag": "animal",
+      "replaceTag": "catástrofe",
+      "text": "Confundió la cabra con un monstruo del tamaño del molino."
+    },
+    {
+      "tag": "máquina",
+      "replaceTag": "animal",
+      "text": "Entendió que el molino era un dragón con hipo."
+    },
+    {
+      "tag": "autoridad",
+      "replaceTag": "misterio",
+      "text": "Confundió al alcalde con un mago encubierto."
+    },
+    {
+      "tag": "misterio",
+      "replaceTag": "peligro",
+      "text": "Creyó que la luz era una señal de invasión."
+    }
+  ],
+  "news": [
+    {
+      "id": "cabra",
+      "text": "Una cabra se comió el cartel de la plaza.",
+      "stats": {
+        "importance": 25,
+        "panic": 15,
+        "credibility": 95,
+        "distortion": 0
+      },
+      "tags": [
+        "animal"
+      ]
+    },
+    {
+      "id": "molino",
+      "text": "El molino hizo un ruido durante la siesta.",
+      "stats": {
+        "importance": 25,
+        "panic": 15,
+        "credibility": 95,
+        "distortion": 0
+      },
+      "tags": [
+        "máquina",
+        "misterio"
+      ]
+    },
+    {
+      "id": "alcalde",
+      "text": "El alcalde perdió una llave en la fuente.",
+      "stats": {
+        "importance": 25,
+        "panic": 15,
+        "credibility": 95,
+        "distortion": 0
+      },
+      "tags": [
+        "autoridad",
+        "misterio"
+      ]
+    },
+    {
+      "id": "luces",
+      "text": "Se encendió una luz en la estación vacía.",
+      "stats": {
+        "importance": 25,
+        "panic": 15,
+        "credibility": 95,
+        "distortion": 0
+      },
+      "tags": [
+        "misterio",
+        "máquina"
+      ]
+    },
+    {
+      "id": "gallina",
+      "text": "Una gallina interrumpió la reunión del barrio.",
+      "stats": {
+        "importance": 25,
+        "panic": 15,
+        "credibility": 95,
+        "distortion": 0
+      },
+      "tags": [
+        "animal",
+        "autoridad"
+      ]
+    }
+  ],
+  "encounters": [
+    {
+      "id": "plaza",
+      "name": "La cabra de la plaza",
+      "description": "Que el barrio se entere.",
+      "source": "a",
+      "newsId": "cabra",
+      "newsOptions": [
+        "cabra",
+        "luces"
+      ],
+      "budget": 6,
+      "efficientEdges": 5,
+      "difficulty": 1,
+      "boss": false,
+      "residents": [
+        {
+          "id": "a",
+          "name": "Nora",
+          "personality": "miedoso",
+          "x": 0.5,
+          "y": 0.9
+        },
+        {
+          "id": "b",
+          "name": "Beto",
+          "personality": "exagerado",
+          "x": 0.16,
+          "y": 0.68
+        },
+        {
+          "id": "c",
+          "name": "Lola",
+          "personality": "ignorante",
+          "x": 0.5,
+          "y": 0.68
+        },
+        {
+          "id": "d",
+          "name": "Tito",
+          "personality": "mentiroso",
+          "x": 0.84,
+          "y": 0.68
+        },
+        {
+          "id": "e",
+          "name": "Rita",
+          "personality": "miedoso",
+          "x": 0.12,
+          "y": 0.42
+        },
+        {
+          "id": "f",
+          "name": "Paco",
+          "personality": "ignorante",
+          "x": 0.37,
+          "y": 0.42
+        },
+        {
+          "id": "g",
+          "name": "Vera",
+          "personality": "exagerado",
+          "x": 0.63,
+          "y": 0.42
+        },
+        {
+          "id": "h",
+          "name": "Milo",
+          "personality": "miedoso",
+          "x": 0.88,
+          "y": 0.42
+        },
+        {
+          "id": "i",
+          "name": "Cora",
+          "personality": "mentiroso",
+          "x": 0.3,
+          "y": 0.15
+        },
+        {
+          "id": "j",
+          "name": "Dani",
+          "personality": "miedoso",
+          "x": 0.7,
+          "y": 0.15
+        }
+      ],
+      "potential": [
+        {
+          "from": "a",
+          "to": "b"
+        },
+        {
+          "from": "a",
+          "to": "c"
+        },
+        {
+          "from": "a",
+          "to": "d"
+        },
+        {
+          "from": "b",
+          "to": "e"
+        },
+        {
+          "from": "b",
+          "to": "f"
+        },
+        {
+          "from": "c",
+          "to": "f"
+        },
+        {
+          "from": "c",
+          "to": "g"
+        },
+        {
+          "from": "d",
+          "to": "g"
+        },
+        {
+          "from": "d",
+          "to": "h"
+        },
+        {
+          "from": "e",
+          "to": "i"
+        },
+        {
+          "from": "f",
+          "to": "i"
+        },
+        {
+          "from": "f",
+          "to": "j"
+        },
+        {
+          "from": "g",
+          "to": "j"
+        },
+        {
+          "from": "h",
+          "to": "j"
+        },
+        {
+          "from": "b",
+          "to": "g"
+        }
+      ],
+      "solution": [
+        {
+          "from": "a",
+          "to": "b"
+        },
+        {
+          "from": "a",
+          "to": "c"
+        },
+        {
+          "from": "b",
+          "to": "e"
+        },
+        {
+          "from": "c",
+          "to": "f"
+        }
+      ],
+      "required": [
+        {
+          "kind": "reach",
+          "value": 5,
+          "label": "Llegar a 5 habitantes",
+          "target": ""
+        }
+      ],
+      "secondary": [
+        {
+          "kind": "reach",
+          "value": 6,
+          "label": "Llegar a 6 habitantes",
+          "target": ""
+        }
+      ]
+    },
+    {
+      "id": "molino",
+      "name": "Siesta interrumpida",
+      "description": "Alarma colectiva sin perder a todo el pueblo.",
+      "source": "a",
+      "newsId": "molino",
+      "newsOptions": [
+        "molino",
+        "luces"
+      ],
+      "budget": 7,
+      "efficientEdges": 6,
+      "difficulty": 2,
+      "boss": false,
+      "residents": [
+        {
+          "id": "a",
+          "name": "Nora",
+          "personality": "miedoso",
+          "x": 0.5,
+          "y": 0.9
+        },
+        {
+          "id": "b",
+          "name": "Beto",
+          "personality": "exagerado",
+          "x": 0.16,
+          "y": 0.68
+        },
+        {
+          "id": "c",
+          "name": "Lola",
+          "personality": "ignorante",
+          "x": 0.5,
+          "y": 0.68
+        },
+        {
+          "id": "d",
+          "name": "Tito",
+          "personality": "mentiroso",
+          "x": 0.84,
+          "y": 0.68
+        },
+        {
+          "id": "e",
+          "name": "Rita",
+          "personality": "miedoso",
+          "x": 0.12,
+          "y": 0.42
+        },
+        {
+          "id": "f",
+          "name": "Paco",
+          "personality": "ignorante",
+          "x": 0.37,
+          "y": 0.42
+        },
+        {
+          "id": "g",
+          "name": "Vera",
+          "personality": "exagerado",
+          "x": 0.63,
+          "y": 0.42
+        },
+        {
+          "id": "h",
+          "name": "Milo",
+          "personality": "miedoso",
+          "x": 0.88,
+          "y": 0.42
+        },
+        {
+          "id": "i",
+          "name": "Cora",
+          "personality": "mentiroso",
+          "x": 0.3,
+          "y": 0.15
+        },
+        {
+          "id": "j",
+          "name": "Dani",
+          "personality": "miedoso",
+          "x": 0.7,
+          "y": 0.15
+        }
+      ],
+      "potential": [
+        {
+          "from": "a",
+          "to": "b"
+        },
+        {
+          "from": "a",
+          "to": "c"
+        },
+        {
+          "from": "a",
+          "to": "d"
+        },
+        {
+          "from": "b",
+          "to": "e"
+        },
+        {
+          "from": "b",
+          "to": "f"
+        },
+        {
+          "from": "c",
+          "to": "f"
+        },
+        {
+          "from": "c",
+          "to": "g"
+        },
+        {
+          "from": "d",
+          "to": "g"
+        },
+        {
+          "from": "d",
+          "to": "h"
+        },
+        {
+          "from": "e",
+          "to": "i"
+        },
+        {
+          "from": "f",
+          "to": "i"
+        },
+        {
+          "from": "f",
+          "to": "j"
+        },
+        {
+          "from": "g",
+          "to": "j"
+        },
+        {
+          "from": "h",
+          "to": "j"
+        },
+        {
+          "from": "b",
+          "to": "g"
+        }
+      ],
+      "solution": [
+        {
+          "from": "a",
+          "to": "b"
+        },
+        {
+          "from": "a",
+          "to": "d"
+        },
+        {
+          "from": "b",
+          "to": "e"
+        },
+        {
+          "from": "d",
+          "to": "h"
+        },
+        {
+          "from": "e",
+          "to": "i"
+        },
+        {
+          "from": "h",
+          "to": "j"
+        }
+      ],
+      "required": [
+        {
+          "kind": "reach",
+          "value": 6,
+          "label": "Llegar a 6 habitantes",
+          "target": ""
+        },
+        {
+          "kind": "panic",
+          "value": 25,
+          "label": "Pánico colectivo ≥25",
+          "target": ""
+        }
+      ],
+      "secondary": [
+        {
+          "kind": "importance",
+          "value": 24,
+          "label": "Importancia colectiva ≥24",
+          "target": ""
+        }
+      ]
+    },
+    {
+      "id": "archivo",
+      "name": "El archivo municipal",
+      "description": "Difundir sin inventar demasiado.",
+      "source": "a",
+      "newsId": "alcalde",
+      "newsOptions": [
+        "alcalde",
+        "luces"
+      ],
+      "budget": 6,
+      "efficientEdges": 4,
+      "difficulty": 2,
+      "boss": false,
+      "residents": [
+        {
+          "id": "a",
+          "name": "Nora",
+          "personality": "miedoso",
+          "x": 0.5,
+          "y": 0.9
+        },
+        {
+          "id": "b",
+          "name": "Beto",
+          "personality": "miedoso",
+          "x": 0.16,
+          "y": 0.68
+        },
+        {
+          "id": "c",
+          "name": "Lola",
+          "personality": "ignorante",
+          "x": 0.5,
+          "y": 0.68
+        },
+        {
+          "id": "d",
+          "name": "Tito",
+          "personality": "mentiroso",
+          "x": 0.84,
+          "y": 0.68
+        },
+        {
+          "id": "e",
+          "name": "Rita",
+          "personality": "ignorante",
+          "x": 0.12,
+          "y": 0.42
+        },
+        {
+          "id": "f",
+          "name": "Paco",
+          "personality": "miedoso",
+          "x": 0.37,
+          "y": 0.42
+        },
+        {
+          "id": "g",
+          "name": "Vera",
+          "personality": "exagerado",
+          "x": 0.63,
+          "y": 0.42
+        },
+        {
+          "id": "h",
+          "name": "Milo",
+          "personality": "miedoso",
+          "x": 0.88,
+          "y": 0.42
+        },
+        {
+          "id": "i",
+          "name": "Cora",
+          "personality": "ignorante",
+          "x": 0.3,
+          "y": 0.15
+        },
+        {
+          "id": "j",
+          "name": "Dani",
+          "personality": "miedoso",
+          "x": 0.7,
+          "y": 0.15
+        }
+      ],
+      "potential": [
+        {
+          "from": "a",
+          "to": "b"
+        },
+        {
+          "from": "a",
+          "to": "c"
+        },
+        {
+          "from": "a",
+          "to": "d"
+        },
+        {
+          "from": "b",
+          "to": "e"
+        },
+        {
+          "from": "b",
+          "to": "f"
+        },
+        {
+          "from": "c",
+          "to": "f"
+        },
+        {
+          "from": "c",
+          "to": "g"
+        },
+        {
+          "from": "d",
+          "to": "g"
+        },
+        {
+          "from": "d",
+          "to": "h"
+        },
+        {
+          "from": "e",
+          "to": "i"
+        },
+        {
+          "from": "f",
+          "to": "i"
+        },
+        {
+          "from": "f",
+          "to": "j"
+        },
+        {
+          "from": "g",
+          "to": "j"
+        },
+        {
+          "from": "h",
+          "to": "j"
+        },
+        {
+          "from": "b",
+          "to": "g"
+        }
+      ],
+      "solution": [
+        {
+          "from": "a",
+          "to": "b"
+        },
+        {
+          "from": "a",
+          "to": "c"
+        },
+        {
+          "from": "b",
+          "to": "e"
+        },
+        {
+          "from": "c",
+          "to": "f"
+        }
+      ],
+      "required": [
+        {
+          "kind": "reach",
+          "value": 5,
+          "label": "Llegar a 5 habitantes",
+          "target": ""
+        },
+        {
+          "kind": "credibility",
+          "value": 85,
+          "label": "Credibilidad de cada receptor ≥85",
+          "target": ""
+        }
+      ],
+      "secondary": [
+        {
+          "kind": "distortion",
+          "value": 28,
+          "label": "Distorsión máxima ≤28",
+          "target": ""
+        }
+      ]
+    },
+    {
+      "id": "feria",
+      "name": "Gallina en la feria",
+      "description": "Llevá la noticia a Cora con pocos disparates.",
+      "source": "a",
+      "newsId": "gallina",
+      "newsOptions": [
+        "gallina",
+        "luces"
+      ],
+      "budget": 7,
+      "efficientEdges": 5,
+      "difficulty": 3,
+      "boss": false,
+      "residents": [
+        {
+          "id": "a",
+          "name": "Nora",
+          "personality": "miedoso",
+          "x": 0.5,
+          "y": 0.9
+        },
+        {
+          "id": "b",
+          "name": "Beto",
+          "personality": "exagerado",
+          "x": 0.16,
+          "y": 0.68
+        },
+        {
+          "id": "c",
+          "name": "Lola",
+          "personality": "ignorante",
+          "x": 0.5,
+          "y": 0.68
+        },
+        {
+          "id": "d",
+          "name": "Tito",
+          "personality": "mentiroso",
+          "x": 0.84,
+          "y": 0.68
+        },
+        {
+          "id": "e",
+          "name": "Rita",
+          "personality": "miedoso",
+          "x": 0.12,
+          "y": 0.42
+        },
+        {
+          "id": "f",
+          "name": "Paco",
+          "personality": "ignorante",
+          "x": 0.37,
+          "y": 0.42
+        },
+        {
+          "id": "g",
+          "name": "Vera",
+          "personality": "exagerado",
+          "x": 0.63,
+          "y": 0.42
+        },
+        {
+          "id": "h",
+          "name": "Milo",
+          "personality": "miedoso",
+          "x": 0.88,
+          "y": 0.42
+        },
+        {
+          "id": "i",
+          "name": "Cora",
+          "personality": "mentiroso",
+          "x": 0.3,
+          "y": 0.15
+        },
+        {
+          "id": "j",
+          "name": "Dani",
+          "personality": "miedoso",
+          "x": 0.7,
+          "y": 0.15
+        }
+      ],
+      "potential": [
+        {
+          "from": "a",
+          "to": "b"
+        },
+        {
+          "from": "a",
+          "to": "c"
+        },
+        {
+          "from": "a",
+          "to": "d"
+        },
+        {
+          "from": "b",
+          "to": "e"
+        },
+        {
+          "from": "b",
+          "to": "f"
+        },
+        {
+          "from": "c",
+          "to": "f"
+        },
+        {
+          "from": "c",
+          "to": "g"
+        },
+        {
+          "from": "d",
+          "to": "g"
+        },
+        {
+          "from": "d",
+          "to": "h"
+        },
+        {
+          "from": "e",
+          "to": "i"
+        },
+        {
+          "from": "f",
+          "to": "i"
+        },
+        {
+          "from": "f",
+          "to": "j"
+        },
+        {
+          "from": "g",
+          "to": "j"
+        },
+        {
+          "from": "h",
+          "to": "j"
+        },
+        {
+          "from": "b",
+          "to": "g"
+        }
+      ],
+      "solution": [
+        {
+          "from": "a",
+          "to": "b"
+        },
+        {
+          "from": "a",
+          "to": "c"
+        },
+        {
+          "from": "b",
+          "to": "e"
+        },
+        {
+          "from": "e",
+          "to": "i"
+        }
+      ],
+      "required": [
+        {
+          "kind": "target",
+          "value": 1,
+          "label": "Entregar a Cora",
+          "target": "i"
+        },
+        {
+          "kind": "distortion",
+          "value": 35,
+          "label": "Distorsión máxima ≤35",
+          "target": ""
+        },
+        {
+          "kind": "reach",
+          "value": 5,
+          "label": "Llegar a 5 habitantes",
+          "target": ""
+        }
+      ],
+      "secondary": [
+        {
+          "kind": "credibility",
+          "value": 70,
+          "label": "Credibilidad de cada receptor ≥70",
+          "target": ""
+        }
+      ]
+    },
+    {
+      "id": "estacion",
+      "name": "La estación encendida",
+      "description": "Una cadena larga que despierte interés.",
+      "source": "a",
+      "newsId": "luces",
+      "newsOptions": [
+        "luces",
+        "molino"
+      ],
+      "budget": 7,
+      "efficientEdges": 5,
+      "difficulty": 3,
+      "boss": false,
+      "residents": [
+        {
+          "id": "a",
+          "name": "Nora",
+          "personality": "miedoso",
+          "x": 0.5,
+          "y": 0.9
+        },
+        {
+          "id": "b",
+          "name": "Beto",
+          "personality": "exagerado",
+          "x": 0.16,
+          "y": 0.68
+        },
+        {
+          "id": "c",
+          "name": "Lola",
+          "personality": "ignorante",
+          "x": 0.5,
+          "y": 0.68
+        },
+        {
+          "id": "d",
+          "name": "Tito",
+          "personality": "mentiroso",
+          "x": 0.84,
+          "y": 0.68
+        },
+        {
+          "id": "e",
+          "name": "Rita",
+          "personality": "miedoso",
+          "x": 0.12,
+          "y": 0.42
+        },
+        {
+          "id": "f",
+          "name": "Paco",
+          "personality": "ignorante",
+          "x": 0.37,
+          "y": 0.42
+        },
+        {
+          "id": "g",
+          "name": "Vera",
+          "personality": "exagerado",
+          "x": 0.63,
+          "y": 0.42
+        },
+        {
+          "id": "h",
+          "name": "Milo",
+          "personality": "miedoso",
+          "x": 0.88,
+          "y": 0.42
+        },
+        {
+          "id": "i",
+          "name": "Cora",
+          "personality": "mentiroso",
+          "x": 0.3,
+          "y": 0.15
+        },
+        {
+          "id": "j",
+          "name": "Dani",
+          "personality": "miedoso",
+          "x": 0.7,
+          "y": 0.15
+        }
+      ],
+      "potential": [
+        {
+          "from": "a",
+          "to": "b"
+        },
+        {
+          "from": "a",
+          "to": "c"
+        },
+        {
+          "from": "a",
+          "to": "d"
+        },
+        {
+          "from": "b",
+          "to": "e"
+        },
+        {
+          "from": "b",
+          "to": "f"
+        },
+        {
+          "from": "c",
+          "to": "f"
+        },
+        {
+          "from": "c",
+          "to": "g"
+        },
+        {
+          "from": "d",
+          "to": "g"
+        },
+        {
+          "from": "d",
+          "to": "h"
+        },
+        {
+          "from": "e",
+          "to": "i"
+        },
+        {
+          "from": "f",
+          "to": "i"
+        },
+        {
+          "from": "f",
+          "to": "j"
+        },
+        {
+          "from": "g",
+          "to": "j"
+        },
+        {
+          "from": "h",
+          "to": "j"
+        },
+        {
+          "from": "b",
+          "to": "g"
+        }
+      ],
+      "solution": [
+        {
+          "from": "a",
+          "to": "b"
+        },
+        {
+          "from": "a",
+          "to": "c"
+        },
+        {
+          "from": "b",
+          "to": "e"
+        },
+        {
+          "from": "e",
+          "to": "i"
+        },
+        {
+          "from": "c",
+          "to": "g"
+        }
+      ],
+      "required": [
+        {
+          "kind": "depth",
+          "value": 4,
+          "label": "Una rama de 4 habitantes",
+          "target": ""
+        },
+        {
+          "kind": "importance",
+          "value": 19,
+          "label": "Importancia colectiva ≥19",
+          "target": ""
+        }
+      ],
+      "secondary": [
+        {
+          "kind": "reach",
+          "value": 6,
+          "label": "Llegar a 6 habitantes",
+          "target": ""
+        }
+      ]
+    },
+    {
+      "id": "asamblea",
+      "name": "La gran asamblea",
+      "description": "Dos versiones del mismo chisme: alarma y calma.",
+      "source": "a",
+      "newsId": "alcalde",
+      "newsOptions": [
+        "alcalde",
+        "luces"
+      ],
+      "budget": 8,
+      "efficientEdges": 7,
+      "difficulty": 5,
+      "boss": true,
+      "residents": [
+        {
+          "id": "a",
+          "name": "Nora",
+          "personality": "miedoso",
+          "x": 0.5,
+          "y": 0.9
+        },
+        {
+          "id": "b",
+          "name": "Beto",
+          "personality": "exagerado",
+          "x": 0.16,
+          "y": 0.68
+        },
+        {
+          "id": "c",
+          "name": "Lola",
+          "personality": "ignorante",
+          "x": 0.5,
+          "y": 0.68
+        },
+        {
+          "id": "d",
+          "name": "Tito",
+          "personality": "mentiroso",
+          "x": 0.84,
+          "y": 0.68
+        },
+        {
+          "id": "e",
+          "name": "Rita",
+          "personality": "miedoso",
+          "x": 0.12,
+          "y": 0.42
+        },
+        {
+          "id": "f",
+          "name": "Paco",
+          "personality": "ignorante",
+          "x": 0.37,
+          "y": 0.42
+        },
+        {
+          "id": "g",
+          "name": "Vera",
+          "personality": "exagerado",
+          "x": 0.63,
+          "y": 0.42
+        },
+        {
+          "id": "h",
+          "name": "Milo",
+          "personality": "miedoso",
+          "x": 0.88,
+          "y": 0.42
+        },
+        {
+          "id": "i",
+          "name": "Cora",
+          "personality": "mentiroso",
+          "x": 0.3,
+          "y": 0.15
+        },
+        {
+          "id": "j",
+          "name": "Dani",
+          "personality": "miedoso",
+          "x": 0.7,
+          "y": 0.15
+        }
+      ],
+      "potential": [
+        {
+          "from": "a",
+          "to": "b"
+        },
+        {
+          "from": "a",
+          "to": "c"
+        },
+        {
+          "from": "a",
+          "to": "d"
+        },
+        {
+          "from": "b",
+          "to": "e"
+        },
+        {
+          "from": "b",
+          "to": "f"
+        },
+        {
+          "from": "c",
+          "to": "f"
+        },
+        {
+          "from": "c",
+          "to": "g"
+        },
+        {
+          "from": "d",
+          "to": "g"
+        },
+        {
+          "from": "d",
+          "to": "h"
+        },
+        {
+          "from": "e",
+          "to": "i"
+        },
+        {
+          "from": "f",
+          "to": "i"
+        },
+        {
+          "from": "f",
+          "to": "j"
+        },
+        {
+          "from": "g",
+          "to": "j"
+        },
+        {
+          "from": "h",
+          "to": "j"
+        },
+        {
+          "from": "b",
+          "to": "g"
+        }
+      ],
+      "solution": [
+        {
+          "from": "a",
+          "to": "b"
+        },
+        {
+          "from": "a",
+          "to": "d"
+        },
+        {
+          "from": "b",
+          "to": "e"
+        },
+        {
+          "from": "b",
+          "to": "f"
+        },
+        {
+          "from": "d",
+          "to": "g"
+        },
+        {
+          "from": "d",
+          "to": "h"
+        },
+        {
+          "from": "e",
+          "to": "i"
+        }
+      ],
+      "required": [
+        {
+          "kind": "reach",
+          "value": 8,
+          "label": "Llegar a 8 habitantes",
+          "target": ""
+        },
+        {
+          "kind": "importance",
+          "value": 29,
+          "label": "Importancia colectiva ≥29",
+          "target": ""
+        },
+        {
+          "kind": "contrast",
+          "value": 18,
+          "label": "Diferencia de pánico entre hojas ≥18",
+          "target": ""
+        }
+      ],
+      "secondary": [
+        {
+          "kind": "credibility",
+          "value": 65,
+          "label": "Credibilidad de cada receptor ≥65",
+          "target": ""
+        }
+      ]
+    }
+  ],
+  "rewards": [
+    {
+      "id": "hilo",
+      "name": "Hilo de confianza",
+      "description": "+1 Punto de Susurro en cada desafío. Acumula hasta 5 veces.",
+      "effect": "whispers",
+      "amount": 1,
+      "maxStacks": 5
+    },
+    {
+      "id": "megafono",
+      "name": "Drama de bolsillo",
+      "description": "El exagerado genera +6 Importancia. Acumula hasta 3 veces.",
+      "effect": "importance",
+      "amount": 6,
+      "maxStacks": 3
+    },
+    {
+      "id": "coartada",
+      "name": "Coartada impecable",
+      "description": "El mentiroso pierde 6 menos de Credibilidad. Máximo 2 veces.",
+      "effect": "credibility",
+      "amount": 6,
+      "maxStacks": 2
+    },
+    {
+      "id": "pregonero",
+      "name": "Pregonero por un día",
+      "description": "Los exagerados pueden tener 3 salidas. Una vez por run.",
+      "effect": "outputs",
+      "amount": 1,
+      "maxStacks": 1
+    },
+    {
+      "id": "mate",
+      "name": "Ronda de mates",
+      "description": "Recuperá 1 Paciencia, hasta 3. Máximo 5 elecciones.",
+      "effect": "heal",
+      "amount": 1,
+      "maxStacks": 5
+    }
+  ]
+}

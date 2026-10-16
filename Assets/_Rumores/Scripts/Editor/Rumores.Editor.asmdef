@@ -1,0 +1,1 @@
+{"name":"Rumores.Editor","references":["Rumores.Core","Rumores.Presentation"],"includePlatforms":["Editor"]}

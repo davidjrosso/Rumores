@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!129 &1
+PlayerSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 26
+  productGUID: 36e67621492b4d31a15509a655dc6659
+  companyName: David J. Rosso
+  productName: Rumores
+  defaultScreenWidth: 720
+  defaultScreenHeight: 1280
+  defaultScreenWidthWeb: 720
+  defaultScreenHeightWeb: 1280
+  defaultIsNativeResolution: 1
+  defaultScreenOrientation: 1
+  use32BitDisplayBuffer: 1
+  runInBackground: 0
+  resizableWindow: 0
+  bundleVersion: 0.1.0
+  applicationIdentifier:
+    Android: com.davidjrosso.rumores
+    Standalone: com.davidjrosso.rumores
+  AndroidBundleVersionCode: 1
+  AndroidMinSdkVersion: 23
+  AndroidTargetSdkVersion: 0
+  AndroidTargetArchitectures: 2
+  AndroidBuildApkPerCpuArchitecture: 0
+  AndroidUseCustomKeystore: 0
+  forceInternetPermission: 0
+  forceSDCardPermission: 0
+  scriptingBackend:
+    Android: 1
+  apiCompatibilityLevelPerPlatform:
+    Android: 6
+  activeInputHandler: 0
+  stripEngineCode: 1
+  allowUnsafeCode: 0
+  scriptingRuntimeVersion: 1
+  gcIncremental: 1
+  usePlayerLog: 1
+  colorSpace: 0

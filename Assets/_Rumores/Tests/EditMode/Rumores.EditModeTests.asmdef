@@ -1,0 +1,1 @@
+{"name":"Rumores.EditModeTests","references":["Rumores.Core","Rumores.Presentation","Rumores.Checks"],"includePlatforms":["Editor"],"optionalUnityReferences":["TestAssemblies"]}
