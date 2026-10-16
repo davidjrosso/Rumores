@@ -69,4 +69,12 @@ Con un dispositivo ARM64 conectado y depuración USB habilitada, `adb install -r
 
 Diseño: [GDD.md](GDD.md), [TECHNICAL_DESIGN.md](TECHNICAL_DESIGN.md), [BALANCE.md](BALANCE.md). Resultados y comprobaciones pendientes: [TEST_PLAN.md](TEST_PLAN.md).
 
-Se usan archivos de escena y datos versionados; la UI, los avatares y los sonidos se generan al iniciar Main. No hacen falta prefabs descargados ni assets de terceros salvo DejaVu Sans, cuya licencia se incluye. Las partidas se guardan en `Application.persistentDataPath/rumores-save.json`, con respaldo `.bak` y versión 1. La semilla más `run.decisions` puede reproducirse con `RunReplay.Play` usando el mismo catálogo y versión.
+Se usan archivos de escena y datos versionados; la UI, los avatares y los sonidos se generan al iniciar Main. No hacen falta prefabs descargados ni assets de terceros salvo DejaVu Sans, cuya licencia se incluye. Las partidas se guardan en `Application.persistentDataPath/rumores-save.json`, con respaldo `.bak`, formato de archivo 2 y datos de juego versión 1. Los guardados anteriores compatibles se migran al escribir. La semilla más `run.decisions` puede reproducirse con `RunReplay.Play` usando el mismo catálogo y versión.
+
+## Si aparece «El mapa no coincide con la semilla y versión»
+
+Actualizar el proyecto desde `main` incluye la corrección de carga. Salir de Play Mode y cerrar Unity antes de reemplazar archivos, o descargar el ZIP y abrir la carpeta nueva desde Unity Hub. Abrir Main y pulsar Play.
+
+La carga ahora intenta el respaldo cuando un mapa es inválido. Si ambos archivos son incompatibles, vuelve al menú sin una run activa. Los archivos rechazados se conservan junto al guardado con sufijo `.invalid-<id>`. El nuevo formato distingue explícitamente «sin partida» de una run activa para evitar mapas vacíos creados por la serialización inline. Las versiones futuras permanecen protegidas contra escritura.
+
+Esta corrección se reprodujo y verificó con pruebas del almacenamiento real en .NET; sus casos con JsonUtility están incluidos en EditMode y requieren ejecutarse en Unity.

@@ -2,6 +2,18 @@
 
 Fecha: 2026-10-16. Entorno Linux x64; SDK .NET 8.0.426, runtime 8.0.32. El repositorio inicial solo contenía un README. Esta entrega contiene el prototipo implementado; la validación ejecutada tiene los límites que se detallan abajo.
 
+## Corrección posterior: bloqueo al iniciar por mapa guardado
+
+La captura del usuario confirmó que Main inicia en Unity 2022.3.62f1, pero la carga terminaba con `InvalidDataException: El mapa no coincide con la semilla y versión.` No implica que el resto del flujo Unity esté validado.
+
+Se reprodujo ese mismo error en el servicio de almacenamiento extraído de LocalSave. Con el filtro de excepciones anterior, tres regresiones fallaron (mapa incompatible con respaldo, ambos mapas inválidos y documento sin run). Al capturar InvalidDataException de forma explícita, las tres pasan. Se añadió formato de archivo v2 para no depender de la serialización inline de un RunState nulo, manteniendo lectura de archivos anteriores y copias de originales rechazados.
+
+Validación actual: **60 pruebas .NET ejecutadas y aprobadas**, 0 fallidas. Incluye las 49 anteriores y 11 casos nuevos de archivos reales: primer inicio, menú sin run tras tres reinicios, placeholder heredado, recuperación de respaldo, ambos archivos inválidos, JSON truncado, versiones futuras protegidas, semilla cero legítima, migración con progreso, run faltante y una run completa restaurada en cada transición. Evidencia: [Validation/save-recovery-tests.txt](Validation/save-recovery-tests.txt).
+
+Validación estática actual: 41 GUIDs y 6 ensamblados; sintaxis C# 9 de 18 archivos sin errores. Los once casos nuevos están conectados al runner EditMode con **JsonUtility real** (59 casos EditMode totales). Su ejecución en Unity sigue pendiente en esta máquina; las pruebas de archivo ejecutadas usan System.Text.Json a través de la misma interfaz, sin sustituir la lógica de almacenamiento o validación.
+
+## Evidencia de la entrega inicial
+
 ## Ejecutado y aprobado
 
 Comando: `DOTNET_CLI_HOME=/workspace/tools/dotnet-home bash Tools/test.sh`.

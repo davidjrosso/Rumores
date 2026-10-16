@@ -23,9 +23,21 @@ class Program
             }
             CoreChecks.Assert(g.Run.won);
         };
+        foreach(var test in SaveChecks.Cases(catalog,new SystemSaveJson()))cases.Add(test.Key,test.Value);
         int failed=0;
         foreach(var test in cases){try{test.Value();Console.WriteLine("PASS "+test.Key);}catch(Exception e){failed++;Console.WriteLine("FAIL "+test.Key+"\n"+e);}}
         Console.WriteLine("RESULT: "+(cases.Count-failed)+" passed, "+failed+" failed, "+cases.Count+" executed.");
         return failed==0?0:1;
+    }
+}
+
+sealed class SystemSaveJson : ISaveJson
+{
+    readonly JsonSerializerOptions options=new JsonSerializerOptions {IncludeFields=true};
+    public string Serialize<T>(T value) {return JsonSerializer.Serialize(value,options);}
+    public T Deserialize<T>(string json)
+    {
+        try {return JsonSerializer.Deserialize<T>(json,options);}
+        catch(JsonException ex) {throw new ArgumentException("JSON inválido.",ex);}
     }
 }

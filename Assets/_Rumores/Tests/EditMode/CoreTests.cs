@@ -14,5 +14,12 @@ namespace Rumores.Tests
         [TestCaseSource(nameof(Names))]
         public void CoreContract(string name)
         {CoreChecks.Cases(Resources.Load<RumoresCatalog>("RumoresCatalog").Load())[name]();}
+        public static IEnumerable SaveNames
+        {
+            get {return SaveChecks.Cases(Resources.Load<RumoresCatalog>("RumoresCatalog").Load(),new UnitySaveJson()).Keys;}
+        }
+        [TestCaseSource(nameof(SaveNames))]
+        public void SaveContractWithJsonUtility(string name)
+        {SaveChecks.Cases(Resources.Load<RumoresCatalog>("RumoresCatalog").Load(),new UnitySaveJson())[name]();}
     }
 }
