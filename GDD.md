@@ -1,27 +1,38 @@
-# Rumores · prototipo 0.1
+# Rumores · prototipo party
 
-Estrategia de redes para Android vertical, offline. En Villa Susurro una noticia modesta acaba convertida en un disparate. Una run tiene seis etapas y tres unidades de Paciencia. Objetivo de duración: 10–20 minutos; pendiente de prueba con jugadores.
+## Objetivo y alcance
 
-## Bucle y decisiones
-Inicio → nueva semilla o continuar → mapa → construir árbol → pulsos → resultado → mejora → mapa → jefe → resumen. Cada etapa ofrece dos desafíos distintos; en las etapas 2 y 4 se puede optar por un evento (recuperación o mejora) en lugar del desafío de esa ruta. Todas las rutas convergen en el jefe. El catálogo incluye cinco desafíos normales y uno final; la run visita seis encuentros, no necesariamente los cinco desafíos normales.
+De dos a ocho participantes transforman una noticia absurda en un único dispositivo. El humor surge de las versiones y de las contradicciones visibles en el historial. Unity 2022.3.62f1, C#, vertical, sin conexión. Esta fase usa placeholders; no incluye progreso persistente, inventarios, monedas, mejoras ni publicación Android.
 
-Un toque selecciona emisor; otro crea/elimina su conexión con el destinatario. Seleccionar un habitante también muestra sus reglas y, tras simular, su rumor. Deshacer elimina la última edición; borrar un enlace elimina su subárbol. Se puede reiniciar el tablero. Simular bloquea la construcción; la pausa y velocidad solo afectan a la presentación.
+## Recorrido
 
-## Reglas cerradas
-10 habitantes por tablero. Un enlace = 1 Susurro; presupuesto base según plantilla. Una entrada por habitante, ninguna al origen; dos salidas, salvo recompensa Pregonero que permite tres al exagerado. Solo relaciones dirigidas declaradas; todos los usados alcanzables; sin ciclos ni fusiones. El origen también transforma la noticia y cuenta en alcance. El simulador usa BFS, destinatarios ordenados por ID ordinal, copias profundas y números enteros. La evaluación sucede una sola vez, antes de animar. El resultado se guarda inmediatamente: cerrar la app no evita la pérdida de paciencia.
+Menú → participantes → entrega del teléfono → elegir acción/rama → confirmar → leer cambio y puntos → siguiente participante → resultados → revancha. Cada persona juega dos veces en el orden de registro. Las acciones son públicas; la entrega del teléfono identifica claramente quién actúa.
 
-Fallar cuesta una paciencia. Con paciencia restante se puede reintentar el mismo encuentro (sin coste adicional hasta volver a fallar) o avanzar sin recompensa. El jefe exige victoria: un fallo permite reintentar o abandonar. Ganar entrega una mejora entre tres distintas. Cada mejora se elige una sola vez por pantalla; los bonos se acumulan hasta sus límites declarados. Nueva run reinicia todos los bonos. Victoria desbloquea un título cosmético; no hay estadísticas permanentes.
+Hay ocho avatares provisionales (cuatro caras con dos colores) independientes de las reglas. Todos pueden elegir las cuatro personalidades en cada turno. No se asignan ventajas permanentes por avatar.
 
-## Personalidades
-Miedoso: Pánico +18; si queda >40, Importancia +5. Exagerado: Importancia +14, Pánico +10, Distorsión +12, Credibilidad −8. Mentiroso: Distorsión +18, Credibilidad −12, Importancia +5 y afirmación deliberadamente falsa. Ignorante: Distorsión +14 y reinterpretación por etiqueta, usando la primera regla compatible del catálogo. Orden: modificadores → umbral → afirmación/etiqueta → registro. Todos los atributos se limitan a 0–100. Ver BALANCE.md.
+## Acciones
 
-## Objetivos y estrellas
-Todas las condiciones obligatorias se deben cumplir. Hay alcance, importancia colectiva, pánico colectivo, credibilidad mínima entre alcanzados, distorsión máxima, destinatario, profundidad y diferencia entre hojas. Colectivo = suma de valores de TODOS los receptores / 10; no alcanzados aportan cero. Alcance incluye origen. Victoria = una estrella; +1 si usa como máximo el límite eficiente del encuentro; +1 si satisface su condición secundaria. Un fallo = cero estrellas, con desglose por condición.
+- **Entrar en pánico / miedoso:** convierte una señal en amenaza; sube especialmente el pánico.
+- **Exagerar / exagerado:** convierte el incidente en consecuencias enormes; sube especialmente la importancia.
+- **Mentir / mentiroso:** inventa un detalle ligado a la noticia y lo marca como invención; pierde credibilidad.
+- **Malinterpretar / ignorante:** sustituye al protagonista por una confusión absurda; ese cambio persiste en los textos posteriores.
+- **Calmar:** pide pruebas, reduce la alarma y recupera credibilidad.
+- **Difundir:** lleva el rumor a cuatro vecinos más.
 
-## Catálogo y solvencia
-Plaza (alcance), Molino (pánico), Archivo (credibilidad), Feria (distorsión/destinatario), Estación (profundidad/importancia), Asamblea final (alcance/importancia/diferencia de hojas). Noticias: cabra, molino, alcalde, luces y gallina. Cada plantilla contiene soluciones testigo verificadas mediante el mismo validador y simulador que usa el juego. No se permutan personalidades sin validación. La semilla decide variantes de ruta y noticias compatibles; las decisiones quedan registradas.
+La tarjeta resume el efecto y, al seleccionarla, aparece una explicación adicional antes de confirmar. El resultado muestra texto, razón, atributos antes/después y desglose de puntos. Las plantillas son locales y deterministas.
 
-## Presentación y alcance
-Pueblo cenital con edificios, calles y personajes vectoriales originales generados con UI; siluetas, iniciales y nombres de perfiles acompañan al color. Flechas distinguen conexiones; pulso, salto de personaje y mensaje muestran cada recepción. Cámara ortográfica, Canvas escalable y zona segura. Sonidos sintetizados locales, controles de volumen y velocidad. Sin servicios online ni monetización.
+## Ramas y narración
 
-Incluye tutorial contextual, guardado versionado, ajustes, mapa, eventos, recompensas y finales. Fuera de alcance: fusiones, rumores rivales, físicas, tienda, progresión estadística permanente. Perfiles futuros: crédulo (amplifica credibilidad), escéptico (limita pánico), chismoso (premia bifurcaciones), pregonero (difusión amplia). La recompensa Pregonero del MVP modifica el límite del exagerado; no agrega una quinta personalidad.
+La versión inicial circula por A, la plaza. Una confirmación puede enviar una copia al mercado, creando B. Ambas conservan el prefijo de historia hasta esa confirmación. Desde entonces cada acción afecta solo a la rama seleccionada. Máximo dos ramas, sin fusiones, y debe quedar al menos otro turno para poder crear B.
+
+El titular es la última transformación. El historial conserva todas las invenciones, confusiones y rectificaciones anteriores; la presentación no pretende concatenarlas en una frase cada vez más larga. En resultados se ve el original junto a las versiones finales y sus historias.
+
+## Ronda y victoria
+
+Un objetivo común pide aumentar el pánico, conservar credibilidad o alcanzar vecinos nuevos. La fórmula otorga hasta tres puntos por turno: aporte propio nuevo en la rama, acción no usada por esa persona y objetivo cumplido. Ver [BALANCE.md](BALANCE.md). Gana la puntuación mayor; los empates son victorias compartidas.
+
+La revancha conserva apodos/avatares, cambia la noticia y reinicia todos los puntos, acciones usadas, historial y ramas. La ronda vive en memoria. Solo se guarda la preferencia de animación; no hay progreso persistente.
+
+## Contenido y siguiente validación
+
+Doce noticias, tres variantes por acción y dos malentendidos por noticia, configurados en `PartyContent.json`. La frase no necesita conexión ni generación remota. Se prioriza probar con personas el ritmo, la comprensión del objetivo y la frecuencia de empates. El arte definitivo y la publicación Android quedan fuera de esta fase.

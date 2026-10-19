@@ -1,25 +1,41 @@
-# Diseño técnico
+# Arquitectura del party game
 
-## Motor y dependencias
-Proyecto nuevo: Unity 2022.3.62f1 LTS, pipeline integrado 2D, UGUI 1.0.0, Test Framework 1.1.33. C# compatible con Unity; núcleo sin UnityEngine. Se eligió una versión fija porque no existía proyecto. El SDK .NET 8 solo ejecuta las pruebas externas y no es una dependencia del juego.
+## Integración Unity
 
-## Capas
-- Core: modelos serializables, catálogo, reglas de personalidades, validador de árboles, simulador BFS, objetivos, generador PRNG xorshift32, máquina de estados y DTO de guardado.
-- Presentation: MonoBehaviour de flujo + UI, geometría de conexiones y avatares originales, sonidos locales; transforma eventos calculados en pulsos. No calcula reglas.
-- Editor: menú de validación y construcción Android; escena principal serializada y registrada en EditorBuildSettings.
-- Datos: TextAsset JSON referenciado por RumoresCatalog (ScriptableObject). IDs estables; posiciones explícitas. Personalidades, semántica, noticias, relaciones, objetivos, soluciones y recompensas editables en datos.
-- Pruebas: suite pura compartida por consola .NET y EditMode; pruebas PlayMode para inicio, UI y guardado.
+`Assets/_Rumores/Scenes/Main.unity` mantiene su GUID y referencia a `PartyApp`, `Resources/PartyCatalog.asset` y `Prefabs/PartyActionCard.prefab`. El catálogo referencia `PartyCatalogAsset.cs` y `PartyContent.json`; el prefab referencia `PartyActionCard.cs`. Todos tienen `.meta` versionados. No se requiere un paso manual de generación o conexión.
 
-## Determinismo y separación
-Los resultados no dependen del frame, cultura, reloj ni orden de listas de conexiones. Cada recepción crea su propia copia de Stats, etiquetas, afirmaciones, historial y recorrido. Los eventos conservan anterior/posterior y destinatarios. La red se valida antes de simular; un GameSession rechaza modificaciones fuera de Build. Simulation se presenta después del cálculo; resultado y paciencia ya están confirmados en el guardado.
+`PartyApp.Start` carga/valida el catálogo, crea Camera, Canvas, escalado, área segura y EventSystem, y abre el menú. Las pantallas uGUI se generan en ejecución; en modo edición se ve el objeto de entrada con sus referencias. `PartyActionCard` instancia su vista desde un prefab reutilizable. Se reutilizan `Ui`, `AvatarGraphic` y la fuente DejaVu Sans con su licencia existente.
 
-El mapa tiene seis capas; dos nodos por capa salvo jefe. Cada nodo enlaza ambos nodos de la siguiente capa. Las alternativas tienen distinto contenido y algunas son eventos. PRNG explícito y versión de reglas 1; no usar System.Random para contenido. El log de decisiones registra nodo, red ordenada, resultado, eventos, reintentos y recompensa. RunReplay.Play ejecuta esas decisiones mediante GameSession y verifica el registro resultante. La reproducción requiere catálogo/versión, semilla y decisiones iguales. Las pantallas pendientes se restauran desde la fase del guardado.
+Las reglas viven en el assembly `Rumores.Core`, sin UnityEngine. La presentación depende de Core y `UnityEngine.UI`. No se cambiaron paquetes ni versión del motor.
 
-## Persistencia
-SaveData v1 incluye run, etapa, nodo, fase, conexiones, bonos, resultados, decisiones, ajustes y título desbloqueado. SaveStorage (independiente de Unity) recibe el serializador mediante ISaveJson; LocalSave conecta JsonUtility y Application.persistentDataPath. El contenedor de archivo v2 usa hasRun y runJson para representar explícitamente ausencia de run sin depender de referencias null inline. Se leen y migran archivos v1 heredados; un placeholder completamente vacío no se considera partida activa. Escritura temporal, reemplazo con copia de respaldo, lectura con validación semántica de mapa, recorrido y resultados; el historial se reconstruye con el simulador; archivo dañado se recupera desde respaldo o se inicia estado seguro con mensaje. InvalidDataException se captura explícitamente. Cada archivo rechazado se preserva con sufijo .invalid-<id>; el primer guardado tras recuperar no reemplaza un respaldo válido con el primario inválido. Una versión futura desconocida se preserva y bloquea la escritura. Se guarda después de cada edición y transición, en pausa y al salir. La animación no se persiste: al restaurar un resultado se muestra directamente. Reiniciar app en una pantalla de recompensa conserva la elección pendiente.
+## Dominio y estado
 
-## Android
-Application ID inicial com.davidjrosso.rumores, modificable en Player Settings o RUMORES_APPLICATION_ID al compilar. Portrait, minSdkVersion 23 (Android 6.0), target automático con SDK instalado; IL2CPP, ARM64, OpenGLES3, permiso de Internet no forzado. Estos son valores elegidos para el prototipo, no una afirmación de cumplimiento de Google Play. APK de desarrollo con firma de depuración. Compilación release/AAB, firma de distribución y política vigente de tienda quedan fuera de esta entrega.
+- `PartyContent.cs`: catálogo y validación, atributos, noticias/acciones/objetivos, transformación determinista y copias profundas.
+- `PartyGame.cs`: roster normalizado, dos turnos por persona, fases, comandos, puntuación, ramas, ganadores y revancha.
+- `PartyApp.cs`: pantallas, entrada, animación y ajuste básico. Nunca calcula puntos ni altera el historial directamente.
 
-## Recursos y rendimiento
-10 avatares, menos de 30 conexiones por tablero. Simulación finita O(V+E), ejecutada al pulsar Simular. Reconstrucción de pantallas solo en interacción/transición, pulsos visuales con tiempos no escalados. UI en 720×1280 lógico; controles de al menos 64 unidades. Arte procedural sustituible sin modificar Core. AudioClip breve generado una vez. Perfilado real de CPU/GPU/memoria y validación táctil requieren Unity/dispositivo y se documentan en TEST_PLAN.md.
+Transiciones: `Handoff → Ready → Choosing → Confirm → Revealing → Next → Handoff/Finished`. `Rematch` solo está permitido al terminar. Cada comando de turno exige `RoundNumber:Turn`; fase y token rechazan doble confirmación, doble avance y comandos de una ronda anterior. La presentación desactiva inmediatamente la pantalla vieja antes de destruirla al final del frame y protege callbacks con una versión de pantalla.
+
+`Confirm` valida todo antes de modificar estado, transforma una copia y registra un evento con texto, motivo, valores antes/después y desglose. Si divide, copia profundamente la versión ya transformada a B. Puntos y turno se registran una sola vez. La animación ocurre después del comando y puede interrumpirse sin alterar las reglas.
+
+Los modelos son objetos mutables para serialización local; la presentación debe tratarlos como lectura. Las copias impiden aliasing entre rumores, eventos y atributos de las ramas. Los participantes recibidos por el constructor también se copian.
+
+## Determinismo y configuración
+
+`PartyContent.json` contiene 12 noticias con protagonista, lugar, amenaza, consecuencia, invención, malentendidos y valores iniciales; 6 acciones con efectos y 3 plantillas; y 3 objetivos. Se admiten 4–6 acciones, con las cuatro personalidades requeridas. Nuevas noticias y variantes se añaden en datos. Cambiar mecánicas de objetivos requiere una implementación explícita.
+
+La primera ronda toma una semilla aleatoria de Unity. A partir de ella, todo el dominio es determinista; el core no utiliza Unity.Random ni reloj. La noticia usa `uint(seed) % cantidadNoticias`; el objetivo usa `(uint(seed) / cantidadNoticias + uint(seed)) % cantidadObjetivos`. Esto permite que una misma noticia aparezca con distintos objetivos. La variante de texto usa semilla, turno e índice de acción. Revancha incrementa la semilla, cambia la noticia y reinicia la ronda.
+
+Las plantillas expanden campos locales y contraen «de el»/«a el» a «del»/«al». El ignorante conserva su nueva interpretación como protagonista para acciones posteriores. El titular muestra la última transformación; la historia mantiene toda la secuencia. No hay IA ni servicios en ejecución.
+
+## Persistencia y legado
+
+La ronda nueva es solo memoria; cerrar la aplicación la pierde. El ajuste de animación usa `PlayerPrefs` bajo `Rumores.Party.FastAnimations`. No se accede al archivo `rumores-save.json` ni a mapas anteriores.
+
+`Scenes/Legacy.unity` conserva el componente anterior y su catálogo. Los scripts, datos y pruebas del legado siguen presentes para evitar una reescritura innecesaria. Su documentación anterior está en `Docs/Legacy`. Legacy no está en la lista de escenas de compilación. Abrir ambas escenas de forma aditiva no forma parte del flujo soportado.
+
+## Desarrollo y comprobaciones
+
+.NET 8.0.426 ejecuta Core y pruebas compartidas. `Tools/test.sh` ejecuta la suite y `validate_project.py` verifica GUIDs, ensamblados, versiones y referencias Main→catálogo/prefab. Roslyn comprueba sintaxis C# 9. EditMode usa los mismos contratos con JsonUtility; PlayMode recorre botones reales con 2/8 participantes.
+
+Ninguna comprobación estática sustituye importar y ejecutar Unity. El entorno cloud no tiene editor/licencia utilizable ni SDK Android; las pruebas del motor quedan pendientes. Los scripts Android anteriores se conservan, pero no se ejecutan ni publican en esta fase.

@@ -1,87 +1,61 @@
-# Plan y resultados de pruebas
+# Validación de la fase 1
 
-Fecha: 2026-10-16. Entorno Linux x64; SDK .NET 8.0.426, runtime 8.0.32. El repositorio inicial solo contenía un README. Esta entrega contiene el prototipo implementado; la validación ejecutada tiene los límites que se detallan abajo.
+## Resultado ejecutado en esta entrega
 
-## Corrección posterior: bloqueo al iniciar por mapa guardado
+- **81 pruebas C# .NET aprobadas, 0 fallidas:** 21 contratos party nuevos y 60 casos del legado conservados. El núcleo compila en .NET 8.0.426.
+- Los casos party incluyen **432 rondas completas** (36 semillas × 2/8 participantes × 6 secuencias), además de casos dirigidos. No equivalen a 432 tests separados.
+- **53 GUIDs y 6 assemblies** verificados estáticamente: Main, Legacy, catálogo party, prefab, fuente, paquetes fijados y escena de entrada.
+- **25 archivos C# de Assets**, cero errores sintácticos con Roslyn C# 9. No verifica tipos/API de Unity.
+- `git diff --check` sin errores al revisar la entrega.
+- Intento de `Tools/unity.sh editmode`: detenido antes de ejecutar tests porque falta `UNITY_EDITOR`. Unity Editor/Hub no está instalado. **EditMode y PlayMode no ejecutados; compilación/importación completa, captura visual, APK y dispositivo no validados.**
 
-La captura del usuario confirmó que Main inicia en Unity 2022.3.62f1, pero la carga terminaba con `InvalidDataException: El mapa no coincide con la semilla y versión.` No implica que el resto del flujo Unity esté validado.
+## Cobertura del dominio
 
-Se reprodujo ese mismo error en el servicio de almacenamiento extraído de LocalSave. Con el filtro de excepciones anterior, tres regresiones fallaron (mapa incompatible con respaldo, ambos mapas inválidos y documento sin run). Al capturar InvalidDataException de forma explícita, las tres pasan. Se añadió formato de archivo v2 para no depender de la serialización inline de un RunState nulo, manteniendo lectura de archivos anteriores y copias de originales rechazados.
+Catálogo/plantillas y contracciones; rondas de 2 y 8; orden y dos turnos por persona; diferencias numéricas y narrativas de cuatro personalidades; persistencia de la confusión; calmar/difundir; determinismo; prefijo e independencia de ramas; copias profundas; división sin puntos/turnos extra; rechazo de segunda división y división final; doble confirmación/avance y tokens obsoletos; comandos inválidos atómicos; apodos vacíos/duplicados/longitud y roster copiado; fórmula de puntos; contribución ajena sin penalización; variación cosmética sin premio repetido; tres objetivos; ganadores/empates; revancha sin estado anterior; límites numéricos y auditoría de puntos por evento.
 
-Validación actual: **60 pruebas .NET ejecutadas y aprobadas**, 0 fallidas. Incluye las 49 anteriores y 11 casos nuevos de archivos reales: primer inicio, menú sin run tras tres reinicios, placeholder heredado, recuperación de respaldo, ambos archivos inválidos, JSON truncado, versiones futuras protegidas, semilla cero legítima, migración con progreso, run faltante y una run completa restaurada en cada transición. Evidencia: [Validation/save-recovery-tests.txt](Validation/save-recovery-tests.txt).
+Los 60 casos antiguos siguen pasando para el simulador, progresión y almacenamiento del modo Legacy. Esos sistemas no participan en Main.
 
-Validación estática actual: 41 GUIDs y 6 ensamblados; sintaxis C# 9 de 18 archivos sin errores. Los once casos nuevos están conectados al runner EditMode con **JsonUtility real** (59 casos EditMode totales). Su ejecución en Unity sigue pendiente en esta máquina; las pruebas de archivo ejecutadas usan System.Text.Json a través de la misma interfaz, sin sustituir la lógica de almacenamiento o validación.
+## Comandos reproducibles
 
-## Evidencia de la entrega inicial
+Desde la raíz del proyecto:
 
-## Ejecutado y aprobado
+```bash
+export DOTNET_CLI_HOME=/workspace/tools/dotnet-home
+export DOTNET=/workspace/tools/dotnet/dotnet
+bash Tools/bootstrap-dotnet.sh
+bash Tools/test.sh
+"$DOTNET" run --project Tools/SyntaxCheck/SyntaxCheck.csproj
+"$DOTNET" run --project Tests/Rumores.Tests.csproj -c Release -- --party-report Docs/PARTY_VALIDATION.md
+```
 
-Comando: `DOTNET_CLI_HOME=/workspace/tools/dotnet-home bash Tools/test.sh`.
+En otra máquina usar el ejecutable .NET instalado allí. El [informe simulado](Docs/PARTY_VALIDATION.md) incluye puntuaciones, empates, titulares y tres historias reproducibles. Se corrigieron el sesgo de novedad global y contracciones incorrectas como «de el puente». Persisten saturación de atributos y frecuentes empates: son observaciones de balance, no fallos de estado.
 
-**49 pruebas ejecutadas, 49 aprobadas, 0 fallidas, 0 omitidas.** Salida completa: [Validation/core-tests-2026-10-16.txt](Validation/core-tests-2026-10-16.txt). Se compiló y ejecutó el código real de `Scripts/Core` enlazado al runner .NET; no se probaron copias de su lógica.
+## Pruebas Unity incluidas y pendientes
 
-| Área | Casos cubiertos |
-|---|---|
-| Personalidades | Cuatro transformaciones exactas, umbral estricto del miedoso, semántica con prioridad, diferencia entre invención y confusión, bonos |
-| Estado del rumor | 500 transformaciones y límites 0–100; entrada inmutable; independencia de atributos, etiquetas, afirmaciones, historial y recorrido entre ramas |
-| Simulación | BFS, orden ordinal, mismo resultado al invertir aristas, alcance único, origen incluido, historial explicativo |
-| Red | Ciclos, relación inexistente, habitante inexistente, fusión, entrada al origen, exceso de salidas, presupuesto, desconexión, vacío y duplicados; eliminación recursiva y deshacer |
-| Evaluación | Ceros de no alcanzados en colectivos, todas las condiciones obligatorias, estrellas y secundarias, soluciones de todos los encuentros y variantes |
-| Generación | 1.000 semillas (−500 a 499), reproducibilidad, rutas de seis etapas y alternativas distintas con jefe accesible |
-| Runs | 100 runs completas por lógica de dominio, eventos, recompensas, jefe, derrota, reintento y pérdida de paciencia, elección única, reinicio de bonos |
-| Replay | Semilla y decisiones reconstruyen run con fracaso, reintento, eventos y victoria; detección de resultado alterado |
-| Guardado de dominio | JSON con System.Text.Json, restauración de recompensas/resultados, continuación al jefe, rechazo de versiones/mapas/recorridos inválidos, reconstrucción de historial, no duplicar pérdida de paciencia |
+Abrir `Main.unity` con Unity 2022.3.62f1, **Window → General → Test Runner**:
 
-La prueba de 100 runs usa soluciones de referencia del catálogo. No equivale a 100 partidas operadas mediante la interfaz ni a un estudio de balance.
+- **EditMode:** contratos party y legado con catálogos cargados por JsonUtility.
+- **PlayMode:** `TwoPlayersCompleteRoundThroughButtons` y `EightPlayersCompleteRoundThroughButtons`: menú, ayuda, ajuste, alta de jugadores, apodos vacíos/duplicados, avatar, turnos ordenados, confirmación desactivada sin selección, división, rama B, historial, doble callback de confirmar, resultados y revancha.
+- PlayMode conserva dos comprobaciones de guardado del legado en directorios temporales. La prueba de ajustes puede cambiar la preferencia local de animación.
 
-Validación estática: **39 GUIDs, 6 ensamblados, escena, catálogo, fuente y versiones de paquetes comprobados** por `Tools/validate_project.py`. Los archivos `.meta` resuelven las referencias declaradas. Comprobación Roslyn con C# 9: **16 archivos, 0 errores de sintaxis**. Esto no comprueba resolución de tipos contra las DLL de Unity ni importación de assets.
+Con editor/licencia disponibles:
 
-`Tools/bootstrap-dotnet.sh` se ejecutó tanto contra la instalación existente como en una carpeta vacía; descarga HTTPS y SHA-512 del SDK comprobados. Scripts Bash revisados con `bash -n`. El runner preserva su código de salida.
+```bash
+export UNITY_EDITOR=/ruta/al/ejecutable/Unity
+bash Tools/unity.sh editmode
+bash Tools/unity.sh playmode
+```
 
-## Hallazgos corregidos durante el desarrollo
+Exigir un XML nuevo con casos ejecutados y resultado Passed. No afirmar éxito solo por un código cero del editor.
 
-- La primera ruta testigo de Asamblea no satisfacía conjuntamente importancia y contraste. Se cambió por una bifurcación vía Beto y Tito; los umbrales de victoria se mantuvieron.
-- La comprobación de guardados podía lanzar una excepción al encontrar un encuentro alterado en el mapa. Ahora rechaza mapas incoherentes antes de acceder a sus encuentros, valida el recorrido y reconstruye el resultado con el simulador.
-- La cifra esperada en una prueba de agregación era incorrecta: 25 + 39 dividido entre 10 da 6,4. Se corrigió la expectativa.
+## Recorrido manual pendiente
 
-No quedan fallos conocidos en la suite ejecutada. Esto no demuestra ausencia de defectos en Unity.
+1. Importar el proyecto y comprobar Console sin errores. Abrir Main y confirmar que aparecen Jugar, Cómo jugar y Ajustes.
+2. Completar una ronda con dos personas y otra con ocho. Desplazar lista, editar nombres largos y comprobar límites. Intentar nombres vacíos/duplicados y corregirlos sin perder los otros participantes.
+3. Pulsar rápidamente Confirmar y Siguiente; cada persona debe actuar exactamente dos veces. Abrir Historia y volver: la selección debe conservarse.
+4. Dividir, modificar A y comprobar que B conserva su versión; modificar B y revisar ambas historias en resultados.
+5. Comparar texto/atributos antes-después y sumar puntos. Comprobar ganador o empate compartido. Revancha debe empezar con cero puntos, una rama, otra noticia y los mismos apodos/avatares.
+6. Revisar 720×1080, 720×1280 y una pantalla estrecha: tarjetas, botones, textos, listas desplazables, notch, teclado y nombres máximos. Probar fondo/retorno y cierre completo; este último pierde la ronda por diseño.
+7. Jugar con personas para evaluar lectura, risas, ritmo y ventaja del orden. El simulador no prueba estas propiedades.
 
-## Implementado, todavía no ejecutado en Unity
-
-- Main, arranque, pantalla de inicio, semilla, mapa ramificado, tablero táctil, edición, fichas, pulsos, pausa, velocidad y salto.
-- Resultados, elección de recompensas, eventos, derrota/victoria, título cosmético, ajustes y tutorial contextual.
-- Avatares, edificios, conexiones con flechas, salto visual y sonido sintetizado.
-- Guardado con JsonUtility, escritura temporal/reemplazo, respaldo y bloqueo de escritura de versiones futuras.
-- Configuración y comando de compilación Android.
-- EditMode: 48 casos compartidos; PlayMode: tres pruebas de flujo UI, guardado/respaldo y preservación de versión futura. **No ejecutadas**: no se atribuyen pases a estos runners.
-
-## Bloqueos de esta máquina
-
-No se encontró Unity Editor, Unity Hub, Android SDK/NDK, `adb` ni un dispositivo Android. No se observó una variable de licencia Unity configurada. No se ejecutó Unity, no se hizo una compilación Android y no se generó un APK.
-
-Las consultas HTTPS a `packages.unity.com` y `services.api.unity.com` respondieron HTTP 403 desde este entorno. Se proponen en la configuración del entorno esos destinos y los hosts de descarga `download.packages.unity.com` y `download.unity3d.com`; guardar un borrador no demuestra que la conectividad haya cambiado.
-
-Se descartó una comprobación auxiliar contra DLLs de una versión diferente de Unity: la validación de firma NuGet no pudo consultar revocación. No se utilizaron esas DLLs ni se deshabilitó verificación. No son una dependencia del proyecto.
-
-## Pasos de aceptación pendientes
-
-1. Instalar y activar Unity 2022.3.62f1 con Android Build Support, SDK/NDK y OpenJDK. Abrir el proyecto, restaurar paquetes y verificar importación sin errores. No actualizar versiones silenciosamente.
-2. Ejecutar `Tools/unity.sh editmode` y `Tools/unity.sh playmode` con `UNITY_EDITOR` configurado, o usar Test Runner. Confirmar casos ejecutados y XML del intento actual; corregir errores antes de compilar.
-3. Jugar una run manual desde Main. Crear y eliminar bifurcaciones, producir errores de red, fallar/reintentar, elegir recompensas, entrar a ambos eventos y derrotar al jefe. Comparar objetivo y resultado con las fichas.
-4. Cerrar/reabrir en construcción, resultado, recompensa y durante pulsos. Comprobar que la paciencia no se devuelve. Probar un archivo dañado y respaldo. Ejecutar la prueba UI sobre una partida de prueba porque reemplaza la run local.
-5. Revisar pantalla 720×1280, 1080×1920 y 1080×2400, notch y zona segura, tamaños táctiles, scroll, legibilidad, teclado numérico y botón Atrás. Ajustar espaciado si hay recortes; la adaptación está implementada pero no observada.
-6. Ejecutar `Tools/unity.sh android`; instalar el APK en un Android ARM64. Probar toque real, suspensión/reanudación, audio silenciado, guardado persistente y ejecución en modo avión.
-7. Medir con Profiler CPU/GPU, GC, memoria, objetos y draw calls en el dispositivo. El tablero tiene 10 avatares y 15 relaciones potenciales por plantilla; no se presentan medidas de rendimiento que no se hayan tomado.
-8. Playtesting humano de duración, dificultad, comprensión, diversión y repetición. Los 10–20 minutos son una meta de diseño, no un resultado medido.
-
-## Matriz de aceptación
-
-| Criterio | Estado demostrado |
-|---|---|
-| Redes ramificadas, personalidades, determinismo, objetivos | Implementados y aprobados en dominio C# |
-| Mapa, recompensas, paciencia, run completa, victoria/derrota | Implementados y aprobados en dominio C# |
-| Semilla + decisiones reproducibles | Implementado y probado con replay |
-| Arranque offline, interfaz cómoda y presentación móvil | Código y escena integrados; ejecución y uso real pendientes |
-| Persistencia del dominio | Roundtrip probado en .NET; JsonUtility y sistema de archivos del juego pendientes |
-| Compilación sin errores | Núcleo .NET compilado; sintaxis de scripts comprobada; compilación Unity pendiente |
-| Android | Configuración y procedimiento incluidos; APK y dispositivo pendientes |
+Arte definitivo y publicación Android quedan fuera del alcance actual. No hay errores conocidos en la compilación .NET ni en sintaxis/referencias estáticas; todavía no se puede certificar la compilación o ejecución Unity.

@@ -9,7 +9,7 @@ class Program
 {
     static int Main(string[] args)
     {
-        var path=args.Length>0?args[0]:"Assets/_Rumores/Resources/Content.json";
+        var path=args.Length>0&&args[0]!="--party-report"?args[0]:"Assets/_Rumores/Resources/Content.json";
         var options=new JsonSerializerOptions {IncludeFields=true};
         var catalog=JsonSerializer.Deserialize<Catalog>(File.ReadAllText(path),options);
         var cases=CoreChecks.Cases(catalog);
@@ -24,9 +24,12 @@ class Program
             CoreChecks.Assert(g.Run.won);
         };
         foreach(var test in SaveChecks.Cases(catalog,new SystemSaveJson()))cases.Add(test.Key,test.Value);
+        var party=JsonSerializer.Deserialize<Rumores.Core.Party.PartyCatalog>(File.ReadAllText("Assets/_Rumores/Resources/PartyContent.json"),options);
+        foreach(var test in PartyChecks.Cases(party))cases.Add(test.Key,test.Value);
         int failed=0;
         foreach(var test in cases){try{test.Value();Console.WriteLine("PASS "+test.Key);}catch(Exception e){failed++;Console.WriteLine("FAIL "+test.Key+"\n"+e);}}
         Console.WriteLine("RESULT: "+(cases.Count-failed)+" passed, "+failed+" failed, "+cases.Count+" executed.");
+        if(failed==0&&args.Length==2&&args[0]=="--party-report") {File.WriteAllText(args[1],PartyReport.Build(party));Console.WriteLine("Party report: "+args[1]);}
         return failed==0?0:1;
     }
 }

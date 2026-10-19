@@ -1,0 +1,355 @@
+{
+  "version": 1,
+  "turnsPerPlayer": 2,
+  "news": [
+    {
+      "id": "campana",
+      "original": "La campana del pueblo sonó durante la siesta.",
+      "subject": "la campana",
+      "place": "el campanario",
+      "threat": "podría despertar a todos los fantasmas",
+      "consequence": "nadie volverá a dormir en cien años",
+      "lie": "el alcalde cobra entrada por cada campanada",
+      "mistakes": [
+        "la campaña electoral",
+        "una campanita de manteca"
+      ],
+      "initial": {
+        "panic": 15,
+        "importance": 20,
+        "credibility": 85,
+        "reach": 1
+      }
+    },
+    {
+      "id": "calabaza",
+      "original": "Una calabaza ganó el concurso de sombreros.",
+      "subject": "la calabaza",
+      "place": "la feria",
+      "threat": "podría estar vigilando nuestras cabezas",
+      "consequence": "los sombreros gobernarán el pueblo",
+      "lie": "el jurado recibió semillas como soborno",
+      "mistakes": [
+        "una carroza",
+        "una cabeza de queso"
+      ],
+      "initial": {
+        "panic": 15,
+        "importance": 20,
+        "credibility": 85,
+        "reach": 1
+      }
+    },
+    {
+      "id": "fuente",
+      "original": "La fuente de la plaza empezó a dar agua tibia.",
+      "subject": "la fuente",
+      "place": "la plaza",
+      "threat": "podría estar cocinando a los patos",
+      "consequence": "todo el pueblo se convertirá en sopa",
+      "lie": "hay un cocinero escondido debajo",
+      "mistakes": [
+        "una fuente de fideos",
+        "una fuente tipográfica"
+      ],
+      "initial": {
+        "panic": 15,
+        "importance": 20,
+        "credibility": 85,
+        "reach": 1
+      }
+    },
+    {
+      "id": "burro",
+      "original": "Un burro entró a la biblioteca y no quiso salir.",
+      "subject": "el burro",
+      "place": "la biblioteca",
+      "threat": "podría comerse todas las historias",
+      "consequence": "los libros aprenderán a rebuznar",
+      "lie": "pidió un carné con foto y apellido",
+      "mistakes": [
+        "un libro con orejas",
+        "un bibliotecario de peluche"
+      ],
+      "initial": {
+        "panic": 15,
+        "importance": 20,
+        "credibility": 85,
+        "reach": 1
+      }
+    },
+    {
+      "id": "reloj",
+      "original": "El reloj municipal atrasa siete minutos.",
+      "subject": "el reloj",
+      "place": "la municipalidad",
+      "threat": "podría estar robándonos la juventud",
+      "consequence": "el martes durará tres semanas",
+      "lie": "vendieron los minutos a otro pueblo",
+      "mistakes": [
+        "un conejo con agujas",
+        "un calendario de bolsillo"
+      ],
+      "initial": {
+        "panic": 15,
+        "importance": 20,
+        "credibility": 85,
+        "reach": 1
+      }
+    },
+    {
+      "id": "zapato",
+      "original": "Apareció un zapato gigante en el puente.",
+      "subject": "el zapato",
+      "place": "el puente",
+      "threat": "podría anunciar la llegada de un gigante",
+      "consequence": "habrá que construir calles del talle cien",
+      "lie": "el zapatero ya le cobró alquiler",
+      "mistakes": [
+        "un pato con cordones",
+        "una empanada con suela"
+      ],
+      "initial": {
+        "panic": 15,
+        "importance": 20,
+        "credibility": 85,
+        "reach": 1
+      }
+    },
+    {
+      "id": "queso",
+      "original": "Un queso redondo desapareció de la feria.",
+      "subject": "el queso",
+      "place": "la feria",
+      "threat": "podría estar rodando hacia nuestras casas",
+      "consequence": "la luna perderá su empleo",
+      "lie": "lo vieron comprando un pasaje de tren",
+      "mistakes": [
+        "un beso redondo",
+        "una rueda de jabón"
+      ],
+      "initial": {
+        "panic": 15,
+        "importance": 20,
+        "credibility": 85,
+        "reach": 1
+      }
+    },
+    {
+      "id": "paraguas",
+      "original": "Un paraguas quedó colgado en el árbol más alto.",
+      "subject": "el paraguas",
+      "place": "el parque",
+      "threat": "podría atraer tormentas con mal carácter",
+      "consequence": "lloverá de abajo hacia arriba",
+      "lie": "el árbol lo compró en doce cuotas",
+      "mistakes": [
+        "un par de aguas",
+        "un paracaídas para hormigas"
+      ],
+      "initial": {
+        "panic": 15,
+        "importance": 20,
+        "credibility": 85,
+        "reach": 1
+      }
+    },
+    {
+      "id": "banco",
+      "original": "Pintaron de rosa el banco de la plaza.",
+      "subject": "el banco",
+      "place": "la plaza",
+      "threat": "podría teñir a cualquiera que se siente",
+      "consequence": "todo el pueblo terminará color frutilla",
+      "lie": "un flamenco lo reservó para su boda",
+      "mistakes": [
+        "un banco de dinero",
+        "un barranco rosado"
+      ],
+      "initial": {
+        "panic": 15,
+        "importance": 20,
+        "credibility": 85,
+        "reach": 1
+      }
+    },
+    {
+      "id": "gallo",
+      "original": "El gallo del panadero cantó a medianoche.",
+      "subject": "el gallo",
+      "place": "la panadería",
+      "threat": "podría estar avisando de una invasión",
+      "consequence": "el sol saldrá dos veces por día",
+      "lie": "firmó un contrato para cantar en la radio",
+      "mistakes": [
+        "un gallo de pan",
+        "un grillo con megáfono"
+      ],
+      "initial": {
+        "panic": 15,
+        "importance": 20,
+        "credibility": 85,
+        "reach": 1
+      }
+    },
+    {
+      "id": "buzon",
+      "original": "Alguien dejó una zanahoria en el buzón.",
+      "subject": "el buzón",
+      "place": "el correo",
+      "threat": "podría estar reclutando conejos espías",
+      "consequence": "todas las cartas se convertirán en ensalada",
+      "lie": "el cartero recibió instrucciones de un conejo",
+      "mistakes": [
+        "un buzo vegetariano",
+        "un sombrero para zanahorias"
+      ],
+      "initial": {
+        "panic": 15,
+        "importance": 20,
+        "credibility": 85,
+        "reach": 1
+      }
+    },
+    {
+      "id": "molino",
+      "original": "El molino gira aunque hoy no hay viento.",
+      "subject": "el molino",
+      "place": "las afueras",
+      "threat": "podría estar persiguiendo a las nubes",
+      "consequence": "el pueblo entero saldrá volando",
+      "lie": "tres abuelas pedalean dentro por turnos",
+      "mistakes": [
+        "un molinillo de pimienta",
+        "un ventilador enamorado"
+      ],
+      "initial": {
+        "panic": 15,
+        "importance": 20,
+        "credibility": 85,
+        "reach": 1
+      }
+    }
+  ],
+  "actions": [
+    {
+      "id": "panico",
+      "title": "Entrar en pánico",
+      "description": "Miedoso: interpreta una señal como amenaza. Mucho más pánico; baja un poco la credibilidad.",
+      "personality": "miedoso",
+      "kind": "fear",
+      "panic": 18,
+      "importance": 3,
+      "credibility": -4,
+      "reach": 1,
+      "templates": [
+        "¡Cuidado con {subject}! Dicen que {threat}.",
+        "Cierren las ventanas de {place}: {subject} {threat}.",
+        "No quiero alarmar, pero {subject} {threat}. ¡Traigan un casco!"
+      ]
+    },
+    {
+      "id": "exagerar",
+      "title": "Exagerar",
+      "description": "Exagerado: convierte un incidente en un desastre enorme. Sube mucho la importancia y algo el pánico; baja la credibilidad.",
+      "personality": "exagerado",
+      "kind": "exaggerate",
+      "panic": 8,
+      "importance": 18,
+      "credibility": -8,
+      "reach": 2,
+      "templates": [
+        "Por culpa de {subject}, {consequence}.",
+        "Lo de {subject} en {place} es histórico: {consequence}.",
+        "¡Extra, extra! Por lo de {subject}, {consequence}."
+      ]
+    },
+    {
+      "id": "mentir",
+      "title": "Mentir",
+      "description": "Mentiroso: añade una afirmación inventada. Sube la difusión y la importancia; cae mucho la credibilidad.",
+      "personality": "mentiroso",
+      "kind": "lie",
+      "panic": 4,
+      "importance": 8,
+      "credibility": -16,
+      "reach": 2,
+      "templates": [
+        "Me contaron algo de {subject}: {lie}.",
+        "Un testigo de {place} jura que {lie}. Todo por {subject}.",
+        "Tengo la exclusiva de {subject}: {lie}."
+      ]
+    },
+    {
+      "id": "confundir",
+      "title": "Malinterpretar",
+      "description": "Ignorante: cambia el protagonista por una confusión absurda. Sube un poco la importancia y baja la credibilidad.",
+      "personality": "ignorante",
+      "kind": "misread",
+      "panic": 2,
+      "importance": 5,
+      "credibility": -6,
+      "reach": 1,
+      "templates": [
+        "Entendí perfecto: apareció {subject} en {place}.",
+        "¿Cómo que no? La noticia era sobre {subject} en {place}.",
+        "Se los explico: todo este lío en {place} es por {subject}."
+      ]
+    },
+    {
+      "id": "calmar",
+      "title": "Calmar",
+      "description": "Pide pruebas y reduce la alarma. Baja el pánico y la importancia; recupera credibilidad.",
+      "personality": "miedoso",
+      "kind": "calm",
+      "panic": -18,
+      "importance": -4,
+      "credibility": 14,
+      "reach": 0,
+      "templates": [
+        "Respiren: sobre {subject} en {place} todavía faltan pruebas.",
+        "Antes de correr, preguntemos qué pasó con {subject} en {place}.",
+        "Lo de {subject} merece una pregunta, no veinte gritos."
+      ]
+    },
+    {
+      "id": "difundir",
+      "title": "Difundir",
+      "description": "Lleva la versión a cuatro vecinos más. Sube la importancia y baja un poco la credibilidad.",
+      "personality": "exagerado",
+      "kind": "spread",
+      "panic": 0,
+      "importance": 5,
+      "credibility": -2,
+      "reach": 4,
+      "templates": [
+        "¡Avisen en {place}! Todos están hablando de {subject}.",
+        "Pasen la voz: lo de {subject} ya se comenta en {place}.",
+        "Cuatro vecinos más preguntan por {subject} en {place}."
+      ]
+    }
+  ],
+  "goals": [
+    {
+      "id": "alarma",
+      "title": "¡Que cunda el pánico!",
+      "description": "Ganás +1 si tu acción sube el pánico al menos 10 puntos.",
+      "metric": "panic",
+      "minimum": 10
+    },
+    {
+      "id": "confianza",
+      "title": "Que alguien nos crea",
+      "description": "Ganás +1 si dejás la credibilidad en 80 o más sin reducirla.",
+      "metric": "credibility",
+      "minimum": 80
+    },
+    {
+      "id": "alcance",
+      "title": "Que se entere el pueblo",
+      "description": "Ganás +1 si tu acción llega al menos a 2 vecinos nuevos.",
+      "metric": "reach",
+      "minimum": 2
+    }
+  ]
+}

@@ -14,7 +14,7 @@ for meta in assets.rglob('*.meta'):
 for file in assets.rglob('*'):
     if file.suffix=='.meta':continue
     assert Path(str(file)+'.meta').is_file(),f'Falta meta: {file}'
-    if file.suffix in ('.asset','.unity'):
+    if file.suffix in ('.asset','.unity','.prefab'):
         for guid in re.findall(r'guid: ([0-9a-f]{32})',file.read_text()):
             assert guid in guids,f'Referencia sin resolver: {file} / {guid}'
 assemblies={json.loads(p.read_text())['name'] for p in assets.rglob('*.asmdef')}
@@ -30,4 +30,17 @@ assert f'path: {scene}' in settings
 scene_guid=re.search(r'guid: ([0-9a-f]{32})',(root/(scene+'.meta')).read_text())[1]
 assert f'guid: {scene_guid}' in settings
 assert '2022.3.62f1' in (root/'ProjectSettings/ProjectVersion.txt').read_text()
-print(f'PASS static Unity wiring: {len(guids)} GUIDs, {len(assemblies)} assemblies, scene, catalog, font and pinned package manifest.')
+def guid_for(relative):
+    return re.search(r'guid: ([0-9a-f]{32})',(root/(relative+'.meta')).read_text())[1]
+main=(root/scene).read_text()
+for relative in ('Assets/_Rumores/Scripts/Presentation/PartyApp.cs','Assets/_Rumores/Resources/PartyCatalog.asset','Assets/_Rumores/Prefabs/PartyActionCard.prefab'):
+    assert guid_for(relative) in main,f'Main no referencia {relative}'
+party_catalog=(assets/'_Rumores/Resources/PartyCatalog.asset').read_text()
+for relative in ('Assets/_Rumores/Scripts/Presentation/PartyCatalogAsset.cs','Assets/_Rumores/Resources/PartyContent.json'):
+    assert guid_for(relative) in party_catalog,f'PartyCatalog no referencia {relative}'
+prefab=(assets/'_Rumores/Prefabs/PartyActionCard.prefab').read_text()
+assert guid_for('Assets/_Rumores/Scripts/Presentation/PartyActionCard.cs') in prefab
+assert 'RectTransform:' in prefab
+assert guid_for('Assets/_Rumores/Scripts/Presentation/RumoresApp.cs') in (assets/'_Rumores/Scenes/Legacy.unity').read_text()
+assert guid_for('Assets/_Rumores/Scripts/Presentation/RumoresApp.cs') not in main
+print(f'PASS static Unity wiring: {len(guids)} GUIDs, {len(assemblies)} assemblies, Main/Legacy, party catalog, action prefab, font and pinned package manifest.')
