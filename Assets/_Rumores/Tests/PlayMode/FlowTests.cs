@@ -23,6 +23,7 @@ namespace Rumores.Tests
         [UnityTest] public IEnumerator EightPlayersCompleteRoundThroughButtons() {yield return CompleteParty(8);}
         [TestCase(typeof(AvatarGraphic))]
         [TestCase(typeof(BoardGraphics))]
+        [TestCase(typeof(SpeechBubbleGraphic))]
         public void CustomGraphicsCreateTheirRequiredRenderer(Type graphicType)
         {
             var go=new GameObject("GraphicDependencyTest",typeof(RectTransform));
@@ -43,21 +44,22 @@ namespace Rumores.Tests
             {
                 Click("Play");yield return null;
                 Canvas.ForceUpdateCanvases();
-                var avatars=UnityEngine.Object.FindObjectsOfType<AvatarGraphic>();
+                var avatars=UnityEngine.Object.FindObjectsOfType<CharacterView>();
                 Assert.AreEqual(2,avatars.Length);
                 foreach(var avatar in avatars)
                 {
-                    Assert.NotNull(avatar.GetComponent<CanvasRenderer>());
+                    foreach(var graphic in avatar.GetComponentsInChildren<MaskableGraphic>())
+                        Assert.NotNull(graphic.GetComponent<CanvasRenderer>());
                     Assert.NotNull(avatar.GetComponentInParent<RectMask2D>());
                 }
                 // These buttons rebuild the masked roster, disabling and destroying old avatars.
                 Click("Avatar_0");yield return null;
                 Assert.IsTrue(avatars.All(avatar=>avatar==null));
                 Click("AddPlayer");yield return null;
-                Assert.AreEqual(3,UnityEngine.Object.FindObjectsOfType<AvatarGraphic>().Length);
+                Assert.AreEqual(3,UnityEngine.Object.FindObjectsOfType<CharacterView>().Length);
                 Click("Remove_2");yield return null;
                 Click("Back");yield return null;
-                Assert.AreEqual(0,UnityEngine.Object.FindObjectsOfType<AvatarGraphic>().Length);
+                Assert.AreEqual(0,UnityEngine.Object.FindObjectsOfType<CharacterView>().Length);
                 LogAssert.NoUnexpectedReceived();
             }
         }

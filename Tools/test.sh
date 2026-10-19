@@ -14,3 +14,4 @@ fi
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 "$rumores_dotnet" run --project Tests/Rumores.Tests.csproj --configuration Release
 python3 Tools/validate_project.py
+python3 Tools/validate_art.py

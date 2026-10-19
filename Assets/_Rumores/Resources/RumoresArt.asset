@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f07b2128e7a2f6bc1bdaf93bf1d78c70, type: 3}
+  m_Name: RumoresArt
+  m_EditorClassIdentifier:
+  town: {fileID: 21300000, guid: 8ad5fb35c1faff16d5dc057d1bdf998f, type: 3}
+  characters:
+  - id: miedoso
+    sprite: {fileID: 21300000, guid: 83099a59b55cb80b747cd76326361b93, type: 3}
+  - id: exagerado
+    sprite: {fileID: 0}
+  - id: mentiroso
+    sprite: {fileID: 0}
+  - id: ignorante
+    sprite: {fileID: 0}

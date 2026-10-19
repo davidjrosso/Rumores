@@ -31,11 +31,19 @@ Son escenas ficticias, no noticias reales ni un seguimiento de las tendencias de
 
 Cada carta mantiene el episodio original y el detalle elegido por el jugador anterior, y añade una continuación propia de esa historia. Confundir una palabra ya no convierte al protagonista en un objeto al azar. El texto visible conserva los dos aportes más recientes; **Lo anterior** guarda toda la secuencia. Las variantes no usadas de cada estilo tienen prioridad. Todo funciona con datos locales y sin IA en ejecución.
 
+## Muestra artística · fase 3
+
+El menú incorpora un pueblo ilustrado original y una marca de globos con texto editable. El primer avatar tiene un nuevo personaje miedoso con mate; hay movimientos breves de habla y reacción durante la ronda. Los demás personajes y la UI conservan recursos provisionales.
+
+Para revisar las siete reacciones y los efectos de transmisión/división, abrir **`Assets/_Rumores/Scenes/ArtPreview.unity`** y pulsar Play. Para jugar, abrir **Main.unity**. La división y el desánimo de la muestra no cambian las reglas del party game.
+
+**La fase 3 está pendiente de validación en Unity.** Se produjeron solo un pueblo y un personaje para respetar la prueba inicial antes de ampliar el arte. Ver la [guía visual](Docs/Art/DIRECCION_VISUAL.md) y las [instrucciones, inventario y pendientes](Docs/Art/PRUEBA_UNITY.md).
+
 ## Validación
 
 **83 pruebas .NET aprobadas**: 23 del modo actual y 60 del legado. Incluyen 1296 rondas simuladas con opciones reales, protección contra doble pulsación, vista previa sin efectos y revancha. Referencias estáticas y sintaxis C# 9 comprobadas.
 
-**Unity no está instalado en el entorno cloud:** la importación, compilación completa, pruebas visuales y PlayMode siguen pendientes. Se conserva la corrección de `CanvasRenderer` que faltaba en los avatares. No se produjo arte definitivo ni se publicó Android.
+**Unity no está instalado en el entorno cloud:** la importación, compilación completa, pruebas visuales y PlayMode siguen pendientes. Se conserva la corrección de `CanvasRenderer` que faltaba en los avatares. La muestra tiene imágenes generadas con IA, controles estáticos de alfa/importación y nuevas pruebas de Unity aún no ejecutadas. No se publicó Android.
 
 ```bash
 bash Tools/test.sh

@@ -43,4 +43,12 @@ assert guid_for('Assets/_Rumores/Scripts/Presentation/PartyActionCard.cs') in pr
 assert 'RectTransform:' in prefab
 assert guid_for('Assets/_Rumores/Scripts/Presentation/RumoresApp.cs') in (assets/'_Rumores/Scenes/Legacy.unity').read_text()
 assert guid_for('Assets/_Rumores/Scripts/Presentation/RumoresApp.cs') not in main
+art_path='Assets/_Rumores/Resources/RumoresArt.asset'
+assert guid_for(art_path) in main
+art=(root/art_path).read_text()
+for relative in ('Assets/_Rumores/Scripts/Presentation/RumoresArt.cs','Assets/_Rumores/Resources/Art/Preview/Miedoso.png','Assets/_Rumores/Resources/Art/Preview/Pueblo.png'):
+    assert guid_for(relative) in art,f'Art library missing {relative}'
+preview=(assets/'_Rumores/Scenes/ArtPreview.unity').read_text()
+assert guid_for(art_path) in preview
+assert guid_for('Assets/_Rumores/Scripts/Presentation/ArtPreview.cs') in preview
 print(f'PASS static Unity wiring: {len(guids)} GUIDs, {len(assemblies)} assemblies, Main/Legacy, party catalog, action prefab, font and pinned package manifest.')

@@ -47,3 +47,4 @@ MonoBehaviour:
   m_EditorClassIdentifier:
   catalogAsset: {fileID: 11400000, guid: b40a7911bfaeed73e82a3b7d64cb865e, type: 2}
   actionCardPrefab: {fileID: 1002, guid: f20ed3da3bde87f082807be357b4bbd8, type: 3}
+  art: {fileID: 11400000, guid: 0692932e486f1eafef1dae828446deb5, type: 2}

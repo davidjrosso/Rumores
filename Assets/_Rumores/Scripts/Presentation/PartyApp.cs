@@ -14,6 +14,7 @@ namespace Rumores.Presentation
     {
         [SerializeField] PartyCatalogAsset catalogAsset;
         [SerializeField] PartyActionCard actionCardPrefab;
+        [SerializeField] RumoresArt art;
         PartyCatalog catalog;
         RectTransform safeRoot,screen;
         Rect lastSafeArea;
@@ -89,8 +90,11 @@ namespace Rumores.Presentation
         void Menu()
         {
             Page("RUMORES");
+            SpeechBubbleGraphic.Create(screen,"RumoresMarkBack",new Vector2(.76f,.93f),new Vector2(.87f,.99f),new Color32(131,199,222,255));
+            SpeechBubbleGraphic.Create(screen,"RumoresMarkFront",new Vector2(.85f,.92f),new Vector2(.97f,.98f),new Color32(243,201,91,255));
             Label("Un chisme, tus amigos y un montón de fruta.",.04f,.83f,.96f,.91f,27);
-            var town=Ui.Rect(screen,"Town",new Vector2(.09f,.55f),new Vector2(.91f,.81f));Ui.Town(town);
+            var town=Ui.Rect(screen,"Town",new Vector2(.09f,.55f),new Vector2(.91f,.81f));
+            if(art!=null)art.Town(town);else Ui.Town(town);
             Button("Play","Jugar",.09f,.42f,.91f,.51f,()=>Setup());
             Button("HowToPlay","Cómo jugar",.09f,.31f,.91f,.40f,HowToPlay);
             Button("Settings","Ajustes",.09f,.20f,.91f,.29f,Settings);
@@ -125,7 +129,7 @@ namespace Rumores.Presentation
                 int index=i,version=screenVersion;float top=1f-(float)i/roster.Count,bottom=1f-(float)(i+1)/roster.Count;
                 var row=Ui.Rect(content,"Player_"+i,new Vector2(0,bottom),new Vector2(1,top),4);
                 var avatar=Ui.Button(row,"Avatar_"+i,"",new Vector2(0,0),new Vector2(.22f,1),()=>{if(version!=screenVersion)return;ReadNames();roster[index].avatar=(roster[index].avatar+1)%8;Setup();},roster[i].avatar<4?Ui.Teal:Ui.Orange);
-                Ui.Avatar(avatar.transform,Avatars[roster[i].avatar%4],new Vector2(.05f,.27f),new Vector2(.95f,.99f));
+                CharacterView.Create(avatar.transform,art,Avatars[roster[i].avatar%4],new Vector2(.05f,.27f),new Vector2(.95f,.99f),true,true);
                 Ui.Text(avatar.transform,AvatarNames[roster[i].avatar],new Vector2(0,0),new Vector2(1,.27f),15,Ui.Cream,TextAnchor.MiddleCenter);
                 var input=Ui.Input(row,roster[i].name,new Vector2(.24f,.12f),new Vector2(.84f,.88f));input.gameObject.name="PlayerName_"+i;input.contentType=InputField.ContentType.Standard;input.characterLimit=16;input.textComponent.supportRichText=false;input.text=roster[i].name;inputs.Add(input);
                 var remove=Ui.Button(row,"Remove_"+i,"−",new Vector2(.86f,.12f),new Vector2(1,.88f),()=>{if(version!=screenVersion)return;ReadNames();roster.RemoveAt(index);Setup();},Ui.Orange);remove.interactable=roster.Count>2;
@@ -153,7 +157,7 @@ namespace Rumores.Presentation
             selectedAction=null;choicePage=0;
             Page("Pasá el teléfono");
             Ui.Panel(screen,"AvatarBadge",new Vector2(.31f,.60f),new Vector2(.69f,.83f),Game.Current.avatar<4?Ui.Pale:new Color32(243,205,171,255));
-            Ui.Avatar(screen,Avatars[Game.Current.avatar%4],new Vector2(.31f,.60f),new Vector2(.69f,.83f));
+            CharacterView.Create(screen,art,Avatars[Game.Current.avatar%4],new Vector2(.31f,.60f),new Vector2(.69f,.83f),false,fast);
             Label(Game.Current.name,.04f,.49f,.96f,.60f,42);
             Label(Game.Turn<Game.Players.Count?"Primera vuelta":"Última vuelta",.04f,.42f,.96f,.49f,25);
             Label("Leé el chisme, elegí cómo contarlo y compartilo en voz alta.",.04f,.24f,.96f,.40f,28);
@@ -211,7 +215,12 @@ namespace Rumores.Presentation
             Label(Game.Current.name+" cuenta…",.03f,.80f,.97f,.91f,30,Ui.Teal);
             var paper=Ui.Panel(screen,"NewVersion",new Vector2(.03f,.39f),new Vector2(.97f,.78f),Ui.Pale);
             var headline=Ui.Text(paper.transform,Game.LastChange.text,new Vector2(.04f,.04f),new Vector2(.96f,.96f),32);headline.supportRichText=false;
-            Label(Game.Turn+1==Game.TotalTurns?"¡Listo! Veamos en qué terminó el chisme.":"Cuando termines de leer, pasá el celu.",.03f,.22f,.97f,.36f,27);
+            var character=CharacterView.Create(screen,art,Avatars[Game.Current.avatar%4],new Vector2(.03f,.21f),new Vector2(.22f,.37f),false,fast);
+            var reaction=Game.LastChange.actionId=="panico"?CharacterReaction.Panic:
+                Game.LastChange.actionId=="meme"?CharacterReaction.Laugh:CharacterReaction.Surprise;
+            character.Motion.SpeakThen(reaction);
+            var signal=Ui.Rect(screen,"RumorTransmission",new Vector2(.22f,.35f),new Vector2(.97f,.39f)).gameObject.AddComponent<RumorSignal>();signal.Play(false,fast);
+            Label(Game.Turn+1==Game.TotalTurns?"¡Listo! Veamos en qué terminó el chisme.":"Cuando termines de leer, pasá el celu.",.25f,.21f,.97f,.35f,27);
             string token=Game.Token;
             Button("Next",Game.Turn+1==Game.TotalTurns?"Ver cómo terminó":"Pasar el celu",.04f,.07f,.96f,.18f,()=>{Game.Next(token);ShowPhase();});
             StartCoroutine(Pop(paper.rectTransform));
@@ -225,6 +234,7 @@ namespace Rumores.Presentation
         void Results()
         {
             Page("¡Mirá en qué terminó!");
+            CharacterView.Create(screen,art,Avatars[Game.Players[0].avatar%4],new Vector2(.87f,.925f),new Vector2(.98f,.995f),false,fast).Motion.Play(CharacterReaction.Celebrate);
             Label("ASÍ EMPEZÓ",.03f,.85f,.97f,.91f,23,Ui.Teal);
             Label(Game.News.original,.03f,.68f,.97f,.85f,28);
             Label("ASÍ LO DEJARON",.03f,.61f,.97f,.68f,23,Ui.Orange);
