@@ -51,4 +51,6 @@ for relative in ('Assets/_Rumores/Scripts/Presentation/RumoresArt.cs','Assets/_R
 preview=(assets/'_Rumores/Scenes/ArtPreview.unity').read_text()
 assert guid_for(art_path) in preview
 assert guid_for('Assets/_Rumores/Scripts/Presentation/ArtPreview.cs') in preview
+for name in ('Exagerado','Mentiroso','Ignorante'):
+    assert guid_for('Assets/_Rumores/Resources/Art/Preview/'+name+'.png') in art
 print(f'PASS static Unity wiring: {len(guids)} GUIDs, {len(assemblies)} assemblies, Main/Legacy, party catalog, action prefab, font and pinned package manifest.')

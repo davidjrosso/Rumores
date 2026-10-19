@@ -24,6 +24,8 @@ namespace Rumores.Tests
         [TestCase(typeof(AvatarGraphic))]
         [TestCase(typeof(BoardGraphics))]
         [TestCase(typeof(SpeechBubbleGraphic))]
+        [TestCase(typeof(ActionIconGraphic))]
+        [TestCase(typeof(ReactionBurstGraphic))]
         public void CustomGraphicsCreateTheirRequiredRenderer(Type graphicType)
         {
             var go=new GameObject("GraphicDependencyTest",typeof(RectTransform));

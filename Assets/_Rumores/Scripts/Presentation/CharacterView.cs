@@ -29,6 +29,8 @@ namespace Rumores.Presentation
                 }
             }
             else Ui.Avatar(visual,id,Vector2.zero,Vector2.one);
+            var badge=ActionIconGraphic.Create(frame,ActionIconGraphic.ForPersonality(id),new Vector2(1,0),new Vector2(1,0));
+            badge.rectTransform.sizeDelta=new Vector2(28,28);badge.rectTransform.anchoredPosition=new Vector2(-15,15);
             view.Motion=visual.gameObject.AddComponent<CharacterMotion>();view.Motion.Fast=fast;
             return view;
         }

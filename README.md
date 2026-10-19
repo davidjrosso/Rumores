@@ -31,13 +31,13 @@ Son escenas ficticias, no noticias reales ni un seguimiento de las tendencias de
 
 Cada carta mantiene el episodio original y el detalle elegido por el jugador anterior, y añade una continuación propia de esa historia. Confundir una palabra ya no convierte al protagonista en un objeto al azar. El texto visible conserva los dos aportes más recientes; **Lo anterior** guarda toda la secuencia. Las variantes no usadas de cada estilo tienen prioridad. Todo funciona con datos locales y sin IA en ejecución.
 
-## Muestra artística · fase 3
+## Arte y animaciones · fase 3
 
-El menú incorpora un pueblo ilustrado original y una marca de globos con texto editable. El primer avatar tiene un nuevo personaje miedoso con mate; hay movimientos breves de habla y reacción durante la ronda. Los demás personajes y la UI conservan recursos provisionales.
+El menú incorpora un pueblo ilustrado original y una marca de globos con texto editable. **Los cuatro vecinos tienen sprites propios**: miedoso con mate, exagerado de brazos abiertos, mentiroso de chaqueta lila e ignorante con lentes. Las cartas tienen seis iconos originales, los retratos muestran insignias y el cierre de ronda tiene confeti breve. Los movimientos de habla y reacción se comparten entre los cuatro personajes.
 
-Para revisar las siete reacciones y los efectos de transmisión/división, abrir **`Assets/_Rumores/Scenes/ArtPreview.unity`** y pulsar Play. Para jugar, abrir **Main.unity**. La división y el desánimo de la muestra no cambian las reglas del party game.
+Para revisar las siete reacciones y los efectos de transmisión/división, abrir **`Assets/_Rumores/Scenes/ArtPreview.unity`**, pulsar Play y tocar uno de los cuatro retratos. Para jugar, abrir **Main.unity**. La división y el desánimo de la galería no cambian las reglas del party game.
 
-**La fase 3 está pendiente de validación en Unity.** Se produjeron solo un pueblo y un personaje para respetar la prueba inicial antes de ampliar el arte. Ver la [guía visual](Docs/Art/DIRECCION_VISUAL.md) y las [instrucciones, inventario y pendientes](Docs/Art/PRUEBA_UNITY.md).
+**El usuario confirmó que la muestra anterior funcionó bien.** Esta ampliación está integrada y pasó los controles cloud; su revisión dentro de Unity sigue pendiente. Ver la [guía visual](Docs/Art/DIRECCION_VISUAL.md) y las [instrucciones, inventario y pendientes](Docs/Art/PRUEBA_UNITY.md).
 
 ## Validación
 

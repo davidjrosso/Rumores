@@ -1,6 +1,6 @@
 # Rumores · dirección visual v1
 
-Muestra inicial para validar en Unity antes de producir el conjunto completo. Gameplay, noticias, turnos y opciones permanecen intactos.
+Dirección de la muestra inicial, probada y aprobada por el usuario antes de ampliar a los cuatro personajes. Gameplay, noticias, turnos y opciones permanecen intactos.
 
 ## Identidad: un barrio que cuenta todo
 
@@ -36,7 +36,7 @@ Expresiones definidas por cejas, ojos y boca; sin detalles faciales finos. Mante
 
 Cenital ilustrada con una ligera inclinación uniforme: predominan techos y suelos, fachadas cortas orientadas hacia abajo, sin horizonte ni perspectiva con puntos de fuga. Plaza central despejada, calles simples y edificios de siluetas distintas. Luz desde arriba a la izquierda y sombras cortas hacia abajo a la derecha. No dibujar texto en carteles: el juego debe poder superponer etiquetas editables.
 
-El escenario de la muestra es una ilustración de conjunto para el menú. La separación en edificios, props y personajes cenitales se hará después de validar la muestra. No afirmar que el fondo ya es un mapa interactivo.
+El escenario es una ilustración de conjunto para el menú. Separar edificios y props solo si una futura vista lo necesita; la partida actual usa retratos y cartas. No afirmar que el fondo es un mapa interactivo.
 
 ## Escala e importación
 
@@ -56,4 +56,4 @@ La ronda actual no tiene derrota ni bifurcación visible: preparar esas reaccion
 
 Primero un fondo y el miedoso, conectados a Main y a una pantalla de revisión dentro del juego. Comprobar importación, alfa, tamaño pequeño, recorte en lista, lectura, reacción y transición. Solo después ampliar a otros tres personajes, edificios separados, iconos finales y variantes de expresión.
 
-En este entorno se pueden generar imágenes y ejecutar .NET, pero no hay Unity Editor instalado. La inspección de un PNG y la validación estática no sustituyen esta puerta. No declarar aprobada la dirección ni terminada la fase 3 sin una ejecución real del proyecto.
+El usuario confirmó que el arte y los sprites de la muestra funcionaron bien y pidió continuar. La puerta inicial quedó superada por esa comprobación. En cloud todavía no hay Unity Editor: los controles estáticos de los recursos nuevos no sustituyen su revisión dentro del motor. Ver PRUEBA_UNITY.md para el inventario y los límites de la ampliación.

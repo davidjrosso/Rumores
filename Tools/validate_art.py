@@ -53,7 +53,8 @@ def pixels(path):
     return width, height, channels, rows
 
 
-for name, expected, pivot in [('Miedoso', (1024, 1536, 4), 0), ('Pueblo', (1536, 1024, 3), 0.5)]:
+characters = [(name, (1024, 1536, 4), 0) for name in ('Miedoso', 'Exagerado', 'Mentiroso', 'Ignorante')]
+for name, expected, pivot in characters + [('Pueblo', (1536, 1024, 3), 0.5)]:
     path = ART / (name+'.png')
     width, height, channels, rows = pixels(path)
     assert (width, height, channels) == expected, name

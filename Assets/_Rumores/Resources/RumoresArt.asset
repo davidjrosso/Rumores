@@ -17,8 +17,8 @@ MonoBehaviour:
   - id: miedoso
     sprite: {fileID: 21300000, guid: 83099a59b55cb80b747cd76326361b93, type: 3}
   - id: exagerado
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: cc6afcb983396d41bca40d96d38af7bb, type: 3}
   - id: mentiroso
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: e02d7ebfb39494d8d7888fd54d954fca, type: 3}
   - id: ignorante
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 871c905d45a60d1a8577f863cac0d3b3, type: 3}

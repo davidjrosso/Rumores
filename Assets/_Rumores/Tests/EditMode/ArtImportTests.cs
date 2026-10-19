@@ -8,6 +8,9 @@ namespace Rumores.Tests
     public class ArtImportTests
     {
         [TestCase("Miedoso",1024,1536,0f)]
+        [TestCase("Exagerado",1024,1536,0f)]
+        [TestCase("Mentiroso",1024,1536,0f)]
+        [TestCase("Ignorante",1024,1536,0f)]
         [TestCase("Pueblo",1536,1024,.5f)]
         public void PreviewSpritesImportWithExpectedSizePivotAndFiltering(string name,int width,int height,float pivotY)
         {
@@ -22,14 +25,15 @@ namespace Rumores.Tests
             var sprite=AssetDatabase.LoadAssetAtPath<Sprite>(path);Assert.NotNull(sprite);
             Assert.AreEqual(width,sprite.rect.width);Assert.AreEqual(height,sprite.rect.height);
             Assert.AreEqual(new Vector2(width*.5f,height*pivotY),sprite.pivot);
-            if(name=="Miedoso"){Assert.IsTrue(importer.alphaIsTransparency);Assert.IsTrue(importer.DoesSourceTextureHaveAlpha());}
+            if(name!="Pueblo"){Assert.IsTrue(importer.alphaIsTransparency);Assert.IsTrue(importer.DoesSourceTextureHaveAlpha());}
         }
         [Test]
-        public void ArtLibraryResolvesGeneratedSpritesAndLeavesUnproducedCharactersExplicit()
+        public void ArtLibraryResolvesFourDistinctCharacters()
         {
             var art=Resources.Load<RumoresArt>("RumoresArt");Assert.NotNull(art);Assert.NotNull(art.town);
-            Assert.NotNull(art.Find("miedoso"));
-            Assert.IsNull(art.Find("exagerado"));Assert.IsNull(art.Find("mentiroso"));Assert.IsNull(art.Find("ignorante"));
+            var sprites=new System.Collections.Generic.HashSet<Sprite>();
+            foreach(var id in new[]{"miedoso","exagerado","mentiroso","ignorante"})
+            {var sprite=art.Find(id);Assert.NotNull(sprite,id);Assert.IsTrue(sprites.Add(sprite),"Sprite repetido: "+id);}
             Assert.IsNull(art.Find("unknown"));
         }
     }

@@ -234,6 +234,7 @@ namespace Rumores.Presentation
         void Results()
         {
             Page("¡Mirá en qué terminó!");
+            ReactionBurstGraphic.Create(screen,Vector2.zero,Vector2.one).Play(true,fast);
             CharacterView.Create(screen,art,Avatars[Game.Players[0].avatar%4],new Vector2(.87f,.925f),new Vector2(.98f,.995f),false,fast).Motion.Play(CharacterReaction.Celebrate);
             Label("ASÍ EMPEZÓ",.03f,.85f,.97f,.91f,23,Ui.Teal);
             Label(Game.News.original,.03f,.68f,.97f,.85f,28);

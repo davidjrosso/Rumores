@@ -13,6 +13,9 @@ namespace Rumores.Presentation
         RectTransform safe;
         bool fast;
         Text status;
+        ReactionBurstGraphic burst;
+        static readonly string[] CharacterIds={"miedoso","exagerado","mentiroso","ignorante"};
+        static readonly string[] CharacterNames={"Miedoso","Exagerado","Mentiroso","Ignorante"};
         void Start()
         {
             if(art==null){Debug.LogError("ArtPreview necesita RumoresArt.");return;}
@@ -24,13 +27,21 @@ namespace Rumores.Presentation
             scaler.referenceResolution=new Vector2(720,1280);scaler.matchWidthOrHeight=1;
             Ui.Panel(go.transform,"Paper",Vector2.zero,Vector2.one,Ui.Cream);
             safe=Ui.Rect(go.transform,"SafeArea",Vector2.zero,Vector2.one);Update();
-            Ui.Text(safe,"RUMORES · muestra artística",new Vector2(.04f,.93f),new Vector2(.96f,.99f),30,Ui.Teal);
+            Ui.Text(safe,"RUMORES · galería del barrio",new Vector2(.04f,.93f),new Vector2(.96f,.99f),30,Ui.Teal);
             var town=Ui.Rect(safe,"Town",new Vector2(.04f,.56f),new Vector2(.96f,.92f));art.Town(town);
-            Character=CharacterView.Create(safe,art,"miedoso",new Vector2(.04f,.27f),new Vector2(.40f,.55f),false,false);
-            CharacterView.Create(safe,art,"miedoso",new Vector2(.49f,.44f),new Vector2(.66f,.54f),true,true);
-            CharacterView.Create(safe,art,"exagerado",new Vector2(.73f,.44f),new Vector2(.90f,.54f),true,true);
-            Ui.Text(safe,"Retrato / avatar provisional",new Vector2(.46f,.40f),new Vector2(.97f,.44f),18);
-            Signal=Ui.Rect(safe,"Transmission",new Vector2(.44f,.34f),new Vector2(.95f,.40f)).gameObject.AddComponent<RumorSignal>();
+            SelectCharacter(0);
+            for(int i=0;i<CharacterIds.Length;i++)
+            {
+                int index=i;float x=.44f+i*.13f;
+                var button=Ui.Button(safe,"PreviewCharacter_"+i,"",new Vector2(x,.45f),new Vector2(x+.125f,.55f),()=>SelectCharacter(index),Ui.Pale);
+                CharacterView.Create(button.transform,art,CharacterIds[i],Vector2.zero,Vector2.one,true,true);
+            }
+            Ui.Text(safe,"Tocá un vecino para probarlo",new Vector2(.44f,.41f),new Vector2(.97f,.45f),18);
+            string[] actions={"panico","exagerar","mentir","confundir","teoria","meme"};
+            for(int i=0;i<actions.Length;i++)
+            {float x=.44f+i*.087f;ActionIconGraphic.Create(safe,actions[i],new Vector2(x,.37f),new Vector2(x+.07f,.41f));}
+            burst=ReactionBurstGraphic.Create(safe,new Vector2(.03f,.27f),new Vector2(.42f,.55f));
+            Signal=Ui.Rect(safe,"Transmission",new Vector2(.44f,.33f),new Vector2(.95f,.37f)).gameObject.AddComponent<RumorSignal>();
             status=Ui.Text(safe,"Espera",new Vector2(.44f,.29f),new Vector2(.95f,.34f),22,Ui.Teal);
             Ui.Button(safe,"PreviewFast","Reducir movimiento",new Vector2(.44f,.24f),new Vector2(.96f,.29f),()=>{
                 fast=!fast;Character.Motion.Fast=fast;status.text=fast?"Movimiento reducido":"Movimiento normal";
@@ -43,11 +54,18 @@ namespace Rumores.Presentation
                     status.text=labels[index];
                     if(index<7)Character.Motion.Play((CharacterReaction)index);
                     else {Character.Motion.Play(CharacterReaction.Talk);Signal.Play(index==8,fast);}
+                    if(index==5||index==6)burst.Play(index==5,fast);
                 },size:22);
             }
             Ui.Text(safe,"Prueba visual · sin cambios en las reglas",new Vector2(.04f,0),new Vector2(.96f,.03f),17);
             if(FindObjectOfType<EventSystem>()==null)
             {var events=new GameObject("PreviewEventSystem",typeof(EventSystem),typeof(StandaloneInputModule));events.transform.SetParent(transform,false);}
+        }
+        void SelectCharacter(int index)
+        {
+            if(Character!=null){Character.gameObject.SetActive(false);Destroy(Character.gameObject);}
+            Character=CharacterView.Create(safe,art,CharacterIds[index],new Vector2(.04f,.27f),new Vector2(.40f,.55f),false,fast);
+            if(status!=null)status.text=CharacterNames[index];
         }
         void Update()
         {

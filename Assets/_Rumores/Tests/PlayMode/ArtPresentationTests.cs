@@ -83,11 +83,54 @@ namespace Rumores.Tests
             yield return null;
             var preview=UnityEngine.Object.FindObjectOfType<ArtPreview>();Assert.NotNull(preview.Character);
             Assert.NotNull(preview.Character.GetComponentInChildren<Image>().sprite);
+            var art=Resources.Load<RumoresArt>("RumoresArt");
+            string[] ids={"miedoso","exagerado","mentiroso","ignorante"};
+            for(int i=0;i<ids.Length;i++)
+            {
+                var old=preview.Character;Click("PreviewCharacter_"+i);yield return null;
+                Assert.IsTrue(old==null);Assert.AreSame(art.Find(ids[i]),preview.Character.GetComponentInChildren<Image>().sprite);
+            }
             for(int i=0;i<9;i++){Click("Preview_"+i);yield return null;}
             Assert.IsTrue(preview.Signal.IsPlaying);Click("PreviewFast");
             LogAssert.NoUnexpectedReceived();
         }
 #endif
+        [UnityTest]
+        public IEnumerator CelebrationAndDefeatEffectsNeverCaptureInputAndClearOnDisable()
+        {
+            var go=new GameObject("BurstTest",typeof(RectTransform));var burst=go.AddComponent<ReactionBurstGraphic>();
+            try
+            {
+                foreach(bool celebrate in new[]{true,false})
+                {
+                    burst.Play(celebrate,false);Assert.IsFalse(burst.raycastTarget);
+                    yield return new WaitForSecondsRealtime(.8f);Assert.IsFalse(burst.IsPlaying);
+                    burst.Play(celebrate,false);go.SetActive(false);Assert.IsFalse(burst.IsPlaying);
+                    go.SetActive(true);Assert.IsFalse(burst.IsPlaying);
+                }
+                burst.Play(true,true);yield return new WaitForSecondsRealtime(.2f);Assert.IsFalse(burst.IsPlaying);
+            }
+            finally {UnityEngine.Object.DestroyImmediate(go);}
+        }
+        [UnityTest]
+        public IEnumerator CardsBindTheSixIconsWithoutChangingChoices()
+        {
+            yield return SceneManager.LoadSceneAsync("Main");yield return null;
+            var app=UnityEngine.Object.FindObjectOfType<PartyApp>();Click("Play");Click("StartRound");Click("Ready");
+            var seen=new System.Collections.Generic.HashSet<string>();
+            for(int page=0;page<2;page++)
+            {
+                foreach(var card in UnityEngine.Object.FindObjectsOfType<PartyActionCard>())
+                {
+                    var icon=card.GetComponentInChildren<ActionIconGraphic>();Assert.NotNull(icon);
+                    Assert.AreEqual(card.name.Substring("Action_".Length),icon.ActionId);
+                    Assert.IsFalse(icon.raycastTarget);seen.Add(icon.ActionId);
+                }
+                if(page==0){Click("MoreChoices");yield return null;}
+            }
+            Assert.AreEqual(6,seen.Count);Assert.AreEqual(0,app.Game.Turn);
+            LogAssert.NoUnexpectedReceived();
+        }
         static void Click(string name)
         {var go=GameObject.Find(name);Assert.NotNull(go,name);go.GetComponent<Button>().onClick.Invoke();}
     }

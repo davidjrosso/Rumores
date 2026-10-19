@@ -1,70 +1,72 @@
-# Fase 3 · muestra integrada, pendiente de validación en Unity
+# Fase 3 · personajes, iconos y efectos integrados
 
-Fecha: 2026-10-19. Esta entrega prepara la **prueba representativa previa a la producción completa**. No declara terminada la fase 3: el entorno cloud no tiene Unity Editor y todavía no se comprobó la apariencia dentro del motor.
+La muestra del commit `ecb4e80` fue probada por el usuario: «el arte y los sprites funcionaron bien, podes continuar». Esa confirmación permite ampliar el conjunto. **No equivale a ejecutar las pruebas automatizadas ni valida por anticipado los cambios de esta entrega.** Unity sigue sin estar instalado en cloud.
 
-## Qué existe
+## Inventario real
 
-| Recurso | Implementación real | Estado |
+| Recurso | Implementación | Dónde se usa |
 |---|---|---|
-| Dirección visual | [Paleta, siluetas, perspectiva, escala y movimiento](DIRECCION_VISUAL.md) | Definida; pendiente de validar |
-| Pueblo | PNG original generado con `image_gen.imagegen`, plaza, kiosco, club y estación | Muestra; fondo completo, no edificios separados |
-| Miedoso | PNG original generado con la misma herramienta, vecino con mate, alfa real | Muestra; un solo dibujo, sin fotogramas faciales |
-| Otros tres personajes | Avatares geométricos anteriores | Provisionales; sprites nuevos pendientes |
-| Avatares | Recorte de presentación del miedoso; los restantes conservan sus caras anteriores | Mixtos; comprobar lectura a tamaño pequeño |
-| Marca | Dos globos vectoriales originales y título editable RUMORES | Marca provisional; no imagen de letras generada por IA |
-| Espera, habla, sorpresa, pánico, risa, celebración y desánimo | `CharacterMotion`: escala, giro y desplazamiento con tiempo independiente de `timeScale` | Código integrado; ejecución Unity pendiente |
-| Transmisión / división | Globos breves que recorren una trayectoria, dos destinos diferenciados al dividir | Transmisión conectada a la ronda; división solo en escena de revisión |
-| Celebración / derrota | Movimientos del retrato | Festejo al terminar; desánimo solo en revisión. No hay ganador ni derrota en las reglas actuales |
-| Iconos de acción y personalidad, confeti y otros adornos | Se conservan títulos y avatares existentes | Conjunto final pendiente |
-| Menú, tarjetas y paneles | UI existente con fondo nuevo, marca y retratos conectados | Presentación parcial; textos siguen siendo editables |
+| Pueblo | PNG original generado con IA: plaza, kiosco, club, panadería y estación | Menú y galería; ilustración completa, no mapa interactivo |
+| Miedoso | Vecino nervioso con mate y chaleco celeste | Avatar y retrato |
+| Exagerado | Vecina de pelo colorado, brazos abiertos y cardigan coral | Avatar y retrato |
+| Mentiroso | Vecino de ceja levantada, rulo y chaqueta lila | Avatar y retrato |
+| Ignorante | Vecina de lentes, pelo gris, libro y cardigan verde | Avatar y retrato |
+| Marca | Dos globos vectoriales y palabra RUMORES editable | Menú |
+| Seis iconos originales | Gota, megáfono, globo, interrogación, bombilla y risa; geometría uGUI | Cabecera de cartas, insignias de retrato y galería |
+| Siete movimientos | Espera, habla, sorpresa, pánico, risa, celebración y desánimo con escala, giro y desplazamiento | Los cuatro personajes; todos disponibles en galería |
+| Transmisión / división | Uno o dos globos con trayectorias cortas | Transmisión al confirmar; división solo en galería |
+| Celebración / desánimo | Confeti de colores en los bordes y trazos celestes descendentes | Confeti al finalizar la ronda; desánimo solo en galería |
 
-No se generaron fotogramas de animación: los movimientos usan el mismo sprite y también funcionan sobre el avatar geométrico de respaldo. No se añadieron reglas, puntuación, controles de ramas, noticias ni servicios online. Core y `PartyContent.json` permanecen idénticos a `cf2236a`.
+Los cuatro personajes tienen sprites propios. Los ocho avatares de jugadores reutilizan esos cuatro retratos con las dos variantes de marco existentes; no son ocho personajes distintos. Las antiguas caras geométricas quedan como respaldo si se elimina una referencia.
 
-## Abrir la muestra y la partida
+Las imágenes se generaron mediante `image_gen.imagegen`, con el miedoso aprobado como referencia de estilo para los otros tres. No se copiaron personajes de juegos existentes. Los iconos y efectos son dibujos por código, **no imágenes generadas con IA**. No se crearon spritesheets: las animaciones transforman el sprite completo, sin cambiar su expresión facial ni hacer sincronización labial.
 
-1. Abrir el proyecto con **Unity 2022.3.62f1** y esperar la importación.
-2. Abrir `Assets/_Rumores/Scenes/ArtPreview.unity`, Game View **720×1280**, pulsar Play. Esta escena es de revisión; no se agregó a Build Settings.
-3. Verificar pueblo, personaje completo, avatar recortado y avatar provisional. Probar **Espera, Hablar, Sorpresa, Pánico, Risa, Festejo, Desánimo, Transmitir y Dividir**. Probar **Reducir movimiento**. El botón no cambia las preferencias de la partida.
-4. Detener Play y abrir `Assets/_Rumores/Scenes/Main.unity`. El fondo y la marca aparecen en el menú; **Jugar** abre la lista con el nuevo avatar. El primer avatar es el miedoso; cambiarlo y volver a él para comprobar ambas representaciones.
-5. Jugar una ronda de dos amigos; observar el personaje al pasar el teléfono, el habla y la reacción al confirmar, la transmisión y el festejo final. Tocar **Pasar el celu** inmediatamente durante la animación: debe responder. Repetir con ocho participantes, desplazar la lista y pulsar **¡Otra!**.
-6. Repetir a **360×800** y **720×1080**. Confirmar que los textos y botones no quedan tapados, que el retrato no invade otra fila y que no aparece `MissingComponentException` ni otro error en Console.
-7. Ejecutar **Window → General → Test Runner → EditMode → Run All** y después **PlayMode → Run All**. Guardar resultados y capturas de menú, lista, turno y reacciones antes de ampliar la producción.
+## Cómo probar esta entrega
 
-La condición de avance es ver la muestra correctamente **dentro de Unity**, como pide la fase. Un PNG visto fuera del motor, un GUID resuelto o una prueba .NET no cumplen esa condición. Si algo falla, registrar resolución, captura, error completo de Console y reacción utilizada.
+1. Abrir con **Unity 2022.3.62f1**, esperar la importación y abrir `Assets/_Rumores/Scenes/ArtPreview.unity`. Usar Game View **720×1280** y Play.
+2. Tocar cada uno de los **cuatro retratos** de la galería. Comprobar que cambia el personaje grande y que la cabeza del avatar pequeño se ve sin recortes extraños.
+3. Probar **Espera, Hablar, Sorpresa, Pánico, Risa, Festejo, Desánimo, Transmitir y Dividir** con cada personaje. Festejo agrega confeti y Desánimo trazos celestes. Probar también **Reducir movimiento**.
+4. Detener Play, abrir `Assets/_Rumores/Scenes/Main.unity` y jugar. En **Jugar**, tocar los avatares para recorrer los ocho marcos/retratos; agregar ocho personas y desplazar la lista.
+5. Las cartas muestran su icono junto al título. **Ver otras 3** permite ver los seis estilos. Confirmar y pulsar **Pasar el celu** durante una animación: debe responder inmediatamente.
+6. Terminar una ronda, observar el confeti y pulsar **¡Otra!** antes de que termine. La nueva ronda debe empezar sin restos visuales ni cambios de turnos.
+7. Repetir a **360×800** y **720×1080**; comprobar textos largos, títulos de cartas, área segura y recorte de avatares. Console debe permanecer sin errores.
+8. Ejecutar **Window → General → Test Runner → EditMode / PlayMode → Run All**. Guardar el XML y capturas si aparece un problema.
 
-## Importación preparada
+ArtPreview es una escena de revisión, fuera de Build Settings. Main sigue siendo la entrada jugable. La división y el desánimo no introducen ramas ni derrotas en el modo sencillo. El core, las noticias y los turnos no cambiaron respecto de `ecb4e80`.
 
-| PNG en `Assets/_Rumores/Resources/Art/Preview` | Fuente | Pivote normalizado | Alfa |
-|---|---|---|---|
-| `Miedoso.png` | 1024×1536 RGBA | (0,5; 0) | 58,36% de píxeles totalmente transparentes; cuatro esquinas transparentes |
-| `Pueblo.png` | 1536×1024 RGB | (0,5; 0,5) | Opaco |
+## Preparación e integración
 
-Los `.meta` configuran **Sprite / Single**, 100 PPU, sRGB, Bilinear, Clamp, sin mipmaps, sin compresión y máximo 2048. `Image.preserveAspect` evita deformarlos. El avatar pequeño usa recorte de UI del mismo original: no duplica ni modifica el PNG. Los 100 PPU y pivotes definen los sprites; en UI el tamaño visible lo determina el RectTransform.
+Los PNG se conservan en `Assets/_Rumores/Resources/Art/Preview` para mantener las referencias de la muestra aprobada. Los personajes son **1024×1536 RGBA**; el pueblo es **1536×1024 RGB**. Los `.meta` configuran Sprite Single, 100 PPU, sRGB, Bilinear, Clamp, sin mipmaps, máximo 2048 y sin compresión. Pivote inferior centrado para personajes y centrado para el fondo.
 
-La biblioteca `Assets/_Rumores/Resources/RumoresArt.asset` está referenciada explícitamente por Main y ArtPreview. Sus entradas sin sprite usan el avatar anterior. `SpeechBubbleGraphic` declara `CanvasRenderer` obligatorio; las imágenes y textos decorativos no capturan pulsaciones.
+| Personaje | Píxeles completamente transparentes |
+|---|---:|
+| Miedoso | 58,36% |
+| Exagerado | 52,57% |
+| Mentiroso | 58,61% |
+| Ignorante | 54,96% |
 
-Los originales se generaron con IA en esta sesión, no se tomaron de otros juegos. El personaje se pidió como vecino nervioso con mate, chaleco celeste, contornos azul oscuro y fondo transparente. El pueblo se pidió cenital inclinado, con plaza argentina, kiosco, panadería, club y estación, sin texto ni personajes. Se conservó la primera versión del personaje: una segunda prueba de limpieza no se incorporó. Los PNG finales son copias sin edición externa de las salidas de la herramienta.
+Las cuatro esquinas son transparentes en cada personaje. La UI preserva proporciones; el retrato pequeño se recorta dentro de un RectMask2D sin modificar el PNG. El pueblo, los retratos y los iconos permanecen separados. Los textos importantes son componentes Text editables.
 
-SHA-256:
+- `Resources/RumoresArt.asset`: catálogo con cuatro sprites distintos; referenciado por Main y ArtPreview.
+- `CharacterView.cs`: retratos, avatares e insignia de personalidad.
+- `ActionIconGraphic.cs`: seis iconos vectoriales; `PartyActionCard.cs` elige el icono por ID de acción sin cambiar las opciones.
+- `ReactionBurstGraphic.cs`: confeti y trazos de desánimo; no captura pulsaciones, usa tiempo no escalado y se limpia al desactivar la pantalla.
+- `ArtPreview.cs`: galería y controles de revisión. `PartyApp.cs`: conecta el festejo al cierre de la ronda.
+
+Para sustituir un personaje basta importar otro sprite con los mismos ajustes y asignarlo en el slot correspondiente de `RumoresArt.asset`. Mantener los IDs `miedoso`, `exagerado`, `mentiroso` e `ignorante`. No hay que modificar las reglas ni crear código por personaje. Revisar márgenes y el recorte del rostro antes de sustituirlo. La [guía visual](DIRECCION_VISUAL.md) sigue definiendo paleta, proporciones y perspectiva.
+
+## Evidencia y límites
+
+- **Confirmado por el usuario:** arte y sprites de la muestra anterior funcionaron correctamente.
+- **Ejecutado en esta entrega:** 83 pruebas .NET, 0 fallos; referencias de 71 GUIDs y 6 assemblies; sintaxis C# 9 de 35 archivos sin errores; integridad PNG, resolución, alfa y metadatos de los cinco PNG; Core y noticias sin cambios; `git diff --check`.
+- **Ampliado, sin ejecutar en cloud:** importación de los tres sprites nuevos; cuatro referencias únicas; selector de personajes; asociación de los seis iconos sin consumir turno; limpieza de efectos y reducción de movimiento; CanvasRenderer obligatorio para los nuevos gráficos. Se mantienen las rondas de dos/ocho participantes y la regresión de lista enmascarada.
+- **Pendiente:** compilación/importación y revisión visual de esta ampliación dentro de Unity. La confirmación de la muestra anterior no sustituye ese recorrido.
+- **Alcance visual:** movimientos procedurales sencillos y UI de lectura sobria; no hay rig facial, fotogramas de boca, edificios independientes ni mapa navegable. No son necesarios para las reglas actuales. No se preparó ni publicó Android.
+
+SHA-256 de los sprites añadidos:
 
 ```text
-da75e6d1bb42fbb6a85aece5db895c5fa6f74bd38c5bbda8136e176f979866a7  Miedoso.png
-c1c0889bebd17ca8a9845d74df92605e502bdbc3d1870c2b719c2a61552c575e  Pueblo.png
+f0799278db6e755dc1195508e9c1996437ae67a2b40d12c844de63324aa3e707  Exagerado.png
+ae4e16723b03e4aeb4dadd4350fc96929983dc8f56766c549129e47fa290616b  Mentiroso.png
+7284c5d0d97ba0b5952c15f8bb153e81809a15e216d72c11b9f71dafbc97da04  Ignorante.png
 ```
-
-## Añadir los otros personajes después de la prueba
-
-1. Crear sprites siguiendo la guía, con margen suficiente para movimientos y contorno coherente. Revisar especialmente la densidad de detalles del pueblo y la lectura del rostro pequeño: la muestra aún tiene más detalle y sombreado que la dirección objetivo.
-2. Importar cada PNG como Sprite Single con los ajustes anteriores. Asignarlo en el Inspector de `RumoresArt.asset` a `exagerado`, `mentiroso` o `ignorante`. No cambiar los IDs.
-3. Probar el avatar pequeño y el retrato completo; revisar escala y margen antes de continuar. Las pantallas y los movimientos reutilizan la nueva referencia sin modificar código ni reglas.
-4. Para introducir una personalidad realmente nueva harían falta decisiones de gameplay; completar los cuatro slots existentes no las requiere.
-
-## Validación efectuada y pendientes
-
-- **Ejecutado:** `Tools/test.sh`: 83 pruebas .NET aprobadas, 0 fallos; referencias de 66 GUIDs y 6 assemblies; integridad PNG, dimensiones, alfa y metadatos. La suite incluye las 1296 combinaciones de rondas ya existentes.
-- **Ejecutado:** análisis de sintaxis C# 9 de 33 archivos sin errores; `git diff --check`; comprobación de que Core y las noticias no cambiaron.
-- **Añadido, no ejecutado:** ocho casos nuevos de Unity: dos de importación, biblioteca, movimientos y restauración, transmisión/división, avance y revancha durante movimientos, escena de revisión y dependencia CanvasRenderer del nuevo gráfico. Se adaptó la regresión del listado para cubrir sprites y avatares provisionales.
-- **No ejecutado:** importación real, compilación contra APIs Unity, EditMode, PlayMode y revisión visual en Game View. No hay capturas del motor ni build Android.
-- **Pendiente tras aprobar la muestra:** tres sprites de personajes, expresiones por fotogramas si aportan valor, iconos finales, efectos de celebración/derrota más elaborados, props independientes y acabado de toda la UI.
-
-Las reacciones y conexiones existen en código, pero aún no se pueden certificar como correctas en ejecución. No hay preparación final ni publicación Android en esta entrega.
