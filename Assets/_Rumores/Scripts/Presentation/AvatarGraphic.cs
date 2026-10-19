@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 namespace Rumores.Presentation
 {
+    [RequireComponent(typeof(CanvasRenderer))]
     public sealed class AvatarGraphic : MaskableGraphic
     {
         public string personality;

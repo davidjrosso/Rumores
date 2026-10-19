@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 namespace Rumores.Presentation
 {
+    [RequireComponent(typeof(CanvasRenderer))]
     public sealed class BoardGraphics : MaskableGraphic
     {
         public Encounter encounter;

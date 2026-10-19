@@ -21,6 +21,46 @@ namespace Rumores.Tests
         }
         [UnityTest] public IEnumerator TwoPlayersCompleteRoundThroughButtons() {yield return CompleteParty(2);}
         [UnityTest] public IEnumerator EightPlayersCompleteRoundThroughButtons() {yield return CompleteParty(8);}
+        [TestCase(typeof(AvatarGraphic))]
+        [TestCase(typeof(BoardGraphics))]
+        public void CustomGraphicsCreateTheirRequiredRenderer(Type graphicType)
+        {
+            var go=new GameObject("GraphicDependencyTest",typeof(RectTransform));
+            try
+            {
+                go.SetActive(false);
+                var graphic=(MaskableGraphic)go.AddComponent(graphicType);
+                Assert.NotNull(go.GetComponent<CanvasRenderer>(),graphicType.Name+" necesita CanvasRenderer antes de activarse.");
+                Assert.AreSame(go.GetComponent<CanvasRenderer>(),graphic.canvasRenderer);
+            }
+            finally {UnityEngine.Object.DestroyImmediate(go);}
+        }
+        [UnityTest]
+        public IEnumerator RosterAvatarsSurviveClippingRebuildAndReturnToMenu()
+        {
+            yield return SceneManager.LoadSceneAsync("Main");yield return null;
+            for(int cycle=0;cycle<3;cycle++)
+            {
+                Click("Play");yield return null;
+                Canvas.ForceUpdateCanvases();
+                var avatars=UnityEngine.Object.FindObjectsOfType<AvatarGraphic>();
+                Assert.AreEqual(2,avatars.Length);
+                foreach(var avatar in avatars)
+                {
+                    Assert.NotNull(avatar.GetComponent<CanvasRenderer>());
+                    Assert.NotNull(avatar.GetComponentInParent<RectMask2D>());
+                }
+                // These buttons rebuild the masked roster, disabling and destroying old avatars.
+                Click("Avatar_0");yield return null;
+                Assert.IsTrue(avatars.All(avatar=>avatar==null));
+                Click("AddPlayer");yield return null;
+                Assert.AreEqual(3,UnityEngine.Object.FindObjectsOfType<AvatarGraphic>().Length);
+                Click("Remove_2");yield return null;
+                Click("Back");yield return null;
+                Assert.AreEqual(0,UnityEngine.Object.FindObjectsOfType<AvatarGraphic>().Length);
+                LogAssert.NoUnexpectedReceived();
+            }
+        }
         IEnumerator CompleteParty(int count)
         {
             yield return SceneManager.LoadSceneAsync("Main");yield return null;

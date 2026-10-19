@@ -34,6 +34,7 @@ En otra máquina usar el ejecutable .NET instalado allí. El [informe simulado](
 
 Abrir `Main.unity` con Unity 2022.3.62f1, **Window → General → Test Runner**:
 
+- Regresión de `MissingComponentException` al abrir Jugar: `AvatarGraphic` y `BoardGraphics` ahora declaran `CanvasRenderer` como componente obligatorio. UGUI 1.0.0 no lo exige en la clase base `MaskableGraphic`; los gráficos personalizados deben declararlo. `CustomGraphicsCreateTheirRequiredRenderer` comprueba ambas clases antes de activarlas. `RosterAvatarsSurviveClippingRebuildAndReturnToMenu` abre Jugar, verifica los avatares bajo `RectMask2D`, cambia avatar, agrega/elimina participantes y vuelve al menú tres veces sin errores inesperados. Estas pruebas requieren Unity y siguen pendientes de ejecución aquí.
 - **EditMode:** contratos party y legado con catálogos cargados por JsonUtility.
 - **PlayMode:** `TwoPlayersCompleteRoundThroughButtons` y `EightPlayersCompleteRoundThroughButtons`: menú, ayuda, ajuste, alta de jugadores, apodos vacíos/duplicados, avatar, turnos ordenados, confirmación desactivada sin selección, división, rama B, historial, doble callback de confirmar, resultados y revancha.
 - PlayMode conserva dos comprobaciones de guardado del legado en directorios temporales. La prueba de ajustes puede cambiar la preferencia local de animación.
