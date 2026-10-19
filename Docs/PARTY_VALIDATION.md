@@ -1,57 +1,53 @@
-# Validación simulada del party game
+# Prueba del chisme argentino
 
-Generado con `dotnet run --project Tests/Rumores.Tests.csproj -c Release -- --party-report Docs/PARTY_VALIDATION.md`. Usa las reglas C# reales; no ejecuta Unity ni evalúa diversión humana.
+Generado con `dotnet run --project Tests/Rumores.Tests.csproj -c Release -- --party-report Docs/PARTY_VALIDATION.md`. Simulación C#; no es una ejecución de Unity.
 
-432 rondas: 36 semillas × 2 tamaños (2 y 8) × 6 secuencias. Cada secuencia rota las seis acciones, divide en el primer turno y alterna ramas A/B. Todos juegan exactamente dos veces.
+360 rondas completas (60 semillas × 2/8 amigos × 3 elecciones), 360 finales distintos y 0 frases repetidas dentro de una misma ronda.
 
-| Participantes | Rondas | Empates | Puntos medios/persona | Ganadores por asiento (incluye empates) |
-|---|---:|---:|---:|---|
-| 2 | 216 | 96 | 4.53 | 168, 144 |
-| 8 | 216 | 132 | 4.48 | 84, 84, 84, 72, 84, 84, 72, 72 |
+Se ofrecen tres respuestas reales por turno y confirmar conserva exactamente el texto elegido. No hay puntos, atributos ni objetivos calculados. Las cuatro maneras de contar rotan; el vocabulario sigue siendo finito. La repetición narrativa y la diversión necesitan validación con personas.
 
-Titulares finales distintos: 168. Ramas que terminan con pánico 100, credibilidad 0 o difusión 20: 144 (sobre 864 ramas).
+## Desapareció el mate de la ronda y el termo sigue lleno.
 
-Estos recorridos son pruebas estructurales, no jugadores óptimos. Los empates son esperables con 0–6 puntos y se muestran como victoria compartida. La novedad se evalúa por participante y rama: una contribución ajena no consume tu oportunidad. Los umbrales del objetivo siguen dependiendo del orden; validarlo con personas antes de ampliar el balance.
+¿Qué audio mandás al grupo sobre el mate?
 
-## Ejemplos reproducibles
+- Amigo 1: Che, ojo con el mate: podría estar reclutando termos rebeldes.
+- Amigo 2: Me contó un vecino lo del mate: lo vieron pagando un pasaje con la SUBE.
+- Amigo 1: Lo del mate me da cosa: podría estar reclutando termos rebeldes. ¡Avisen al grupo!
+- Amigo 2: Ah, yo entendí que apareció un tomate con bombilla en la plaza.
 
-### Semilla 0 · ¡Que cunda el pánico!
+Para charlar: ¿Quién del grupo se llevaría el mate sin darse cuenta?
 
-Original: La campana del pueblo sonó durante la siesta.
+## El bondi dio una vuelta a la manzana para saludar a un perro.
 
-- T1 · A · Mentir: Tengo la exclusiva de la campana: el alcalde cobra entrada por cada campanada. (+2)
-- T2 · B · Malinterpretar: ¿Cómo que no? La noticia era sobre la campaña electoral en el campanario. (+2)
-- T3 · A · Entrar en pánico: No quiero alarmar, pero la campana podría despertar a todos los fantasmas. ¡Traigan un casco! (+3)
-- T4 · B · Calmar: Antes de correr, preguntemos qué pasó con la campaña electoral en el campanario. (+2)
+¿Cómo contás lo que pasó con el bondi?
 
-Resultado: Vecino 1 = 5; Vecino 2 = 4. Ganadores: Vecino 1.
+- Amigo 1: Último momento desde la parada: por el bondi, los perros decidirán todas las paradas.
+- Amigo 2: Escuché el audio sin auriculares: todo era por un budín con ruedas en la parada.
+- Amigo 1: ¡Olvidate! Por culpa de un budín con ruedas, los perros decidirán todas las paradas.
+- Amigo 2: No es por meter miedo, pero un budín con ruedas podría empezar a pedir carnet de perro.
 
-### Semilla 5 · Que se entere el pueblo
+Para charlar: ¿Quién se pasaría de parada por seguir charlando?
 
-Original: Apareció un zapato gigante en el puente.
+## En la peña apareció una empanada con un repulgue de más.
 
-- T1 · A · Mentir: Un testigo del puente jura que el zapatero ya le cobró alquiler. Todo por el zapato. (+3)
-- T2 · B · Malinterpretar: Entendí perfecto: apareció un pato con cordones en el puente. (+2)
-- T3 · A · Entrar en pánico: Cierren las ventanas del puente: el zapato podría anunciar la llegada de un gigante. (+2)
-- T4 · B · Calmar: Respiren: sobre un pato con cordones en el puente todavía faltan pruebas. (+2)
+¿Qué explicación le das a esa empanada?
 
-Resultado: Vecino 1 = 5; Vecino 2 = 4. Ganadores: Vecino 1.
+- Amigo 1: Tengo la posta sobre la empanada: el jurado encontró un plano del tesoro adentro.
+- Amigo 2: Che, ojo con la empanada: podría estar guardando un secreto picante.
+- Amigo 1: Me contó un vecino lo de la empanada: el jurado encontró un plano del tesoro adentro.
+- Amigo 2: Lo de la empanada es tremendo: habrá que inventar otro día para discutir el relleno.
 
-### Semilla 21 · Que alguien nos crea
+Para charlar: ¿Qué relleno de empanada defenderías en una discusión?
 
-Original: El gallo del panadero cantó a medianoche.
+## La panadería vendió una docena de facturas y sobraron trece.
 
-- T1 · A · Mentir: Tengo la exclusiva del gallo: firmó un contrato para cantar en la radio. (+2)
-- T2 · B · Malinterpretar: ¿Cómo que no? La noticia era sobre un gallo de pan en la panadería. (+2)
-- T3 · A · Entrar en pánico: No quiero alarmar, pero el gallo podría estar avisando de una invasión. ¡Traigan un casco! (+2)
-- T4 · B · Calmar: Antes de correr, preguntemos qué pasó con un gallo de pan en la panadería. (+2)
+¿Qué decís de la docena misteriosa?
 
-Resultado: Vecino 1 = 4; Vecino 2 = 4. Ganadores: Vecino 1, Vecino 2.
+- Amigo 1: Pará, ¿no estaban hablando de una carpeta de cuentas en la panadería?
+- Amigo 2: Lo de una carpeta de cuentas es tremendo: el desayuno durará hasta el próximo feriado.
+- Amigo 1: Ah, yo entendí que apareció una docena de calculadoras en la panadería.
+- Amigo 2: Me contó un vecino lo de una docena de calculadoras: el panadero recibió instrucciones de una medialuna.
 
-## Observaciones
+Para charlar: ¿Quién cuenta las facturas antes de convidar?
 
-- Repetir tu transformación sobre el mismo protagonista y rama puede cambiar sus palabras, pero no recibe otro punto de aporte. La prueba de repetición lo exige.
-- Las confusiones sustituyen al protagonista y quedan en las transformaciones siguientes. Las invenciones anteriores se conservan en el historial; el titular muestra la última transformación, no todas las frases concatenadas.
-- El objetivo de pánico puede dejar de puntuar al acercarse a 100; difusión también satura en 20. Calmar y elegir otra rama permiten cambiar el contexto.
-- El vocabulario es finito: 12 noticias, 3 plantillas por acción y 2 malentendidos por noticia. La variedad de redacción no equivale a una nueva regla.
-- Pendientes: importación/renderizado y pruebas PlayMode en Unity, lectura y pulsación en pantallas pequeñas y prueba de diversión/equidad con personas.
+Pendiente: Unity EditMode/PlayMode, ajuste visual en pantallas pequeñas y prueba con amigos. La lista de avatares conserva la corrección de CanvasRenderer.

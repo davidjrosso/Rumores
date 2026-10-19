@@ -9,8 +9,7 @@ namespace Rumores.Core.Party
     [Serializable] public sealed class PartyPlayer
     {
         public string id,name;
-        public int avatar,score;
-        public List<string> usedActions=new List<string>();
+        public int avatar;
         public PartyPlayer Fresh(int index) {return new PartyPlayer {id="player-"+index,name=name,avatar=avatar};}
     }
     [Serializable] public sealed class PartyBranch {public string id,label;public PartyRumor rumor;}
@@ -28,9 +27,7 @@ namespace Rumores.Core.Party
         public int TotalTurns {get {return players.Count*catalog.turnsPerPlayer;}}
         public string Token {get {return RoundNumber+":"+Turn;}}
         public string NewsId {get;private set;}
-        public string GoalId {get;private set;}
         public PartyNews News {get {return catalog.News(NewsId);}}
-        public PartyGoal Goal {get {return catalog.Goal(GoalId);}}
         public PartyPlayer Current {get {if(Phase==PartyPhase.Finished)throw new InvalidOperationException("La ronda terminó.");return players[Turn%players.Count];}}
         public PartyChange LastChange {get;private set;}
         public bool CanSplit {get {return branches.Count==1&&Turn<TotalTurns-1;}}
@@ -62,15 +59,25 @@ namespace Rumores.Core.Party
         void Begin()
         {
             int newsIndex=(int)(unchecked((uint)Seed)%(uint)catalog.news.Count);
-            int goalIndex=(int)((unchecked((uint)Seed)/(uint)catalog.news.Count+unchecked((uint)Seed))%(uint)catalog.goals.Count);
-            NewsId=catalog.news[newsIndex].id;GoalId=catalog.goals[goalIndex].id;
+            NewsId=catalog.news[newsIndex].id;
             Turn=0;Phase=PartyPhase.Handoff;LastChange=null;
-            foreach(var p in players){p.score=0;p.usedActions.Clear();}
-            branches.Clear();branches.Add(new PartyBranch {id="A",label="La plaza",rumor=new PartyRumor {newsId=News.id,original=News.original,headline=News.original,subject=News.subject,values=News.initial.Copy()}});
+            branches.Clear();branches.Add(new PartyBranch {id="A",label="La plaza",rumor=new PartyRumor {newsId=News.id,original=News.original,headline=News.original,subject=News.subject}});
         }
         void Require(PartyPhase phase,string token)
         {if(Phase!=phase||token!=Token)throw new InvalidOperationException("Ese turno ya cambió. Esperá la pantalla del jugador actual.");}
         public void Ready(string token) {Require(PartyPhase.Handoff,token);Phase=PartyPhase.Choosing;}
+        public IReadOnlyList<PartyAction> Choices()
+        {
+            if(Phase!=PartyPhase.Choosing)throw new InvalidOperationException("Esperá tu turno para elegir.");
+            int first=(int)((unchecked((uint)Seed)+(uint)Turn)%(uint)catalog.actions.Count);
+            return Enumerable.Range(0,3).Select(i=>catalog.actions[(first+i)%catalog.actions.Count]).ToList().AsReadOnly();
+        }
+        public PartyChange Preview(string actionId)
+        {
+            if(Phase!=PartyPhase.Choosing)throw new InvalidOperationException("Esperá tu turno para elegir.");
+            return PartyTransform.Apply(catalog,branches[0].rumor.Copy(),actionId,Seed,Turn,Current.id,"A");
+        }
+        public PartyChange Confirm(string token,string actionId) {return Confirm(token,actionId,"A",false);}
         public PartyChange Confirm(string token,string actionId,string branchId,bool split)
         {
             Require(PartyPhase.Choosing,token);
@@ -79,22 +86,15 @@ namespace Rumores.Core.Party
             catalog.Action(actionId); // Validate the command before mutating state.
             var next=branch.rumor.Copy();
             var change=PartyTransform.Apply(catalog,next,actionId,Seed,Turn,Current.id,branchId);
-            change.variety=!Current.usedActions.Contains(actionId);change.goal=Goal.Met(change.before,change.after);change.split=split;
-            change.points=(change.contribution?1:0)+(change.variety?1:0)+(change.goal?1:0);
-            next.history.Add(change.Copy());branch.rumor=next;
+            change.split=split;next.history.Add(change.Copy());branch.rumor=next;
             if(split)branches.Add(new PartyBranch {id="B",label="El mercado",rumor=next.Copy()});
-            Current.score+=change.points;Current.usedActions.Add(actionId);LastChange=change.Copy();Phase=PartyPhase.Revealing;
+            LastChange=change.Copy();Phase=PartyPhase.Revealing;
             return change.Copy();
         }
         public void Next(string token)
         {
             Require(PartyPhase.Revealing,token);Turn++;
             Phase=Turn==TotalTurns?PartyPhase.Finished:PartyPhase.Handoff;
-        }
-        public List<PartyPlayer> Winners()
-        {
-            if(Phase!=PartyPhase.Finished)throw new InvalidOperationException("Todavía quedan turnos.");
-            int best=players.Max(p=>p.score);return players.Where(p=>p.score==best).ToList();
         }
         public void Rematch()
         {

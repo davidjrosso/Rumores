@@ -21,13 +21,13 @@ namespace Rumores.Presentation
         readonly List<PartyPlayer> roster=new List<PartyPlayer>();
         readonly List<InputField> inputs=new List<InputField>();
         readonly List<PartyActionCard> actionCards=new List<PartyActionCard>();
-        string selectedAction,selectedBranch="A";
-        bool split,fast;
+        readonly List<PartyAction> choices=new List<PartyAction>();
+        string selectedAction;
+        bool fast;
         int screenVersion;
         Text errorLabel,actionHint;
         Button confirm;
         const string FastKey="Rumores.Party.FastAnimations";
-        const string ScoreHelp="Hasta 3 puntos por turno: +1 por un aporte tuyo nuevo en esa rama; +1 por una acción que todavía no usaste; +1 por cumplir el objetivo. Dos turnos por persona. Los empates se comparten.";
         static readonly string[] Avatars={"miedoso","exagerado","mentiroso","ignorante"};
         static readonly string[] AvatarNames={"Asombro","Risa","Rulo","Lentes","Asombro II","Risa II","Rulo II","Lentes II"};
         public PartyGame Game {get;private set;}
@@ -89,25 +89,25 @@ namespace Rumores.Presentation
         void Menu()
         {
             Page("RUMORES");
-            Label("Un pueblo. Demasiadas versiones.",.04f,.83f,.96f,.91f,27);
+            Label("Un chisme, tus amigos y un montón de fruta.",.04f,.83f,.96f,.91f,27);
             var town=Ui.Rect(screen,"Town",new Vector2(.09f,.55f),new Vector2(.91f,.81f));Ui.Town(town);
             Button("Play","Jugar",.09f,.42f,.91f,.51f,()=>Setup());
             Button("HowToPlay","Cómo jugar",.09f,.31f,.91f,.40f,HowToPlay);
             Button("Settings","Ajustes",.09f,.20f,.91f,.29f,Settings);
             if(Game!=null)Button("Continue","Volver a la ronda",.09f,.09f,.91f,.18f,ShowPhase,Ui.Orange);
-            Label("2–8 personas · un teléfono · sin conexión",.05f,0,.95f,.07f,21);
+            Label("2–8 amigos · leé, elegí y pasá el celu",.05f,0,.95f,.07f,21);
         }
         void HowToPlay()
         {
             Page("Cómo jugar");
-            var text=Ui.ScrollText(screen,"1. Anoten de 2 a 8 apodos y elijan sus avatares. El avatar es decorativo: todos pueden usar todas las personalidades.\n\n2. Pasen el teléfono a quien indique la pantalla. Cada persona juega dos veces, en el orden de la lista.\n\n3. Leé el rumor y el objetivo común. Elegí una acción y confirmá. Las tarjetas explican sus efectos.\n\n4. Una vez por ronda podés enviar una copia al mercado. Ambas ramas empiezan iguales; después elegís cuál modificar. Dividir no da puntos extra ni turnos extra.\n\n5. Leé qué cambió y pasá al siguiente participante. Al final se muestran las versiones, sus historias y los ganadores.\n\n"+ScoreHelp+"\n\nAporte nuevo: una transformación que vos todavía no hiciste sobre ese protagonista en esa rama. Cambiar solo las palabras no suma otro aporte. Los aportes de otras personas no te quitan puntos.\n\nLa ronda se conserva mientras la aplicación esté abierta. Al cerrarla se pierde; los ajustes sí se recuerdan.",new Vector2(.03f,.13f),new Vector2(.97f,.90f),25);text.supportRichText=false;
+            var text=Ui.ScrollText(screen,"1. Anoten sus apodos. Juegan de 2 a 8 amigos con un solo celu.\n\n2. Pasen el celu a quien aparece en pantalla. Leé el chisme y elegí una de las tres respuestas. No hay una respuesta correcta.\n\n3. Tocá «Contarlo así», leé tu versión en voz alta y pasá el celu. Cada persona juega dos veces.\n\n4. Al final, miren cómo empezó la historia y en qué terminó. Pueden comentar la pregunta entre todos o jugar otra.\n\nLa ronda queda abierta mientras la app siga abierta. Si la cerrás, empiezan de nuevo.",new Vector2(.03f,.13f),new Vector2(.97f,.90f),28);text.supportRichText=false;
             Button("Back","Volver",.09f,.02f,.91f,.11f,Menu);
         }
         void Settings()
         {
             Page("Ajustes");Label("Presentación de los cambios",.05f,.74f,.95f,.85f,28);
             Button("ToggleAnimations",fast?"Animaciones: rápidas":"Animaciones: normales",.05f,.59f,.95f,.71f,()=>{fast=!fast;PlayerPrefs.SetInt(FastKey,fast?1:0);PlayerPrefs.Save();Settings();});
-            Label("Este ajuste solo cambia la presentación. No altera las reglas, los turnos ni los puntos.",.05f,.35f,.95f,.55f,26);
+            Label("Elegí cómo aparecen los textos. Podés pasar al siguiente cuando quieras.",.05f,.35f,.95f,.55f,26);
             Button("Back","Volver",.09f,.02f,.91f,.11f,Menu);
         }
         void ReadNames()
@@ -135,7 +135,7 @@ namespace Rumores.Presentation
             Button("Back","Volver",.03f,.01f,.35f,.10f,()=>{ReadNames();Menu();});
             Button("StartRound","Comenzar ronda",.37f,.01f,.97f,.10f,()=>{
                 ReadNames();var errors=PartyGame.ValidatePlayers(roster);if(errors.Count>0){errorLabel.text=errors[0];return;}
-                Game=new PartyGame(catalog,roster,UnityEngine.Random.Range(0,int.MaxValue));selectedBranch="A";ShowPhase();
+                Game=new PartyGame(catalog,roster,UnityEngine.Random.Range(0,int.MaxValue));ShowPhase();
             });
         }
         void ShowPhase()
@@ -150,76 +150,69 @@ namespace Rumores.Presentation
         }
         void Handoff()
         {
-            selectedAction=null;split=false;selectedBranch="A";
+            selectedAction=null;
             Page("Pasá el teléfono");
             Ui.Panel(screen,"AvatarBadge",new Vector2(.31f,.60f),new Vector2(.69f,.83f),Game.Current.avatar<4?Ui.Pale:new Color32(243,205,171,255));
             Ui.Avatar(screen,Avatars[Game.Current.avatar%4],new Vector2(.31f,.60f),new Vector2(.69f,.83f));
             Label(Game.Current.name,.04f,.49f,.96f,.60f,42);
-            Label("Turno "+(Game.Turn+1)+" de "+Game.TotalTurns+" · "+Game.Current.score+" puntos",.04f,.42f,.96f,.49f,25);
-            Label("Objetivo: "+Game.Goal.title+"\n"+Game.Goal.description,.04f,.22f,.96f,.40f,25);
+            Label(Game.Turn<Game.Players.Count?"Primera vuelta":"Última vuelta",.04f,.42f,.96f,.49f,25);
+            Label("Leé el chisme, elegí cómo contarlo y compartilo en voz alta.",.04f,.24f,.96f,.40f,28);
             string token=Game.Token;
             Button("Ready","Estoy listo",.06f,.08f,.94f,.19f,()=>{Game.Ready(token);TurnPage();});
             Button("Home","Menú",.34f,0,.66f,.07f,Menu);
         }
         void TurnPage()
         {
-            Page(Game.Current.name+" · turno "+(Game.Turn+1)+"/"+Game.TotalTurns);
-            var branch=Game.Branches.First(b=>b.id==selectedBranch);
-            if(Game.Branches.Count==1)Label("Rama A · La plaza",.03f,.86f,.67f,.92f,24,Ui.Teal);
-            else foreach(var b in Game.Branches){var id=b.id;float x=id=="A"?.02f:.50f;Button("Branch_"+id,(id==selectedBranch?"● ":"")+id+" · "+b.label,x,.86f,x+.48f,.92f,()=>{selectedBranch=id;TurnPage();},id==selectedBranch?Ui.Orange:Ui.Teal);}
-            Label(branch.rumor.headline,.03f,.75f,.97f,.86f,26);
-            Label(Game.Goal.title+"\n"+Game.Goal.description,.03f,.66f,.97f,.75f,21,Ui.Teal);
-            for(int i=0;i<catalog.actions.Count;i++)
+            Page("Te toca, "+Game.Current.name);
+            Label(Game.Branches[0].rumor.headline,.03f,.75f,.97f,.91f,28);
+            Label(Game.News.question,.03f,.65f,.97f,.75f,27,Ui.Teal);
+            choices.Clear();choices.AddRange(Game.Choices());
+            for(int i=0;i<choices.Count;i++)
             {
-                var a=catalog.actions[i];var card=Instantiate(actionCardPrefab,screen);var rt=(RectTransform)card.transform;
-                int col=i%2,row=i/2,rows=(catalog.actions.Count+1)/2;float height=.39f/rows;rt.anchorMin=new Vector2(col*.5f+.01f,.26f+(rows-1-row)*height);rt.anchorMax=new Vector2(col*.5f+.49f,.26f+(rows-row)*height);rt.offsetMin=new Vector2(4,4);rt.offsetMax=new Vector2(-4,-4);
+                var action=choices[i];var card=Instantiate(actionCardPrefab,screen);var rt=(RectTransform)card.transform;
+                rt.anchorMin=new Vector2(.02f,.18f+(2-i)*.155f);rt.anchorMax=new Vector2(.98f,.18f+(3-i)*.155f);rt.offsetMin=new Vector2(4,4);rt.offsetMax=new Vector2(-4,-4);
                 int version=screenVersion;
-                card.Bind(a,()=>{if(version!=screenVersion)return;selectedAction=a.id;RefreshChoice();});actionCards.Add(card);
+                card.Bind(action,Game.Preview(action.id).text,()=>{if(version!=screenVersion)return;selectedAction=action.id;RefreshChoice();});actionCards.Add(card);
             }
-            actionHint=Label("Elegí una acción para ver su efecto.",.03f,.17f,.97f,.26f,21);
-            if(Game.CanSplit)Button("Split",split?"✓ Crear también rama B · El mercado":"○ Dividir: copiar esta versión al mercado",.02f,.105f,.98f,.17f,()=>{split=!split;TurnPage();},split?Ui.Orange:Ui.Teal);
-            else Label(Game.Branches.Count==2?"Las ramas cambian por separado. Elegí A o B arriba.":"Último turno: ya no se puede dividir.",.03f,.105f,.97f,.17f,20);
-            Button("History","Historia",.02f,.02f,.32f,.10f,History);
+            actionHint=Label("Elegí la que más te divierta.",.03f,.11f,.97f,.18f,23);
+            Button("History","Lo anterior",.02f,.02f,.32f,.10f,()=>History(false));
             string token=Game.Token;
-            confirm=Button("Confirm","Confirmar acción",.34f,.02f,.98f,.10f,()=>{
+            confirm=Button("Confirm","Contarlo así",.34f,.02f,.98f,.10f,()=>{
                 if(Game.Phase!=PartyPhase.Choosing||Game.Token!=token||selectedAction==null)return;
-                confirm.interactable=false;Game.Confirm(token,selectedAction,selectedBranch,split);Reveal();
+                confirm.interactable=false;Game.Confirm(token,selectedAction);Reveal();
             },Ui.Orange);
             RefreshChoice();
         }
         void RefreshChoice()
         {
-            for(int i=0;i<actionCards.Count;i++)actionCards[i].SetSelected(catalog.actions[i].id==selectedAction);
+            for(int i=0;i<actionCards.Count;i++)actionCards[i].SetSelected(choices[i].id==selectedAction);
             if(confirm!=null)confirm.interactable=selectedAction!=null;
-            if(actionHint!=null&&selectedAction!=null)actionHint.text=catalog.Action(selectedAction).description;
+            if(actionHint!=null&&selectedAction!=null)actionHint.text="¿Sale esta? Tocá «Contarlo así».";
         }
-        string BranchHistory(PartyBranch branch)
+        string StoryHistory()
         {
-            var text=new StringBuilder();text.AppendLine(branch.id+" · "+branch.label).AppendLine(branch.rumor.headline).AppendLine(branch.rumor.values.ToString()).AppendLine();
-            foreach(var change in branch.rumor.history)
+            var text=new StringBuilder("ASÍ EMPEZÓ\n");text.AppendLine(Game.News.original).AppendLine();
+            foreach(var change in Game.Branches[0].rumor.history)
             {
                 string player=Game.Players.First(p=>p.id==change.playerId).name;
-                text.AppendLine("Turno "+(change.turn+1)+" · "+player+" · "+catalog.Action(change.actionId).title+(change.split?" · DIVISIÓN A → A + B":""));
-                text.AppendLine(change.text).AppendLine(change.reason).AppendLine(change.before+" → "+change.after).AppendLine("+"+change.points+" puntos: "+change.ScoreExplanation).AppendLine();
+                text.AppendLine(player+" contó:").AppendLine(change.text).AppendLine();
             }
             return text.ToString();
         }
-        void History()
+        void History(bool fromResults)
         {
-            Page("Historia de la noticia");var text=Ui.ScrollText(screen,"ORIGINAL\n"+Game.News.original+"\n\n"+string.Join("\n────────\n",Game.Branches.Select(BranchHistory))+"\nEl prefijo anterior a la división aparece en ambas ramas. Sus puntos se cuentan una sola vez.",new Vector2(.02f,.13f),new Vector2(.98f,.91f),23);text.supportRichText=false;
-            Button("BackToTurn","Volver al turno",.06f,.02f,.94f,.11f,TurnPage);
+            Page("El chisme del grupo");var text=Ui.ScrollText(screen,StoryHistory(),new Vector2(.02f,.13f),new Vector2(.98f,.91f),26);text.supportRichText=false;
+            Button("BackToTurn","Volver",.06f,.02f,.94f,.11f,()=>{if(fromResults)Results();else TurnPage();});
         }
         void Reveal()
         {
-            Page("Así cambió el rumor");var change=Game.LastChange;
-            var paper=Ui.Panel(screen,"NewVersion",new Vector2(.03f,.66f),new Vector2(.97f,.90f),Ui.Pale);
-            var headline=Ui.Text(paper.transform,change.text,new Vector2(.04f,.04f),new Vector2(.96f,.96f),30);headline.supportRichText=false;
-            Label(change.reason,.03f,.48f,.97f,.64f,25);
-            Label("ANTES: "+change.before+"\nAHORA: "+change.after,.03f,.34f,.97f,.47f,22);
-            Label("+"+change.points+" puntos para "+Game.Current.name+"\n"+change.ScoreExplanation,.03f,.21f,.97f,.33f,24,Ui.Teal);
-            Label(change.split?"A · La plaza  →  A + B · El mercado\nDesde ahora cada rama puede cambiar por su cuenta.":"Cambió solo la rama "+change.branchId+". "+PartyTransform.Reaction(change.after),.03f,.10f,.97f,.21f,22);
+            Page("Leelo en voz alta");
+            Label(Game.Current.name+" cuenta…",.03f,.80f,.97f,.91f,30,Ui.Teal);
+            var paper=Ui.Panel(screen,"NewVersion",new Vector2(.03f,.39f),new Vector2(.97f,.78f),Ui.Pale);
+            var headline=Ui.Text(paper.transform,Game.LastChange.text,new Vector2(.04f,.04f),new Vector2(.96f,.96f),32);headline.supportRichText=false;
+            Label(Game.Turn+1==Game.TotalTurns?"¡Listo! Veamos en qué terminó el chisme.":"Cuando termines de leer, pasá el celu.",.03f,.22f,.97f,.36f,27);
             string token=Game.Token;
-            Button("Next",Game.Turn+1==Game.TotalTurns?"Ver resultados":"Siguiente participante",.04f,.01f,.96f,.10f,()=>{Game.Next(token);ShowPhase();});
+            Button("Next",Game.Turn+1==Game.TotalTurns?"Ver cómo terminó":"Pasar el celu",.04f,.07f,.96f,.18f,()=>{Game.Next(token);ShowPhase();});
             StartCoroutine(Pop(paper.rectTransform));
         }
         IEnumerator Pop(RectTransform target)
@@ -230,18 +223,16 @@ namespace Rumores.Presentation
         }
         void Results()
         {
-            Page("Fin de la ronda");var winners=Game.Winners();
-            Label(winners.Count==1?"Ganó "+winners[0].name:"Victoria compartida: "+winners.Count+" ganadores",.03f,.79f,.97f,.91f,30,Ui.Orange);
-            var report=new StringBuilder();report.AppendLine("GANADORES: "+string.Join(", ",winners.Select(p=>p.name))).AppendLine().AppendLine("PUNTUACIÓN · "+Game.Goal.title);
-            foreach(var p in Game.Players.OrderByDescending(p=>p.score))report.AppendLine(p.name+": "+p.score+" puntos");
-            report.AppendLine().AppendLine(ScoreHelp).AppendLine().AppendLine("NOTICIA ORIGINAL").AppendLine(Game.News.original).AppendLine();
-            foreach(var branch in Game.Branches)report.AppendLine("VERSIÓN FINAL · "+branch.id+" · "+branch.label).AppendLine(branch.rumor.headline).AppendLine(PartyTransform.Reaction(branch.rumor.values)).AppendLine();
-            report.AppendLine("HISTORIAL DE CAMBIOS").AppendLine("Los puntos de un evento compartido se cuentan una sola vez.").AppendLine();
-            foreach(var branch in Game.Branches)report.AppendLine(BranchHistory(branch));
-            var text=Ui.ScrollText(screen,report.ToString(),new Vector2(.02f,.19f),new Vector2(.98f,.79f),24);text.supportRichText=false;
-            Button("Rematch","Nueva ronda · mismos jugadores",.03f,.10f,.97f,.18f,()=>{Game.Rematch();selectedBranch="A";ShowPhase();},Ui.Orange);
-            Button("ChangePlayers","Cambiar jugadores",.03f,.01f,.62f,.09f,()=>Setup());
-            Button("Home","Menú",.64f,.01f,.97f,.09f,Menu);
+            Page("¡Mirá en qué terminó!");
+            Label("ASÍ EMPEZÓ",.03f,.85f,.97f,.91f,23,Ui.Teal);
+            Label(Game.News.original,.03f,.68f,.97f,.85f,28);
+            Label("ASÍ LO DEJARON",.03f,.61f,.97f,.68f,23,Ui.Orange);
+            Label(Game.Branches[0].rumor.headline,.03f,.38f,.97f,.61f,30);
+            Label("Para charlar entre todos:\n"+Game.News.icebreaker,.03f,.23f,.97f,.38f,26,Ui.Teal);
+            Button("History","Ver el chisme completo",.03f,.16f,.97f,.23f,()=>History(true));
+            Button("Rematch","¡Otra!",.03f,.075f,.97f,.155f,()=>{Game.Rematch();ShowPhase();},Ui.Orange);
+            Button("ChangePlayers","Cambiar amigos",.03f,0,.62f,.075f,()=>Setup());
+            Button("Home","Menú",.64f,0,.97f,.075f,Menu);
         }
     }
 }

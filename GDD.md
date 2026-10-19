@@ -1,38 +1,30 @@
-# Rumores · prototipo party
+# Rumores · jugar con amigos
 
-## Objetivo y alcance
+## Experiencia actual
 
-De dos a ocho participantes transforman una noticia absurda en un único dispositivo. El humor surge de las versiones y de las contradicciones visibles en el historial. Unity 2022.3.62f1, C#, vertical, sin conexión. Esta fase usa placeholders; no incluye progreso persistente, inventarios, monedas, mejoras ni publicación Android.
+De 2 a 8 amigos, un teléfono, humor cotidiano argentino. Cada persona lee una pregunta y elige una de tres respuestas completas. La gracia está en contar la nueva versión en voz alta y escuchar cómo cambia el chisme.
 
-## Recorrido
+El pedido de simplificación reemplaza la puntuación y los objetivos anteriores. No hay atributos, puntos, estrategia numérica, clasificación ni ganador calculado. Al terminar, el grupo comenta la historia. No se agrega un sistema de votación que vuelva a complicar la ronda.
 
-Menú → participantes → entrega del teléfono → elegir acción/rama → confirmar → leer cambio y puntos → siguiente participante → resultados → revancha. Cada persona juega dos veces en el orden de registro. Las acciones son públicas; la entrega del teléfono identifica claramente quién actúa.
+## Flujo
 
-Hay ocho avatares provisionales (cuatro caras con dos colores) independientes de las reglas. Todos pueden elegir las cuatro personalidades en cada turno. No se asignan ventajas permanentes por avatar.
+Menú → apodos/avatares → pasar el celu → leer/elegir → «Contarlo así» → leer en voz alta → siguiente amigo. Dos vueltas en el orden de registro. Confirmar evita que un toque accidental sobre una tarjeta consuma el turno. La vista previa ya muestra exactamente lo que se contará.
 
-## Acciones
+Todos siguen una sola historia. Se retiraron los controles de división y elección de ramas. «Lo anterior» permite releer sin perder la selección. El resultado muestra el original, la última versión, una pregunta social y acceso opcional al historial completo. «¡Otra!» mantiene los amigos y avatares, cambia la noticia y limpia la historia.
 
-- **Entrar en pánico / miedoso:** convierte una señal en amenaza; sube especialmente el pánico.
-- **Exagerar / exagerado:** convierte el incidente en consecuencias enormes; sube especialmente la importancia.
-- **Mentir / mentiroso:** inventa un detalle ligado a la noticia y lo marca como invención; pierde credibilidad.
-- **Malinterpretar / ignorante:** sustituye al protagonista por una confusión absurda; ese cambio persiste en los textos posteriores.
-- **Calmar:** pide pruebas, reduce la alarma y recupera credibilidad.
-- **Difundir:** lleva el rumor a cuatro vecinos más.
+## Contenido
 
-La tarjeta resume el efecto y, al seleccionarla, aparece una explicación adicional antes de confirmar. El resultado muestra texto, razón, atributos antes/después y desglose de puntos. Las plantillas son locales y deterministas.
+20 noticias argentinas con 20 preguntas de turno y 20 preguntas de conversación. Temas: mate, bondi, kiosco, asado, empanadas, SUBE, truco, fútbol de barrio, Córdoba, Mendoza, peña, locro y otras situaciones cotidianas. Son ficción humorística; no se presentan rumores sobre personas reales.
 
-## Ramas y narración
+Cuatro estilos locales, de los que se ofrecen tres por turno:
 
-La versión inicial circula por A, la plaza. Una confirmación puede enviar una copia al mercado, creando B. Ambas conservan el prefijo de historia hasta esa confirmación. Desde entonces cada acción afecta solo a la rama seleccionada. Máximo dos ramas, sin fusiones, y debe quedar al menos otro turno para poder crear B.
+- Hacerse la cabeza: imaginar una amenaza absurda.
+- Hacerla enorme: agrandar las consecuencias.
+- Mandar fruta: inventar un dato con seguridad.
+- Entender cualquiera: confundir el protagonista; la confusión sigue en los textos posteriores.
 
-El titular es la última transformación. El historial conserva todas las invenciones, confusiones y rectificaciones anteriores; la presentación no pretende concatenarlas en una frase cada vez más larga. En resultados se ve el original junto a las versiones finales y sus historias.
+Los avatares no dan habilidades. Las plantillas locales ofrecen variaciones de cada estilo. No se necesita conexión ni servicios de IA.
 
-## Ronda y victoria
+## Alcance
 
-Un objetivo común pide aumentar el pánico, conservar credibilidad o alcanzar vecinos nuevos. La fórmula otorga hasta tres puntos por turno: aporte propio nuevo en la rama, acción no usada por esa persona y objetivo cumplido. Ver [BALANCE.md](BALANCE.md). Gana la puntuación mayor; los empates son victorias compartidas.
-
-La revancha conserva apodos/avatares, cambia la noticia y reinicia todos los puntos, acciones usadas, historial y ramas. La ronda vive en memoria. Solo se guarda la preferencia de animación; no hay progreso persistente.
-
-## Contenido y siguiente validación
-
-Doce noticias, tres variantes por acción y dos malentendidos por noticia, configurados en `PartyContent.json`. La frase no necesita conexión ni generación remota. Se prioriza probar con personas el ritmo, la comprensión del objetivo y la frecuencia de empates. El arte definitivo y la publicación Android quedan fuera de esta fase.
+Se mantiene Unity 2022.3.62f1, C#, presentación provisional, menú/ajustes, validación de apodos, turnos protegidos y revancha. La ronda es temporal; solo se guarda la preferencia de animación. Quedan fuera arte definitivo, publicación Android, progreso, inventarios y monedas.

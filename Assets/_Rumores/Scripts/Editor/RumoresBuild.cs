@@ -17,7 +17,7 @@ namespace Rumores.Editor
         {
             var asset=AssetDatabase.LoadAssetAtPath<PartyCatalogAsset>("Assets/_Rumores/Resources/PartyCatalog.asset");
             if(asset==null)throw new InvalidOperationException("Falta el catálogo.");
-            var catalog=asset.Load();Debug.Log("Rumores: "+catalog.news.Count+" noticias, "+catalog.actions.Count+" acciones y "+catalog.goals.Count+" objetivos validados.");
+            var catalog=asset.Load();Debug.Log("Rumores: "+catalog.news.Count+" noticias, "+catalog.actions.Count+" maneras de contar el chisme validadas.");
         }
         [MenuItem("Rumores/Configurar Android")]
         public static void ConfigureAndroid()

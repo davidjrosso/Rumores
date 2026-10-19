@@ -74,26 +74,28 @@ namespace Rumores.Tests
             GameObject.Find("PlayerName_0").GetComponent<InputField>().text="Ana";
             Click("Avatar_0");yield return null;Click("StartRound");yield return null;
             Assert.AreEqual(count,app.Game.Players.Count);Assert.AreEqual(1,app.Game.Players[0].avatar);
-            string[] actions={"panico","exagerar","mentir","confundir","calmar","difundir"};
             for(int turn=0;turn<count*2;turn++)
             {
                 Assert.AreEqual("player-"+(turn%count),app.Game.Current.id);
                 Click("Ready");yield return null;
                 Assert.IsFalse(GameObject.Find("Confirm").GetComponent<Button>().interactable);
-                if(turn==0){Click("Split");yield return null;}
-                if(turn%2==1){Click("Branch_B");yield return null;}
-                Click("Action_"+actions[turn%actions.Length]);yield return null;
+                Assert.IsNull(GameObject.Find("Split"));Assert.IsNull(GameObject.Find("Branch_B"));
+                Assert.AreEqual(3,UnityEngine.Object.FindObjectsOfType<PartyActionCard>().Length);
+                string action=app.Game.Choices()[turn%3].id;
+                string preview=app.Game.Preview(action).text;
+                Assert.IsTrue(GameObject.Find("Action_"+action).GetComponentsInChildren<Text>().Any(t=>t.text==preview));
+                Click("Action_"+action);yield return null;
                 if(turn==1){Click("History");yield return null;Click("BackToTurn");yield return null;}
                 var confirm=GameObject.Find("Confirm").GetComponent<Button>();confirm.onClick.Invoke();
-                int score=app.Game.Current.score;confirm.onClick.Invoke();Assert.AreEqual(score,app.Game.Current.score);
+                int events=app.Game.Branches[0].rumor.history.Count;confirm.onClick.Invoke();Assert.AreEqual(events,app.Game.Branches[0].rumor.history.Count);Assert.AreEqual(preview,app.Game.LastChange.text);
                 yield return null;Assert.AreEqual(Rumores.Core.Party.PartyPhase.Revealing,app.Game.Phase);
                 Click("Next");yield return null;
             }
-            Assert.AreEqual(Rumores.Core.Party.PartyPhase.Finished,app.Game.Phase);Assert.AreEqual(2,app.Game.Branches.Count);Assert.IsTrue(app.Game.Winners().Count>0);
-            Assert.AreNotEqual(app.Game.Branches[0].rumor.headline,app.Game.Branches[1].rumor.headline);
+            Assert.AreEqual(Rumores.Core.Party.PartyPhase.Finished,app.Game.Phase);Assert.AreEqual(1,app.Game.Branches.Count);Assert.AreEqual(count*2,app.Game.Branches[0].rumor.history.Count);
+            Click("History");yield return null;Click("BackToTurn");yield return null;
             string oldNews=app.Game.NewsId;Click("Rematch");yield return null;
             Assert.AreEqual(0,app.Game.Turn);Assert.AreEqual(1,app.Game.Branches.Count);Assert.AreNotEqual(oldNews,app.Game.NewsId);
-            Assert.IsTrue(app.Game.Players.All(p=>p.score==0));Assert.AreEqual("Ana",app.Game.Current.name);
+            Assert.AreEqual(0,app.Game.Branches[0].rumor.history.Count);Assert.AreEqual("Ana",app.Game.Current.name);
         }
         [Test]
         public void JsonUtilityAndAtomicSaveResumeRewardAndRecoverBackup()

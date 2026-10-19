@@ -1,355 +1,356 @@
 {
-  "version": 1,
+  "version": 2,
   "turnsPerPlayer": 2,
   "news": [
     {
-      "id": "campana",
-      "original": "La campana del pueblo sonó durante la siesta.",
-      "subject": "la campana",
-      "place": "el campanario",
-      "threat": "podría despertar a todos los fantasmas",
-      "consequence": "nadie volverá a dormir en cien años",
-      "lie": "el alcalde cobra entrada por cada campanada",
-      "mistakes": [
-        "la campaña electoral",
-        "una campanita de manteca"
-      ],
-      "initial": {
-        "panic": 15,
-        "importance": 20,
-        "credibility": 85,
-        "reach": 1
-      }
-    },
-    {
-      "id": "calabaza",
-      "original": "Una calabaza ganó el concurso de sombreros.",
-      "subject": "la calabaza",
-      "place": "la feria",
-      "threat": "podría estar vigilando nuestras cabezas",
-      "consequence": "los sombreros gobernarán el pueblo",
-      "lie": "el jurado recibió semillas como soborno",
-      "mistakes": [
-        "una carroza",
-        "una cabeza de queso"
-      ],
-      "initial": {
-        "panic": 15,
-        "importance": 20,
-        "credibility": 85,
-        "reach": 1
-      }
-    },
-    {
-      "id": "fuente",
-      "original": "La fuente de la plaza empezó a dar agua tibia.",
-      "subject": "la fuente",
+      "id": "mate",
+      "original": "Desapareció el mate de la ronda y el termo sigue lleno.",
+      "subject": "el mate",
       "place": "la plaza",
-      "threat": "podría estar cocinando a los patos",
-      "consequence": "todo el pueblo se convertirá en sopa",
-      "lie": "hay un cocinero escondido debajo",
+      "threat": "podría estar reclutando termos rebeldes",
+      "consequence": "se suspenderán todas las charlas del país",
+      "lie": "lo vieron pagando un pasaje con la SUBE",
       "mistakes": [
-        "una fuente de fideos",
-        "una fuente tipográfica"
+        "un tomate con bombilla",
+        "un satélite lleno de yerba"
       ],
-      "initial": {
-        "panic": 15,
-        "importance": 20,
-        "credibility": 85,
-        "reach": 1
-      }
+      "question": "¿Qué audio mandás al grupo sobre el mate?",
+      "icebreaker": "¿Quién del grupo se llevaría el mate sin darse cuenta?"
     },
     {
-      "id": "burro",
-      "original": "Un burro entró a la biblioteca y no quiso salir.",
-      "subject": "el burro",
-      "place": "la biblioteca",
-      "threat": "podría comerse todas las historias",
-      "consequence": "los libros aprenderán a rebuznar",
-      "lie": "pidió un carné con foto y apellido",
+      "id": "bondi",
+      "original": "El bondi dio una vuelta a la manzana para saludar a un perro.",
+      "subject": "el bondi",
+      "place": "la parada",
+      "threat": "podría empezar a pedir carnet de perro",
+      "consequence": "los perros decidirán todas las paradas",
+      "lie": "el perro es el nuevo inspector de la línea",
       "mistakes": [
-        "un libro con orejas",
-        "un bibliotecario de peluche"
+        "un budín con ruedas",
+        "un perro con volante"
       ],
-      "initial": {
-        "panic": 15,
-        "importance": 20,
-        "credibility": 85,
-        "reach": 1
-      }
+      "question": "¿Cómo contás lo que pasó con el bondi?",
+      "icebreaker": "¿Quién se pasaría de parada por seguir charlando?"
     },
     {
-      "id": "reloj",
-      "original": "El reloj municipal atrasa siete minutos.",
-      "subject": "el reloj",
-      "place": "la municipalidad",
-      "threat": "podría estar robándonos la juventud",
-      "consequence": "el martes durará tres semanas",
-      "lie": "vendieron los minutos a otro pueblo",
+      "id": "empanada",
+      "original": "En la peña apareció una empanada con un repulgue de más.",
+      "subject": "la empanada",
+      "place": "la peña",
+      "threat": "podría estar guardando un secreto picante",
+      "consequence": "habrá que inventar otro día para discutir el relleno",
+      "lie": "el jurado encontró un plano del tesoro adentro",
       "mistakes": [
-        "un conejo con agujas",
-        "un calendario de bolsillo"
+        "una almohada con repulgue",
+        "una medialuna disfrazada"
       ],
-      "initial": {
-        "panic": 15,
-        "importance": 20,
-        "credibility": 85,
-        "reach": 1
-      }
+      "question": "¿Qué explicación le das a esa empanada?",
+      "icebreaker": "¿Qué relleno de empanada defenderías en una discusión?"
     },
     {
-      "id": "zapato",
-      "original": "Apareció un zapato gigante en el puente.",
-      "subject": "el zapato",
-      "place": "el puente",
-      "threat": "podría anunciar la llegada de un gigante",
-      "consequence": "habrá que construir calles del talle cien",
-      "lie": "el zapatero ya le cobró alquiler",
+      "id": "kiosco",
+      "original": "El kiosco empezó a dar caramelos como vuelto y uno venía con moño.",
+      "subject": "el caramelo",
+      "place": "el kiosco",
+      "threat": "podría querer comprarnos a todos",
+      "consequence": "los caramelos cotizarán en la bolsa del barrio",
+      "lie": "el kiosquero lo nombró gerente de finanzas",
       "mistakes": [
-        "un pato con cordones",
-        "una empanada con suela"
+        "un camello de dulce de leche",
+        "un billete con gusto a menta"
       ],
-      "initial": {
-        "panic": 15,
-        "importance": 20,
-        "credibility": 85,
-        "reach": 1
-      }
+      "question": "¿Qué se comenta en la fila del kiosco?",
+      "icebreaker": "¿Quién pediría que le guarden el vuelto hasta mañana?"
     },
     {
-      "id": "queso",
-      "original": "Un queso redondo desapareció de la feria.",
-      "subject": "el queso",
-      "place": "la feria",
-      "threat": "podría estar rodando hacia nuestras casas",
-      "consequence": "la luna perderá su empleo",
-      "lie": "lo vieron comprando un pasaje de tren",
+      "id": "asado",
+      "original": "Alguien llevó una reposera al asado pero se olvidó de la carne.",
+      "subject": "la reposera",
+      "place": "el patio",
+      "threat": "podría estar organizando un golpe contra la parrilla",
+      "consequence": "se declarará feriado hasta que aparezca el asado",
+      "lie": "la reposera figura como invitada en el grupo de WhatsApp",
       "mistakes": [
-        "un beso redondo",
-        "una rueda de jabón"
+        "una heladera plegable",
+        "una parrilla con almohadón"
       ],
-      "initial": {
-        "panic": 15,
-        "importance": 20,
-        "credibility": 85,
-        "reach": 1
-      }
+      "question": "¿Cómo llega esta historia al grupo del asado?",
+      "icebreaker": "¿Quién sería capaz de llevar todo menos lo que le tocaba?"
     },
     {
-      "id": "paraguas",
-      "original": "Un paraguas quedó colgado en el árbol más alto.",
-      "subject": "el paraguas",
-      "place": "el parque",
-      "threat": "podría atraer tormentas con mal carácter",
-      "consequence": "lloverá de abajo hacia arriba",
-      "lie": "el árbol lo compró en doce cuotas",
+      "id": "alfajor",
+      "original": "Un alfajor apareció en la heladera con un cartel que dice «no tocar».",
+      "subject": "el alfajor",
+      "place": "la cocina",
+      "threat": "podría estar preparando una emboscada de chocolate",
+      "consequence": "la merienda necesitará permiso del consorcio",
+      "lie": "lo contrataron como seguridad de la heladera",
       "mistakes": [
-        "un par de aguas",
-        "un paracaídas para hormigas"
+        "un almohadón triple",
+        "un raviol bañado en chocolate"
       ],
-      "initial": {
-        "panic": 15,
-        "importance": 20,
-        "credibility": 85,
-        "reach": 1
-      }
+      "question": "¿Qué sospechás del alfajor reservado?",
+      "icebreaker": "¿Quién diría «yo no fui» con chocolate en la cara?"
     },
     {
-      "id": "banco",
-      "original": "Pintaron de rosa el banco de la plaza.",
-      "subject": "el banco",
-      "place": "la plaza",
-      "threat": "podría teñir a cualquiera que se siente",
-      "consequence": "todo el pueblo terminará color frutilla",
-      "lie": "un flamenco lo reservó para su boda",
+      "id": "truco",
+      "original": "En el club alguien gritó truco antes de que repartieran las cartas.",
+      "subject": "el mazo",
+      "place": "el club de barrio",
+      "threat": "podría estar escuchando nuestros pensamientos",
+      "consequence": "habrá que consultar al VAR cada vez que alguien diga falta envido",
+      "lie": "el siete de espadas pidió jugar de titular",
       "mistakes": [
-        "un banco de dinero",
-        "un barranco rosado"
+        "un mazo de albañil",
+        "un álbum de figuritas"
       ],
-      "initial": {
-        "panic": 15,
-        "importance": 20,
-        "credibility": 85,
-        "reach": 1
-      }
+      "question": "¿Qué versión circula de esa partida de truco?",
+      "icebreaker": "¿Quién cantaría falta envido sin mirar las cartas?"
     },
     {
-      "id": "gallo",
-      "original": "El gallo del panadero cantó a medianoche.",
-      "subject": "el gallo",
+      "id": "facturas",
+      "original": "La panadería vendió una docena de facturas y sobraron trece.",
+      "subject": "la bandeja de facturas",
       "place": "la panadería",
-      "threat": "podría estar avisando de una invasión",
-      "consequence": "el sol saldrá dos veces por día",
-      "lie": "firmó un contrato para cantar en la radio",
+      "threat": "podría multiplicarse mientras dormimos",
+      "consequence": "el desayuno durará hasta el próximo feriado",
+      "lie": "el panadero recibió instrucciones de una medialuna",
       "mistakes": [
-        "un gallo de pan",
-        "un grillo con megáfono"
+        "una carpeta de cuentas",
+        "una docena de calculadoras"
       ],
-      "initial": {
-        "panic": 15,
-        "importance": 20,
-        "credibility": 85,
-        "reach": 1
-      }
+      "question": "¿Qué decís de la docena misteriosa?",
+      "icebreaker": "¿Quién cuenta las facturas antes de convidar?"
     },
     {
-      "id": "buzon",
-      "original": "Alguien dejó una zanahoria en el buzón.",
-      "subject": "el buzón",
-      "place": "el correo",
-      "threat": "podría estar reclutando conejos espías",
-      "consequence": "todas las cartas se convertirán en ensalada",
-      "lie": "el cartero recibió instrucciones de un conejo",
+      "id": "sube",
+      "original": "Una SUBE hizo un ruido de aplausos al pasar por el lector.",
+      "subject": "la SUBE",
+      "place": "la estación",
+      "threat": "podría estar avisando que el lector cobra con secretos",
+      "consequence": "el tren tendrá que frenar para recibir una ovación",
+      "lie": "la tarjeta ensaya con la murga los jueves",
       "mistakes": [
-        "un buzo vegetariano",
-        "un sombrero para zanahorias"
+        "una nube con saldo",
+        "una tarjeta de cumpleaños"
       ],
-      "initial": {
-        "panic": 15,
-        "importance": 20,
-        "credibility": 85,
-        "reach": 1
-      }
+      "question": "¿Qué contás sobre la SUBE que aplaude?",
+      "icebreaker": "¿Quién saludaría al lector después del aplauso?"
     },
     {
-      "id": "molino",
-      "original": "El molino gira aunque hoy no hay viento.",
-      "subject": "el molino",
-      "place": "las afueras",
-      "threat": "podría estar persiguiendo a las nubes",
-      "consequence": "el pueblo entero saldrá volando",
-      "lie": "tres abuelas pedalean dentro por turnos",
+      "id": "fulbito",
+      "original": "La pelota del fulbito quedó clavada en el árbol del vecino.",
+      "subject": "la pelota",
+      "place": "la canchita",
+      "threat": "podría estar espiando la formación del equipo",
+      "consequence": "el próximo campeonato se jugará arriba de los árboles",
+      "lie": "el árbol ya firmó contrato como arquero",
       "mistakes": [
-        "un molinillo de pimienta",
-        "un ventilador enamorado"
+        "una palta de cuero",
+        "una luna con botines"
       ],
-      "initial": {
-        "panic": 15,
-        "importance": 20,
-        "credibility": 85,
-        "reach": 1
-      }
+      "question": "¿Qué explicación dan después del partido?",
+      "icebreaker": "¿Quién diría que la pelota se fue sola?"
+    },
+    {
+      "id": "choripan",
+      "original": "El puesto de choripanes puso una fila exclusiva para el chimichurri.",
+      "subject": "el chimichurri",
+      "place": "la costanera",
+      "threat": "podría estar tomando el control de la parrilla",
+      "consequence": "habrá que sacar turno para cada mordisco",
+      "lie": "un frasco decidió abrir su propia sucursal",
+      "mistakes": [
+        "un colibrí picante",
+        "un perfume de orégano"
+      ],
+      "question": "¿Qué rumor nace en la fila del choripán?",
+      "icebreaker": "¿Quién se pondría en la fila equivocada por seguir el olor?"
+    },
+    {
+      "id": "soda",
+      "original": "El sifón de la mesa apuntó justo a la camiseta nueva de un invitado.",
+      "subject": "el sifón",
+      "place": "la mesa del domingo",
+      "threat": "podría tener una lista de camisetas pendientes",
+      "consequence": "el almuerzo se jugará con piloto y antiparras",
+      "lie": "lo entrenaron para apagar discusiones de fútbol",
+      "mistakes": [
+        "un saxofón con burbujas",
+        "un pingüino a presión"
+      ],
+      "question": "¿Cómo contás el ataque del sifón?",
+      "icebreaker": "¿Quién seguiría apretando para ver si sale más?"
+    },
+    {
+      "id": "sierras",
+      "original": "En las sierras apareció un cartel que dice «prohibido apurar al río».",
+      "subject": "el cartel",
+      "place": "las sierras de Córdoba",
+      "threat": "podría estar defendiendo a un río con mal carácter",
+      "consequence": "las vacaciones tendrán que durar un mes más",
+      "lie": "el río contrató un abogado para que lo dejen descansar",
+      "mistakes": [
+        "un mantel de piedra",
+        "un carpincho con cartelera"
+      ],
+      "question": "¿Qué entendés del cartel en las sierras?",
+      "icebreaker": "¿Quién preguntaría a qué hora termina de pasar el río?"
+    },
+    {
+      "id": "mendoza",
+      "original": "En Mendoza un racimo de uvas salió primero en la foto familiar.",
+      "subject": "el racimo",
+      "place": "la finca de Mendoza",
+      "threat": "podría querer quedarse con todos los álbumes",
+      "consequence": "las uvas tendrán su propia alfombra roja",
+      "lie": "el fotógrafo recibió una caja de pasas como adelanto",
+      "mistakes": [
+        "un ramo de botones",
+        "un micrófono de uvas"
+      ],
+      "question": "¿Qué chisme sale de esa foto en Mendoza?",
+      "icebreaker": "¿Quién repetiría la foto porque salió mal una uva?"
+    },
+    {
+      "id": "carpincho",
+      "original": "Un carpincho se instaló al lado de la conservadora en la costa del río.",
+      "subject": "el carpincho",
+      "place": "la costa del río",
+      "threat": "podría estar custodiando una sociedad secreta de sanguchitos",
+      "consequence": "todos los picnics necesitarán permiso de carpincho",
+      "lie": "trajo su propio tupper y pidió una servilleta",
+      "mistakes": [
+        "un almohadón con patas",
+        "un pan de campo con bigotes"
+      ],
+      "question": "¿Qué mensaje mandás sobre el invitado al picnic?",
+      "icebreaker": "¿Quién le prepararía un plato al carpincho?"
+    },
+    {
+      "id": "peña",
+      "original": "En la peña alguien sacó a bailar a un perchero por error.",
+      "subject": "el perchero",
+      "place": "la peña del pueblo",
+      "threat": "podría empezar a elegir pareja por su cuenta",
+      "consequence": "los muebles tendrán categoría propia en el festival",
+      "lie": "el jurado lo invitó a la final de malambo",
+      "mistakes": [
+        "un arquero de madera",
+        "un árbol con poncho"
+      ],
+      "question": "¿Cómo contás el baile del perchero?",
+      "icebreaker": "¿Quién seguiría bailando para disimular?"
+    },
+    {
+      "id": "fernet",
+      "original": "En la juntada apareció un vaso de fernet con una rodaja de zanahoria.",
+      "subject": "el vaso",
+      "place": "la juntada",
+      "threat": "podría estar intentando convertirnos en ensalada",
+      "consequence": "la previa será declarada huerta comunitaria",
+      "lie": "un conejo mandó la receta por audio",
+      "mistakes": [
+        "un florero de gaseosa",
+        "un licuado con bufanda"
+      ],
+      "question": "¿Qué teoría tirás sobre ese vaso?",
+      "icebreaker": "¿Quién diría que es una receta familiar?"
+    },
+    {
+      "id": "torta-frita",
+      "original": "Una torta frita salió con forma del mapa de Argentina.",
+      "subject": "la torta frita",
+      "place": "la cocina de la abuela",
+      "threat": "podría estar planeando conquistar la fuente de azúcar",
+      "consequence": "habrá que estudiar geografía antes de merendar",
+      "lie": "la abuela ya le puso nombre a cada provincia",
+      "mistakes": [
+        "una alpargata de azúcar",
+        "una nube recién frita"
+      ],
+      "question": "¿Qué noticia sale de la merienda de la abuela?",
+      "icebreaker": "¿Por qué provincia empezarías a comer?"
+    },
+    {
+      "id": "barrio",
+      "original": "El grupo del barrio mandó treinta audios para preguntar de quién era una ojota.",
+      "subject": "la ojota",
+      "place": "la vereda",
+      "threat": "podría estar esperando a su dueña invisible",
+      "consequence": "nadie podrá salir a la calle sin identificar su calzado",
+      "lie": "la ojota tiene administrador propio en WhatsApp",
+      "mistakes": [
+        "una gaviota de goma",
+        "una empanada con tirita"
+      ],
+      "question": "¿Qué audio agregás al grupo del barrio?",
+      "icebreaker": "¿Quién mandaría un audio de tres minutos sobre una ojota?"
+    },
+    {
+      "id": "locro",
+      "original": "En el locro del club apareció una cuchara con nombre y apellido.",
+      "subject": "la cuchara",
+      "place": "el club",
+      "threat": "podría estar investigando cada plato",
+      "consequence": "el próximo locro necesitará lista de invitados por cubierto",
+      "lie": "la cuchara pagó la cuota social por adelantado",
+      "mistakes": [
+        "una guitarra de sopa",
+        "un cucharón con documento"
+      ],
+      "question": "¿Qué versión llega a la mesa del locro?",
+      "icebreaker": "¿Quién llevaría su propia cuchara por las dudas?"
     }
   ],
   "actions": [
     {
       "id": "panico",
-      "title": "Entrar en pánico",
-      "description": "Miedoso: interpreta una señal como amenaza. Mucho más pánico; baja un poco la credibilidad.",
+      "title": "Hacerse la cabeza",
+      "description": "Vio algo raro y ya se imaginó lo peor.",
       "personality": "miedoso",
       "kind": "fear",
-      "panic": 18,
-      "importance": 3,
-      "credibility": -4,
-      "reach": 1,
       "templates": [
-        "¡Cuidado con {subject}! Dicen que {threat}.",
-        "Cierren las ventanas de {place}: {subject} {threat}.",
-        "No quiero alarmar, pero {subject} {threat}. ¡Traigan un casco!"
+        "Che, ojo con {subject}: {threat}.",
+        "No es por meter miedo, pero {subject} {threat}.",
+        "Lo de {subject} me da cosa: {threat}. ¡Avisen al grupo!"
       ]
     },
     {
       "id": "exagerar",
-      "title": "Exagerar",
-      "description": "Exagerado: convierte un incidente en un desastre enorme. Sube mucho la importancia y algo el pánico; baja la credibilidad.",
+      "title": "Hacerla enorme",
+      "description": "Lo contó como si fuera el evento del año.",
       "personality": "exagerado",
       "kind": "exaggerate",
-      "panic": 8,
-      "importance": 18,
-      "credibility": -8,
-      "reach": 2,
       "templates": [
-        "Por culpa de {subject}, {consequence}.",
-        "Lo de {subject} en {place} es histórico: {consequence}.",
-        "¡Extra, extra! Por lo de {subject}, {consequence}."
+        "Lo de {subject} es tremendo: {consequence}.",
+        "¡Olvidate! Por culpa de {subject}, {consequence}.",
+        "Último momento desde {place}: por {subject}, {consequence}."
       ]
     },
     {
       "id": "mentir",
-      "title": "Mentir",
-      "description": "Mentiroso: añade una afirmación inventada. Sube la difusión y la importancia; cae mucho la credibilidad.",
+      "title": "Mandar fruta",
+      "description": "Inventó un detalle y lo contó con total seguridad.",
       "personality": "mentiroso",
       "kind": "lie",
-      "panic": 4,
-      "importance": 8,
-      "credibility": -16,
-      "reach": 2,
       "templates": [
-        "Me contaron algo de {subject}: {lie}.",
-        "Un testigo de {place} jura que {lie}. Todo por {subject}.",
-        "Tengo la exclusiva de {subject}: {lie}."
+        "Me contó un vecino lo de {subject}: {lie}.",
+        "Tengo la posta sobre {subject}: {lie}.",
+        "Lo de {subject} está confirmado por mi primo: {lie}."
       ]
     },
     {
       "id": "confundir",
-      "title": "Malinterpretar",
-      "description": "Ignorante: cambia el protagonista por una confusión absurda. Sube un poco la importancia y baja la credibilidad.",
+      "title": "Entender cualquiera",
+      "description": "Escuchó a medias y cambió al protagonista.",
       "personality": "ignorante",
       "kind": "misread",
-      "panic": 2,
-      "importance": 5,
-      "credibility": -6,
-      "reach": 1,
       "templates": [
-        "Entendí perfecto: apareció {subject} en {place}.",
-        "¿Cómo que no? La noticia era sobre {subject} en {place}.",
-        "Se los explico: todo este lío en {place} es por {subject}."
+        "Ah, yo entendí que apareció {subject} en {place}.",
+        "Pará, ¿no estaban hablando de {subject} en {place}?",
+        "Escuché el audio sin auriculares: todo era por {subject} en {place}."
       ]
-    },
-    {
-      "id": "calmar",
-      "title": "Calmar",
-      "description": "Pide pruebas y reduce la alarma. Baja el pánico y la importancia; recupera credibilidad.",
-      "personality": "miedoso",
-      "kind": "calm",
-      "panic": -18,
-      "importance": -4,
-      "credibility": 14,
-      "reach": 0,
-      "templates": [
-        "Respiren: sobre {subject} en {place} todavía faltan pruebas.",
-        "Antes de correr, preguntemos qué pasó con {subject} en {place}.",
-        "Lo de {subject} merece una pregunta, no veinte gritos."
-      ]
-    },
-    {
-      "id": "difundir",
-      "title": "Difundir",
-      "description": "Lleva la versión a cuatro vecinos más. Sube la importancia y baja un poco la credibilidad.",
-      "personality": "exagerado",
-      "kind": "spread",
-      "panic": 0,
-      "importance": 5,
-      "credibility": -2,
-      "reach": 4,
-      "templates": [
-        "¡Avisen en {place}! Todos están hablando de {subject}.",
-        "Pasen la voz: lo de {subject} ya se comenta en {place}.",
-        "Cuatro vecinos más preguntan por {subject} en {place}."
-      ]
-    }
-  ],
-  "goals": [
-    {
-      "id": "alarma",
-      "title": "¡Que cunda el pánico!",
-      "description": "Ganás +1 si tu acción sube el pánico al menos 10 puntos.",
-      "metric": "panic",
-      "minimum": 10
-    },
-    {
-      "id": "confianza",
-      "title": "Que alguien nos crea",
-      "description": "Ganás +1 si dejás la credibilidad en 80 o más sin reducirla.",
-      "metric": "credibility",
-      "minimum": 80
-    },
-    {
-      "id": "alcance",
-      "title": "Que se entere el pueblo",
-      "description": "Ganás +1 si tu acción llega al menos a 2 vecinos nuevos.",
-      "metric": "reach",
-      "minimum": 2
     }
   ]
 }
