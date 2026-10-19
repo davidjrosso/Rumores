@@ -81,7 +81,16 @@ namespace Rumores.Tests
                 Assert.IsFalse(GameObject.Find("Confirm").GetComponent<Button>().interactable);
                 Assert.IsNull(GameObject.Find("Split"));Assert.IsNull(GameObject.Find("Branch_B"));
                 Assert.AreEqual(3,UnityEngine.Object.FindObjectsOfType<PartyActionCard>().Length);
-                string action=app.Game.Choices()[turn%3].id;
+                int page=turn%2;
+                if(page==1)
+                {
+                    Click("Action_"+app.Game.Choices()[0].id);yield return null;
+                    Click("MoreChoices");yield return null;
+                    Assert.IsFalse(GameObject.Find("Confirm").GetComponent<Button>().interactable);
+                    Assert.AreEqual(turn,app.Game.Turn);
+                    Assert.AreEqual(3,UnityEngine.Object.FindObjectsOfType<PartyActionCard>().Length);
+                }
+                string action=app.Game.Choices(page)[turn%3].id;
                 string preview=app.Game.Preview(action).text;
                 Assert.IsTrue(GameObject.Find("Action_"+action).GetComponentsInChildren<Text>().Any(t=>t.text==preview));
                 Click("Action_"+action);yield return null;

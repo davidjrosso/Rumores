@@ -24,7 +24,7 @@ namespace Rumores.Presentation
         readonly List<PartyAction> choices=new List<PartyAction>();
         string selectedAction;
         bool fast;
-        int screenVersion;
+        int screenVersion,choicePage;
         Text errorLabel,actionHint;
         Button confirm;
         const string FastKey="Rumores.Party.FastAnimations";
@@ -100,7 +100,7 @@ namespace Rumores.Presentation
         void HowToPlay()
         {
             Page("Cómo jugar");
-            var text=Ui.ScrollText(screen,"1. Anoten sus apodos. Juegan de 2 a 8 amigos con un solo celu.\n\n2. Pasen el celu a quien aparece en pantalla. Leé el chisme y elegí una de las tres respuestas. No hay una respuesta correcta.\n\n3. Tocá «Contarlo así», leé tu versión en voz alta y pasá el celu. Cada persona juega dos veces.\n\n4. Al final, miren cómo empezó la historia y en qué terminó. Pueden comentar la pregunta entre todos o jugar otra.\n\nLa ronda queda abierta mientras la app siga abierta. Si la cerrás, empiezan de nuevo.",new Vector2(.03f,.13f),new Vector2(.97f,.90f),28);text.supportRichText=false;
+            var text=Ui.ScrollText(screen,"1. Anoten sus apodos. Juegan de 2 a 8 amigos con un solo celu.\n\n2. Pasen el celu a quien aparece en pantalla. Leé el chisme y elegí una de las tres respuestas. No hay una respuesta correcta. Podés tocar «Ver otras 3» para ver más opciones sin gastar el turno.\n\n3. Tocá «Contarlo así», leé tu versión en voz alta y pasá el celu. Cada persona juega dos veces.\n\n4. Al final, miren cómo empezó la historia y en qué terminó. Pueden comentar la pregunta entre todos o jugar otra.\n\nSon chismes inventados con guiños a la cultura argentina.\n\nLa ronda queda abierta mientras la app siga abierta. Si la cerrás, empiezan de nuevo.",new Vector2(.03f,.13f),new Vector2(.97f,.90f),28);text.supportRichText=false;
             Button("Back","Volver",.09f,.02f,.91f,.11f,Menu);
         }
         void Settings()
@@ -150,7 +150,7 @@ namespace Rumores.Presentation
         }
         void Handoff()
         {
-            selectedAction=null;
+            selectedAction=null;choicePage=0;
             Page("Pasá el teléfono");
             Ui.Panel(screen,"AvatarBadge",new Vector2(.31f,.60f),new Vector2(.69f,.83f),Game.Current.avatar<4?Ui.Pale:new Color32(243,205,171,255));
             Ui.Avatar(screen,Avatars[Game.Current.avatar%4],new Vector2(.31f,.60f),new Vector2(.69f,.83f));
@@ -166,7 +166,7 @@ namespace Rumores.Presentation
             Page("Te toca, "+Game.Current.name);
             Label(Game.Branches[0].rumor.headline,.03f,.75f,.97f,.91f,28);
             Label(Game.News.question,.03f,.65f,.97f,.75f,27,Ui.Teal);
-            choices.Clear();choices.AddRange(Game.Choices());
+            choices.Clear();choices.AddRange(Game.Choices(choicePage));
             for(int i=0;i<choices.Count;i++)
             {
                 var action=choices[i];var card=Instantiate(actionCardPrefab,screen);var rt=(RectTransform)card.transform;
@@ -174,7 +174,8 @@ namespace Rumores.Presentation
                 int version=screenVersion;
                 card.Bind(action,Game.Preview(action.id).text,()=>{if(version!=screenVersion)return;selectedAction=action.id;RefreshChoice();});actionCards.Add(card);
             }
-            actionHint=Label("Elegí la que más te divierta.",.03f,.11f,.97f,.18f,23);
+            actionHint=Label("Elegí la que más te divierta.",.03f,.11f,.54f,.18f,22);
+            Button("MoreChoices","Ver otras 3",.55f,.11f,.98f,.18f,()=>{choicePage=1-choicePage;selectedAction=null;TurnPage();});
             Button("History","Lo anterior",.02f,.02f,.32f,.10f,()=>History(false));
             string token=Game.Token;
             confirm=Button("Confirm","Contarlo así",.34f,.02f,.98f,.10f,()=>{
@@ -187,7 +188,7 @@ namespace Rumores.Presentation
         {
             for(int i=0;i<actionCards.Count;i++)actionCards[i].SetSelected(choices[i].id==selectedAction);
             if(confirm!=null)confirm.interactable=selectedAction!=null;
-            if(actionHint!=null&&selectedAction!=null)actionHint.text="¿Sale esta? Tocá «Contarlo así».";
+            if(actionHint!=null&&selectedAction!=null)actionHint.text="¿Sale esta? Confirmala abajo.";
         }
         string StoryHistory()
         {

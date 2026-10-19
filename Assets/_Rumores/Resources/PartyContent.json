@@ -1,356 +1,3644 @@
 {
-  "version": 2,
+  "version": 3,
   "turnsPerPlayer": 2,
   "news": [
     {
       "id": "mate",
-      "original": "Desapareció el mate de la ronda y el termo sigue lleno.",
-      "subject": "el mate",
-      "place": "la plaza",
-      "threat": "podría estar reclutando termos rebeldes",
-      "consequence": "se suspenderán todas las charlas del país",
-      "lie": "lo vieron pagando un pasaje con la SUBE",
-      "mistakes": [
-        "un tomate con bombilla",
-        "un satélite lleno de yerba"
-      ],
-      "question": "¿Qué audio mandás al grupo sobre el mate?",
-      "icebreaker": "¿Quién del grupo se llevaría el mate sin darse cuenta?"
+      "category": "cotidiano",
+      "original": "En la juntada se perdió un mate y subieron su foto al grupo.",
+      "anchor": "Buscan el mate de la juntada.",
+      "question": "¿Cómo sigue la búsqueda del mate?",
+      "icebreaker": "¿Quién del grupo lo estaría usando mientras ayuda a buscarlo?",
+      "options": [
+        {
+          "id": "mate-panico-0",
+          "actionId": "panico",
+          "text": "Ya temen que se haya ido en la mochila de algún invitado."
+        },
+        {
+          "id": "mate-panico-1",
+          "actionId": "panico",
+          "text": "Uno pide revisar que el mate no esté entre las cosas para tirar."
+        },
+        {
+          "id": "mate-panico-2",
+          "actionId": "panico",
+          "text": "La dueña cree que le cambiaron hasta la bombilla."
+        },
+        {
+          "id": "mate-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que lo buscan hasta en el grupo del consorcio."
+        },
+        {
+          "id": "mate-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El barrio ya habla de organizar un operativo por el mate."
+        },
+        {
+          "id": "mate-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Alguien propone una conferencia de prensa sobre la búsqueda."
+        },
+        {
+          "id": "mate-mentir-0",
+          "actionId": "mentir",
+          "text": "Un vecino asegura que lo vio en una foto de otra juntada."
+        },
+        {
+          "id": "mate-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que ofrecen un paquete de yerba como recompensa."
+        },
+        {
+          "id": "mate-mentir-2",
+          "actionId": "mentir",
+          "text": "Un primo jura que tiene una cámara apuntando a la mesa."
+        },
+        {
+          "id": "mate-confundir-0",
+          "actionId": "confundir",
+          "text": "Leyeron «mate perdido» y preguntaron quién perdió en el ajedrez."
+        },
+        {
+          "id": "mate-confundir-1",
+          "actionId": "confundir",
+          "text": "Uno entendió «mándenme el mate» y volvió a mandar la misma foto."
+        },
+        {
+          "id": "mate-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien creyó que buscaban al que cebaba, no al recipiente."
+        },
+        {
+          "id": "mate-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz lo guardaron para que nadie lo rompiera al levantar la mesa."
+        },
+        {
+          "id": "mate-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás alguien se lo llevó pensando que era el suyo."
+        },
+        {
+          "id": "mate-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que la última persona en cebar puede tener la pista."
+        },
+        {
+          "id": "mate-meme-0",
+          "actionId": "meme",
+          "text": "Le pusieron música de documental policial a la foto del mate."
+        },
+        {
+          "id": "mate-meme-1",
+          "actionId": "meme",
+          "text": "Ya hicieron un cartel de «se busca» con la bombilla censurada."
+        },
+        {
+          "id": "mate-meme-2",
+          "actionId": "meme",
+          "text": "El grupo armó un sticker del mate con anteojos de incógnito."
+        }
+      ]
     },
     {
       "id": "bondi",
-      "original": "El bondi dio una vuelta a la manzana para saludar a un perro.",
-      "subject": "el bondi",
-      "place": "la parada",
-      "threat": "podría empezar a pedir carnet de perro",
-      "consequence": "los perros decidirán todas las paradas",
-      "lie": "el perro es el nuevo inspector de la línea",
-      "mistakes": [
-        "un budín con ruedas",
-        "un perro con volante"
-      ],
-      "question": "¿Cómo contás lo que pasó con el bondi?",
-      "icebreaker": "¿Quién se pasaría de parada por seguir charlando?"
+      "category": "cotidiano",
+      "original": "Un chofer de bondi frenó para que un pasajero recuperara su gorra.",
+      "anchor": "El bondi frenó por una gorra.",
+      "question": "¿Cómo contás lo que pasó en el bondi?",
+      "icebreaker": "¿Quién agradecería al chofer con un aplauso?",
+      "options": [
+        {
+          "id": "bondi-panico-0",
+          "actionId": "panico",
+          "text": "Un pasajero teme perder la combinación por la búsqueda."
+        },
+        {
+          "id": "bondi-panico-1",
+          "actionId": "panico",
+          "text": "Ya preguntan si la gorra cayó justo debajo de una rueda."
+        },
+        {
+          "id": "bondi-panico-2",
+          "actionId": "panico",
+          "text": "Alguien se preocupa por el viento que sigue llevándose la gorra."
+        },
+        {
+          "id": "bondi-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que todo el bondi se puso a dirigir la recuperación."
+        },
+        {
+          "id": "bondi-exagerar-1",
+          "actionId": "exagerar",
+          "text": "Uno cuenta que la parada entera ovacionó al chofer."
+        },
+        {
+          "id": "bondi-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Ya lo cuentan como el rescate del año en la línea."
+        },
+        {
+          "id": "bondi-mentir-0",
+          "actionId": "mentir",
+          "text": "Un pasajero jura que el dueño prometió facturas para todos."
+        },
+        {
+          "id": "bondi-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que el chofer ya había rescatado esa gorra otra vez."
+        },
+        {
+          "id": "bondi-mentir-2",
+          "actionId": "mentir",
+          "text": "Una vecina asegura que la gorra salió en la radio del barrio."
+        },
+        {
+          "id": "bondi-confundir-0",
+          "actionId": "confundir",
+          "text": "Uno entendió «parada de gorra» y preguntó si había que dejar propina."
+        },
+        {
+          "id": "bondi-confundir-1",
+          "actionId": "confundir",
+          "text": "Escucharon «bajó por la gorra» y buscaron un puesto de ropa."
+        },
+        {
+          "id": "bondi-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien creyó que la gorra era del chofer."
+        },
+        {
+          "id": "bondi-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz el dueño sacó la cabeza por la ventanilla para saludar."
+        },
+        {
+          "id": "bondi-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás la gorra se voló cuando abrieron la puerta."
+        },
+        {
+          "id": "bondi-teoria-2",
+          "actionId": "teoria",
+          "text": "Uno cree que el viento del bondi de atrás tuvo la culpa."
+        },
+        {
+          "id": "bondi-meme-0",
+          "actionId": "meme",
+          "text": "Ya editaron el rescate con relato de final del Mundial."
+        },
+        {
+          "id": "bondi-meme-1",
+          "actionId": "meme",
+          "text": "Le pusieron «misión cumplida» a la foto del chofer."
+        },
+        {
+          "id": "bondi-meme-2",
+          "actionId": "meme",
+          "text": "La gorra terminó en un meme de «no te vayas, campeón»."
+        }
+      ]
     },
     {
-      "id": "empanada",
-      "original": "En la peña apareció una empanada con un repulgue de más.",
-      "subject": "la empanada",
-      "place": "la peña",
-      "threat": "podría estar guardando un secreto picante",
-      "consequence": "habrá que inventar otro día para discutir el relleno",
-      "lie": "el jurado encontró un plano del tesoro adentro",
-      "mistakes": [
-        "una almohada con repulgue",
-        "una medialuna disfrazada"
-      ],
-      "question": "¿Qué explicación le das a esa empanada?",
-      "icebreaker": "¿Qué relleno de empanada defenderías en una discusión?"
-    },
-    {
-      "id": "kiosco",
-      "original": "El kiosco empezó a dar caramelos como vuelto y uno venía con moño.",
-      "subject": "el caramelo",
-      "place": "el kiosco",
-      "threat": "podría querer comprarnos a todos",
-      "consequence": "los caramelos cotizarán en la bolsa del barrio",
-      "lie": "el kiosquero lo nombró gerente de finanzas",
-      "mistakes": [
-        "un camello de dulce de leche",
-        "un billete con gusto a menta"
-      ],
-      "question": "¿Qué se comenta en la fila del kiosco?",
-      "icebreaker": "¿Quién pediría que le guarden el vuelto hasta mañana?"
+      "id": "empanadas",
+      "category": "cotidiano",
+      "original": "En el club mezclaron las bandejas de empanadas dulces y saladas.",
+      "anchor": "Se mezclaron las empanadas del club.",
+      "question": "¿Qué versión llevás a la mesa del club?",
+      "icebreaker": "¿Quién probaría todas para reconocer los rellenos?",
+      "options": [
+        {
+          "id": "empanadas-panico-0",
+          "actionId": "panico",
+          "text": "Ya temen que alguien le ponga chimichurri a la de membrillo."
+        },
+        {
+          "id": "empanadas-panico-1",
+          "actionId": "panico",
+          "text": "Uno pide avisar antes de que salga la próxima bandeja."
+        },
+        {
+          "id": "empanadas-panico-2",
+          "actionId": "panico",
+          "text": "Una invitada sospecha que su empanada trae azúcar y aceituna."
+        },
+        {
+          "id": "empanadas-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que cada bocado se convirtió en un sorteo."
+        },
+        {
+          "id": "empanadas-exagerar-1",
+          "actionId": "exagerar",
+          "text": "Uno propone abrir una mesa de investigación por los rellenos."
+        },
+        {
+          "id": "empanadas-exagerar-2",
+          "actionId": "exagerar",
+          "text": "El club ya parece dividido en bandos de dulce y salado."
+        },
+        {
+          "id": "empanadas-mentir-0",
+          "actionId": "mentir",
+          "text": "Un vecino asegura que el repulgue trae un código secreto."
+        },
+        {
+          "id": "empanadas-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que dejaron un mapa de bandejas pegado en la heladera."
+        },
+        {
+          "id": "empanadas-mentir-2",
+          "actionId": "mentir",
+          "text": "Una tía jura que el cocinero reconoce el relleno por el peso."
+        },
+        {
+          "id": "empanadas-confundir-0",
+          "actionId": "confundir",
+          "text": "Entendieron «son mixtas» y creyeron que todas traían jamón y queso."
+        },
+        {
+          "id": "empanadas-confundir-1",
+          "actionId": "confundir",
+          "text": "Uno leyó «dulces» y pensó que hablaban del trato de las cocineras."
+        },
+        {
+          "id": "empanadas-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien confundió las iniciales de carne con las de crema."
+        },
+        {
+          "id": "empanadas-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz sacaron los carteles para limpiar la mesa."
+        },
+        {
+          "id": "empanadas-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás usaron el mismo repulgue para ahorrar tiempo."
+        },
+        {
+          "id": "empanadas-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que la bandeja giró cuando acomodaron los manteles."
+        },
+        {
+          "id": "empanadas-meme-0",
+          "actionId": "meme",
+          "text": "Ya hicieron un ranking de empanadas con suspenso de reality."
+        },
+        {
+          "id": "empanadas-meme-1",
+          "actionId": "meme",
+          "text": "El grupo pide VAR para revisar cada mordisco."
+        },
+        {
+          "id": "empanadas-meme-2",
+          "actionId": "meme",
+          "text": "Hay un sticker que dice «dulce sorpresa» con una aceituna."
+        }
+      ]
     },
     {
       "id": "asado",
-      "original": "Alguien llevó una reposera al asado pero se olvidó de la carne.",
-      "subject": "la reposera",
-      "place": "el patio",
-      "threat": "podría estar organizando un golpe contra la parrilla",
-      "consequence": "se declarará feriado hasta que aparezca el asado",
-      "lie": "la reposera figura como invitada en el grupo de WhatsApp",
-      "mistakes": [
-        "una heladera plegable",
-        "una parrilla con almohadón"
-      ],
-      "question": "¿Cómo llega esta historia al grupo del asado?",
-      "icebreaker": "¿Quién sería capaz de llevar todo menos lo que le tocaba?"
-    },
-    {
-      "id": "alfajor",
-      "original": "Un alfajor apareció en la heladera con un cartel que dice «no tocar».",
-      "subject": "el alfajor",
-      "place": "la cocina",
-      "threat": "podría estar preparando una emboscada de chocolate",
-      "consequence": "la merienda necesitará permiso del consorcio",
-      "lie": "lo contrataron como seguridad de la heladera",
-      "mistakes": [
-        "un almohadón triple",
-        "un raviol bañado en chocolate"
-      ],
-      "question": "¿Qué sospechás del alfajor reservado?",
-      "icebreaker": "¿Quién diría «yo no fui» con chocolate en la cara?"
+      "category": "cotidiano",
+      "original": "Uno llevó una reposera al asado y se olvidó de comprar el pan.",
+      "anchor": "En el asado falta el pan.",
+      "question": "¿Cómo se agranda el olvido del pan?",
+      "icebreaker": "¿Quién del grupo trae la reposera pero se olvida del encargo?",
+      "options": [
+        {
+          "id": "asado-panico-0",
+          "actionId": "panico",
+          "text": "Ya temen tener que comer el choripán con tenedor."
+        },
+        {
+          "id": "asado-panico-1",
+          "actionId": "panico",
+          "text": "Uno calcula si queda alguna panadería abierta."
+        },
+        {
+          "id": "asado-panico-2",
+          "actionId": "panico",
+          "text": "Alguien pide esconder los chorizos hasta que llegue el pan."
+        },
+        {
+          "id": "asado-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que el grupo entero salió a buscar una panadería."
+        },
+        {
+          "id": "asado-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El olvido ya tiene una comisión organizadora."
+        },
+        {
+          "id": "asado-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone nombrar un encargado del pan para todos los asados."
+        },
+        {
+          "id": "asado-mentir-0",
+          "actionId": "mentir",
+          "text": "Un primo asegura que hay una reserva de pan en el freezer."
+        },
+        {
+          "id": "asado-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que el de la reposera anotó «pan» como nombre del invitado."
+        },
+        {
+          "id": "asado-mentir-2",
+          "actionId": "mentir",
+          "text": "Una vecina jura que el pedido quedó en otra parrilla."
+        },
+        {
+          "id": "asado-confundir-0",
+          "actionId": "confundir",
+          "text": "Leyó «traé panes» y entendió «traé planes para el finde»."
+        },
+        {
+          "id": "asado-confundir-1",
+          "actionId": "confundir",
+          "text": "Escuchó «el pan lo ponés vos» y pensó que era una forma de hablar."
+        },
+        {
+          "id": "asado-confundir-2",
+          "actionId": "confundir",
+          "text": "Uno creyó que «pan casero» era el apodo de otro invitado."
+        },
+        {
+          "id": "asado-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz cargó la reposera arriba de la lista de compras."
+        },
+        {
+          "id": "asado-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás pensó que cada uno llevaba su propio pan."
+        },
+        {
+          "id": "asado-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que salió de casa antes de leer el último audio."
+        },
+        {
+          "id": "asado-meme-0",
+          "actionId": "meme",
+          "text": "Ya hicieron el meme de la reposera llegando como invitada de honor."
+        },
+        {
+          "id": "asado-meme-1",
+          "actionId": "meme",
+          "text": "Le agregaron una foto de pan al lugar vacío de la mesa."
+        },
+        {
+          "id": "asado-meme-2",
+          "actionId": "meme",
+          "text": "El grupo lo anotó como «director de logística sin pan»."
+        }
+      ]
     },
     {
       "id": "truco",
-      "original": "En el club alguien gritó truco antes de que repartieran las cartas.",
-      "subject": "el mazo",
-      "place": "el club de barrio",
-      "threat": "podría estar escuchando nuestros pensamientos",
-      "consequence": "habrá que consultar al VAR cada vez que alguien diga falta envido",
-      "lie": "el siete de espadas pidió jugar de titular",
-      "mistakes": [
-        "un mazo de albañil",
-        "un álbum de figuritas"
-      ],
-      "question": "¿Qué versión circula de esa partida de truco?",
-      "icebreaker": "¿Quién cantaría falta envido sin mirar las cartas?"
+      "category": "cotidiano",
+      "original": "En el club uno cantó falta envido sin mirar las cartas.",
+      "anchor": "Cantaron falta envido a ciegas.",
+      "question": "¿Cómo contás esa jugada de truco?",
+      "icebreaker": "¿Quién sostendría la cara seria hasta el final?",
+      "options": [
+        {
+          "id": "truco-panico-0",
+          "actionId": "panico",
+          "text": "Su compañero teme que alguien acepte de verdad."
+        },
+        {
+          "id": "truco-panico-1",
+          "actionId": "panico",
+          "text": "Uno sospecha que están apostando hasta la merienda."
+        },
+        {
+          "id": "truco-panico-2",
+          "actionId": "panico",
+          "text": "Ya preguntan si el que cantó sabe cuánto vale la jugada."
+        },
+        {
+          "id": "truco-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que se callaron hasta los de la mesa de al lado."
+        },
+        {
+          "id": "truco-exagerar-1",
+          "actionId": "exagerar",
+          "text": "Uno lo cuenta como la jugada que cambió la historia del club."
+        },
+        {
+          "id": "truco-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Ya quieren ponerle su nombre al campeonato."
+        },
+        {
+          "id": "truco-mentir-0",
+          "actionId": "mentir",
+          "text": "Un vecino asegura que habían ensayado una seña con las cejas."
+        },
+        {
+          "id": "truco-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que el mazo era prestado por un campeón del barrio."
+        },
+        {
+          "id": "truco-mentir-2",
+          "actionId": "mentir",
+          "text": "Uno jura que el cantor ni siquiera tenía las cartas en la mano."
+        },
+        {
+          "id": "truco-confundir-0",
+          "actionId": "confundir",
+          "text": "Escuchó «falta envido» y fue a buscar una carta que faltaba."
+        },
+        {
+          "id": "truco-confundir-1",
+          "actionId": "confundir",
+          "text": "Uno entendió que había que invitar a otro jugador."
+        },
+        {
+          "id": "truco-confundir-2",
+          "actionId": "confundir",
+          "text": "Un espectador creyó que «quiero» era un pedido de otra gaseosa."
+        },
+        {
+          "id": "truco-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz quiso asustar antes de ver una mano malísima."
+        },
+        {
+          "id": "truco-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás confundió el momento de cantar truco con el envido."
+        },
+        {
+          "id": "truco-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que estaba copiando la jugada de un video."
+        },
+        {
+          "id": "truco-meme-0",
+          "actionId": "meme",
+          "text": "Le pusieron «el que tiene miedo a morir que no nazca» a la jugada."
+        },
+        {
+          "id": "truco-meme-1",
+          "actionId": "meme",
+          "text": "El grupo pide un VAR de cejas para revisar las señas."
+        },
+        {
+          "id": "truco-meme-2",
+          "actionId": "meme",
+          "text": "Ya hicieron una placa con «confianza: toda; información: ninguna»."
+        }
+      ]
     },
     {
       "id": "facturas",
-      "original": "La panadería vendió una docena de facturas y sobraron trece.",
-      "subject": "la bandeja de facturas",
-      "place": "la panadería",
-      "threat": "podría multiplicarse mientras dormimos",
-      "consequence": "el desayuno durará hasta el próximo feriado",
-      "lie": "el panadero recibió instrucciones de una medialuna",
-      "mistakes": [
-        "una carpeta de cuentas",
-        "una docena de calculadoras"
-      ],
-      "question": "¿Qué decís de la docena misteriosa?",
-      "icebreaker": "¿Quién cuenta las facturas antes de convidar?"
+      "category": "cotidiano",
+      "original": "En la oficina dejaron media medialuna en una caja vacía de facturas.",
+      "anchor": "Quedó media medialuna en la oficina.",
+      "question": "¿Qué rumor nace de esa media medialuna?",
+      "icebreaker": "¿Quién deja un pedacito para no ser quien terminó todo?",
+      "options": [
+        {
+          "id": "facturas-panico-0",
+          "actionId": "panico",
+          "text": "Ya temen que la siguiente reunión se quede sin desayuno."
+        },
+        {
+          "id": "facturas-panico-1",
+          "actionId": "panico",
+          "text": "Uno pide no tocar la mitad hasta identificar al dueño."
+        },
+        {
+          "id": "facturas-panico-2",
+          "actionId": "panico",
+          "text": "Alguien sospecha que va a haber una discusión por el último bocado."
+        },
+        {
+          "id": "facturas-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que hicieron una reunión para decidir quién la come."
+        },
+        {
+          "id": "facturas-exagerar-1",
+          "actionId": "exagerar",
+          "text": "La media medialuna ya tiene más custodia que la caja fuerte."
+        },
+        {
+          "id": "facturas-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone cortarla en porciones para todo el edificio."
+        },
+        {
+          "id": "facturas-mentir-0",
+          "actionId": "mentir",
+          "text": "Un compañero jura que anotaron los mordiscos en una planilla."
+        },
+        {
+          "id": "facturas-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que la última mitad quedó reservada por correo."
+        },
+        {
+          "id": "facturas-mentir-2",
+          "actionId": "mentir",
+          "text": "Alguien asegura que hay otra caja escondida en contaduría."
+        },
+        {
+          "id": "facturas-confundir-0",
+          "actionId": "confundir",
+          "text": "Leyeron «media» y fueron a buscar una prenda perdida."
+        },
+        {
+          "id": "facturas-confundir-1",
+          "actionId": "confundir",
+          "text": "Uno entendió que habían pedido media docena y faltaba el resto."
+        },
+        {
+          "id": "facturas-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien pensó que la mitad era una muestra gratis."
+        },
+        {
+          "id": "facturas-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz dejaron un pedacito para no lavar la caja."
+        },
+        {
+          "id": "facturas-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás alguien salió a atender y piensa volver por ella."
+        },
+        {
+          "id": "facturas-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que cortarla fue una manera de compartir sin preguntar."
+        },
+        {
+          "id": "facturas-meme-0",
+          "actionId": "meme",
+          "text": "Le hicieron una foto de producto como si fuera de colección."
+        },
+        {
+          "id": "facturas-meme-1",
+          "actionId": "meme",
+          "text": "Ya circula «no la toquen, es patrimonio de la oficina»."
+        },
+        {
+          "id": "facturas-meme-2",
+          "actionId": "meme",
+          "text": "El grupo tituló la escena «la última merienda»."
+        }
+      ]
     },
     {
-      "id": "sube",
-      "original": "Una SUBE hizo un ruido de aplausos al pasar por el lector.",
-      "subject": "la SUBE",
-      "place": "la estación",
-      "threat": "podría estar avisando que el lector cobra con secretos",
-      "consequence": "el tren tendrá que frenar para recibir una ovación",
-      "lie": "la tarjeta ensaya con la murga los jueves",
-      "mistakes": [
-        "una nube con saldo",
-        "una tarjeta de cumpleaños"
-      ],
-      "question": "¿Qué contás sobre la SUBE que aplaude?",
-      "icebreaker": "¿Quién saludaría al lector después del aplauso?"
+      "id": "tiktok",
+      "category": "internet",
+      "original": "Una vecina grabó una receta de milanesas para TikTok y se oyó una discusión por la sal.",
+      "anchor": "La receta de milanesas salió con discusión.",
+      "question": "¿Qué termina contando el barrio del video?",
+      "icebreaker": "¿Quién del grupo se escucharía de fondo en esa receta?",
+      "options": [
+        {
+          "id": "tiktok-panico-0",
+          "actionId": "panico",
+          "text": "La familia teme que el audio llegue al grupo de la abuela."
+        },
+        {
+          "id": "tiktok-panico-1",
+          "actionId": "panico",
+          "text": "Uno advierte que se escucha hasta quién vació el salero."
+        },
+        {
+          "id": "tiktok-panico-2",
+          "actionId": "panico",
+          "text": "Ya preguntan si el vecino también se reconoce por la voz."
+        },
+        {
+          "id": "tiktok-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que hay más comentarios sobre la sal que sobre la receta."
+        },
+        {
+          "id": "tiktok-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El barrio ya debate la discusión como una final de cocina."
+        },
+        {
+          "id": "tiktok-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno cuenta que todos están recreando el audio al empanar."
+        },
+        {
+          "id": "tiktok-mentir-0",
+          "actionId": "mentir",
+          "text": "Un primo asegura que grabaron seis finales distintos para la discusión."
+        },
+        {
+          "id": "tiktok-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que el salero tiene cuenta propia entre los comentarios."
+        },
+        {
+          "id": "tiktok-mentir-2",
+          "actionId": "mentir",
+          "text": "Una vecina jura que la discusión seguía en el video siguiente."
+        },
+        {
+          "id": "tiktok-confundir-0",
+          "actionId": "confundir",
+          "text": "Leyó «le faltó sal» y pensó que criticaban su sentido del humor."
+        },
+        {
+          "id": "tiktok-confundir-1",
+          "actionId": "confundir",
+          "text": "Uno confundió «viral» con una advertencia sobre la comida."
+        },
+        {
+          "id": "tiktok-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien creyó que las voces eran parte del tutorial."
+        },
+        {
+          "id": "tiktok-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz nadie avisó que el celular estaba grabando."
+        },
+        {
+          "id": "tiktok-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás pensaron que después podían borrar solo las voces."
+        },
+        {
+          "id": "tiktok-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que el micrófono estaba más cerca de la mesa que de la sartén."
+        },
+        {
+          "id": "tiktok-meme-0",
+          "actionId": "meme",
+          "text": "Ya hicieron un remix con el ruido de la milanesa y la discusión."
+        },
+        {
+          "id": "tiktok-meme-1",
+          "actionId": "meme",
+          "text": "El audio ahora acompaña videos de gente peleando por pavadas."
+        },
+        {
+          "id": "tiktok-meme-2",
+          "actionId": "meme",
+          "text": "Le pusieron «cocina con tensión» al cartel de la receta."
+        }
+      ]
     },
     {
-      "id": "fulbito",
-      "original": "La pelota del fulbito quedó clavada en el árbol del vecino.",
-      "subject": "la pelota",
-      "place": "la canchita",
-      "threat": "podría estar espiando la formación del equipo",
-      "consequence": "el próximo campeonato se jugará arriba de los árboles",
-      "lie": "el árbol ya firmó contrato como arquero",
-      "mistakes": [
-        "una palta de cuero",
-        "una luna con botines"
-      ],
-      "question": "¿Qué explicación dan después del partido?",
-      "icebreaker": "¿Quién diría que la pelota se fue sola?"
+      "id": "stream",
+      "category": "internet",
+      "original": "Un pibe hizo un stream desde su pieza y la madre entró preguntando por un tupper.",
+      "anchor": "En el stream buscan un tupper.",
+      "question": "¿Cómo sigue el chisme del tupper en vivo?",
+      "icebreaker": "¿Quién interrumpiría un vivo para reclamar un recipiente?",
+      "options": [
+        {
+          "id": "stream-panico-0",
+          "actionId": "panico",
+          "text": "El pibe teme que ahora pregunten por toda la vajilla perdida."
+        },
+        {
+          "id": "stream-panico-1",
+          "actionId": "panico",
+          "text": "Ya sospecha que la madre va a volver con más preguntas."
+        },
+        {
+          "id": "stream-panico-2",
+          "actionId": "panico",
+          "text": "Uno le avisa que se ve la pila de platos detrás de la cámara."
+        },
+        {
+          "id": "stream-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que el chat entero empezó a investigar el tupper."
+        },
+        {
+          "id": "stream-exagerar-1",
+          "actionId": "exagerar",
+          "text": "La búsqueda ya parece más importante que el juego del stream."
+        },
+        {
+          "id": "stream-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone hacer un especial en vivo para revisar la cocina."
+        },
+        {
+          "id": "stream-mentir-0",
+          "actionId": "mentir",
+          "text": "Un amigo asegura que el tupper aparece en un video viejo."
+        },
+        {
+          "id": "stream-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que la madre anotó los nombres del chat para pedir ayuda."
+        },
+        {
+          "id": "stream-mentir-2",
+          "actionId": "mentir",
+          "text": "Un vecino jura que el recipiente estaba en un cumpleaños."
+        },
+        {
+          "id": "stream-confundir-0",
+          "actionId": "confundir",
+          "text": "Uno entendió que «Tupper» era el nombre del juego."
+        },
+        {
+          "id": "stream-confundir-1",
+          "actionId": "confundir",
+          "text": "El chat creyó que «devolvelo» era una orden para el personaje."
+        },
+        {
+          "id": "stream-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien pensó que la madre era una invitada contratada."
+        },
+        {
+          "id": "stream-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz la última vianda quedó olvidada en una mochila."
+        },
+        {
+          "id": "stream-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás el tupper está tapando la luz del escritorio."
+        },
+        {
+          "id": "stream-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que confundieron los recipientes después de un asado."
+        },
+        {
+          "id": "stream-meme-0",
+          "actionId": "meme",
+          "text": "Ya hicieron un clip titulado «el verdadero jefe final»."
+        },
+        {
+          "id": "stream-meme-1",
+          "actionId": "meme",
+          "text": "El chat convirtió «¿y mi tupper?» en saludo oficial."
+        },
+        {
+          "id": "stream-meme-2",
+          "actionId": "meme",
+          "text": "A la madre le pusieron una barra de vida en una captura."
+        }
+      ]
     },
     {
-      "id": "choripan",
-      "original": "El puesto de choripanes puso una fila exclusiva para el chimichurri.",
-      "subject": "el chimichurri",
-      "place": "la costanera",
-      "threat": "podría estar tomando el control de la parrilla",
-      "consequence": "habrá que sacar turno para cada mordisco",
-      "lie": "un frasco decidió abrir su propia sucursal",
-      "mistakes": [
-        "un colibrí picante",
-        "un perfume de orégano"
-      ],
-      "question": "¿Qué rumor nace en la fila del choripán?",
-      "icebreaker": "¿Quién se pondría en la fila equivocada por seguir el olor?"
+      "id": "tutorial",
+      "category": "internet",
+      "original": "El del kiosco siguió un tutorial para hacer un café con dibujo y le salió una mancha.",
+      "anchor": "El café del kiosco salió sin dibujo.",
+      "question": "¿Qué versión circula del café artístico?",
+      "icebreaker": "¿Quién diría que la mancha es arte para no repetir el café?",
+      "options": [
+        {
+          "id": "tutorial-panico-0",
+          "actionId": "panico",
+          "text": "Ya teme que alguien publique la foto junto al tutorial."
+        },
+        {
+          "id": "tutorial-panico-1",
+          "actionId": "panico",
+          "text": "Uno le avisa que el cliente está buscando qué figura representa."
+        },
+        {
+          "id": "tutorial-panico-2",
+          "actionId": "panico",
+          "text": "El kiosquero sospecha que ahora todos van a pedir el mismo diseño."
+        },
+        {
+          "id": "tutorial-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que abrió una muestra de arte con las fotos de los cafés."
+        },
+        {
+          "id": "tutorial-exagerar-1",
+          "actionId": "exagerar",
+          "text": "La mancha ya genera más debate que el precio del cortado."
+        },
+        {
+          "id": "tutorial-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone llamar a un jurado para interpretar la espuma."
+        },
+        {
+          "id": "tutorial-mentir-0",
+          "actionId": "mentir",
+          "text": "Un cliente asegura que el dibujo es el mapa del barrio."
+        },
+        {
+          "id": "tutorial-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que el tutorial tenía la cámara puesta al revés."
+        },
+        {
+          "id": "tutorial-mentir-2",
+          "actionId": "mentir",
+          "text": "Uno jura que pidieron turno para probar el café de la mancha."
+        },
+        {
+          "id": "tutorial-confundir-0",
+          "actionId": "confundir",
+          "text": "Leyó «dibujá con leche» y buscó un lápiz blanco."
+        },
+        {
+          "id": "tutorial-confundir-1",
+          "actionId": "confundir",
+          "text": "Uno creyó que «latte art» era el nombre del cliente."
+        },
+        {
+          "id": "tutorial-confundir-2",
+          "actionId": "confundir",
+          "text": "El ayudante entendió que había que copiar la taza, no la espuma."
+        },
+        {
+          "id": "tutorial-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz usó una leche que no levantaba espuma."
+        },
+        {
+          "id": "tutorial-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás el dibujo se movió al llevar la taza a la mesa."
+        },
+        {
+          "id": "tutorial-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que saltó justo la parte del tutorial que explicaba el pulso."
+        },
+        {
+          "id": "tutorial-meme-0",
+          "actionId": "meme",
+          "text": "Ya comparan la espuma con un test de manchas."
+        },
+        {
+          "id": "tutorial-meme-1",
+          "actionId": "meme",
+          "text": "Le pusieron «el tutorial / mi resultado» a las dos fotos."
+        },
+        {
+          "id": "tutorial-meme-2",
+          "actionId": "meme",
+          "text": "El café salió en el grupo como «arte con sueño»."
+        }
+      ]
     },
     {
-      "id": "soda",
-      "original": "El sifón de la mesa apuntó justo a la camiseta nueva de un invitado.",
-      "subject": "el sifón",
-      "place": "la mesa del domingo",
-      "threat": "podría tener una lista de camisetas pendientes",
-      "consequence": "el almuerzo se jugará con piloto y antiparras",
-      "lie": "lo entrenaron para apagar discusiones de fútbol",
-      "mistakes": [
-        "un saxofón con burbujas",
-        "un pingüino a presión"
-      ],
-      "question": "¿Cómo contás el ataque del sifón?",
-      "icebreaker": "¿Quién seguiría apretando para ver si sale más?"
+      "id": "audio",
+      "category": "internet",
+      "original": "En el grupo del edificio mandaron un audio de cinco minutos para avisar que había un paquete.",
+      "anchor": "El audio del paquete dura cinco minutos.",
+      "question": "¿Qué se dice de ese audio interminable?",
+      "icebreaker": "¿Quién escucharía solo el final y preguntaría igual?",
+      "options": [
+        {
+          "id": "audio-panico-0",
+          "actionId": "panico",
+          "text": "Uno teme que la dirección recién aparezca en el último segundo."
+        },
+        {
+          "id": "audio-panico-1",
+          "actionId": "panico",
+          "text": "Ya preguntan si el paquete necesita instrucciones de seguridad."
+        },
+        {
+          "id": "audio-panico-2",
+          "actionId": "panico",
+          "text": "Un vecino se preocupa porque el audio empieza con «no se asusten»."
+        },
+        {
+          "id": "audio-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que hace falta un recreo a mitad del audio."
+        },
+        {
+          "id": "audio-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El grupo ya pide capítulos y un índice."
+        },
+        {
+          "id": "audio-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno lo anuncia como la primera temporada del paquete."
+        },
+        {
+          "id": "audio-mentir-0",
+          "actionId": "mentir",
+          "text": "Una vecina asegura que el audio tiene una pausa para tomar mate."
+        },
+        {
+          "id": "audio-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que alguien mandó un resumen escrito a otro edificio."
+        },
+        {
+          "id": "audio-mentir-2",
+          "actionId": "mentir",
+          "text": "El portero jura que al grabarlo todavía estaban buscando al dueño."
+        },
+        {
+          "id": "audio-confundir-0",
+          "actionId": "confundir",
+          "text": "Escuchó «paquete» y preguntó por un plan de vacaciones."
+        },
+        {
+          "id": "audio-confundir-1",
+          "actionId": "confundir",
+          "text": "Uno oyó «dejaron algo abajo» y bajó con las llaves del auto."
+        },
+        {
+          "id": "audio-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien creyó que el silencio del medio era el final."
+        },
+        {
+          "id": "audio-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz el vecino contó cómo llegó el repartidor antes de dar el nombre."
+        },
+        {
+          "id": "audio-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás dejó grabando mientras buscaba los anteojos."
+        },
+        {
+          "id": "audio-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que empezó explicando quién era por si no tenían su número."
+        },
+        {
+          "id": "audio-meme-0",
+          "actionId": "meme",
+          "text": "Ya le pusieron una portada de podcast al audio."
+        },
+        {
+          "id": "audio-meme-1",
+          "actionId": "meme",
+          "text": "El grupo manda «continúa en el próximo episodio» cada vez que alguien responde."
+        },
+        {
+          "id": "audio-meme-2",
+          "actionId": "meme",
+          "text": "Un vecino hizo un tráiler con los primeros diez segundos."
+        }
+      ]
     },
     {
-      "id": "sierras",
-      "original": "En las sierras apareció un cartel que dice «prohibido apurar al río».",
-      "subject": "el cartel",
-      "place": "las sierras de Córdoba",
-      "threat": "podría estar defendiendo a un río con mal carácter",
-      "consequence": "las vacaciones tendrán que durar un mes más",
-      "lie": "el río contrató un abogado para que lo dejen descansar",
-      "mistakes": [
-        "un mantel de piedra",
-        "un carpincho con cartelera"
-      ],
-      "question": "¿Qué entendés del cartel en las sierras?",
-      "icebreaker": "¿Quién preguntaría a qué hora termina de pasar el río?"
+      "id": "canje",
+      "category": "internet",
+      "original": "Una chica del barrio pidió un canje a la panadería a cambio de subir una historia.",
+      "anchor": "Pidieron canje en la panadería.",
+      "question": "¿Cómo contás la propuesta del canje?",
+      "icebreaker": "¿Quién negociaría medialunas como si cerrara un contrato enorme?",
+      "options": [
+        {
+          "id": "canje-panico-0",
+          "actionId": "panico",
+          "text": "El panadero teme que ahora todos quieran pagar con historias."
+        },
+        {
+          "id": "canje-panico-1",
+          "actionId": "panico",
+          "text": "Uno pregunta si el canje incluye lavar las bandejas."
+        },
+        {
+          "id": "canje-panico-2",
+          "actionId": "panico",
+          "text": "La chica teme que la única visualización sea la del panadero."
+        },
+        {
+          "id": "canje-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que la negociación ya ocupa toda la mesa del café."
+        },
+        {
+          "id": "canje-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El barrio habla del canje como si fuera un pase de fútbol."
+        },
+        {
+          "id": "canje-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone hacer la firma del acuerdo con una medialuna gigante."
+        },
+        {
+          "id": "canje-mentir-0",
+          "actionId": "mentir",
+          "text": "Una vecina asegura que pidieron exclusividad con las facturas."
+        },
+        {
+          "id": "canje-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que ofrecieron dos historias y una foto del vigilante."
+        },
+        {
+          "id": "canje-mentir-2",
+          "actionId": "mentir",
+          "text": "El ayudante jura que hubo una cláusula por las migas."
+        },
+        {
+          "id": "canje-confundir-0",
+          "actionId": "confundir",
+          "text": "El panadero entendió «canje» y trajo los cupones de descuento."
+        },
+        {
+          "id": "canje-confundir-1",
+          "actionId": "confundir",
+          "text": "Uno creyó que «alcance» era hasta dónde llegaba el reparto."
+        },
+        {
+          "id": "canje-confundir-2",
+          "actionId": "confundir",
+          "text": "Escucharon «historia» y preguntaron si tenía que contar la fundación del local."
+        },
+        {
+          "id": "canje-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz quería probar el desayuno sin gastar todo el presupuesto."
+        },
+        {
+          "id": "canje-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás la panadería ya hacía promociones con vecinos."
+        },
+        {
+          "id": "canje-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que un tutorial le recomendó preguntar aunque tuviera pocos seguidores."
+        },
+        {
+          "id": "canje-meme-0",
+          "actionId": "meme",
+          "text": "Ya circula «representante oficial de la medialuna»."
+        },
+        {
+          "id": "canje-meme-1",
+          "actionId": "meme",
+          "text": "Le pusieron música de mercado de pases al mostrador."
+        },
+        {
+          "id": "canje-meme-2",
+          "actionId": "meme",
+          "text": "El grupo armó un contrato dibujado sobre una servilleta."
+        }
+      ]
     },
     {
-      "id": "mendoza",
-      "original": "En Mendoza un racimo de uvas salió primero en la foto familiar.",
-      "subject": "el racimo",
-      "place": "la finca de Mendoza",
-      "threat": "podría querer quedarse con todos los álbumes",
-      "consequence": "las uvas tendrán su propia alfombra roja",
-      "lie": "el fotógrafo recibió una caja de pasas como adelanto",
-      "mistakes": [
-        "un ramo de botones",
-        "un micrófono de uvas"
-      ],
-      "question": "¿Qué chisme sale de esa foto en Mendoza?",
-      "icebreaker": "¿Quién repetiría la foto porque salió mal una uva?"
+      "id": "filtro",
+      "category": "internet",
+      "original": "El abuelo hizo una videollamada sin darse cuenta de que tenía un filtro de perrito.",
+      "anchor": "El abuelo llamó con filtro de perrito.",
+      "question": "¿Qué cuentan después de la videollamada?",
+      "icebreaker": "¿Quién intentaría sacar el filtro y terminaría poniendo otro?",
+      "options": [
+        {
+          "id": "filtro-panico-0",
+          "actionId": "panico",
+          "text": "La familia teme que entre igual a la llamada con el médico."
+        },
+        {
+          "id": "filtro-panico-1",
+          "actionId": "panico",
+          "text": "Uno le avisa que las orejas aparecen cada vez que se mueve."
+        },
+        {
+          "id": "filtro-panico-2",
+          "actionId": "panico",
+          "text": "El abuelo sospecha que alguien tocó su teléfono sin permiso."
+        },
+        {
+          "id": "filtro-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que toda la familia se puso el mismo filtro para acompañarlo."
+        },
+        {
+          "id": "filtro-exagerar-1",
+          "actionId": "exagerar",
+          "text": "La llamada ya parece una reunión de una veterinaria."
+        },
+        {
+          "id": "filtro-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone usar esa imagen para el próximo saludo familiar."
+        },
+        {
+          "id": "filtro-mentir-0",
+          "actionId": "mentir",
+          "text": "Una nieta asegura que el abuelo eligió el filtro a propósito."
+        },
+        {
+          "id": "filtro-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que guardó una captura para mandarla de tarjeta."
+        },
+        {
+          "id": "filtro-mentir-2",
+          "actionId": "mentir",
+          "text": "Un primo jura que el filtro responde cuando él dice «hola»."
+        },
+        {
+          "id": "filtro-confundir-0",
+          "actionId": "confundir",
+          "text": "Leyó «quitar efecto» y pensó que iba a perder el sonido."
+        },
+        {
+          "id": "filtro-confundir-1",
+          "actionId": "confundir",
+          "text": "Uno entendió «estás con orejas» y revisó los auriculares."
+        },
+        {
+          "id": "filtro-confundir-2",
+          "actionId": "confundir",
+          "text": "El abuelo creyó que el perrito estaba en el teléfono del otro."
+        },
+        {
+          "id": "filtro-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz tocó un icono buscando subir el volumen."
+        },
+        {
+          "id": "filtro-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás quedó activado desde que jugó un nieto con el celular."
+        },
+        {
+          "id": "filtro-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que cambió de cámara justo sobre el botón del filtro."
+        },
+        {
+          "id": "filtro-meme-0",
+          "actionId": "meme",
+          "text": "Ya hicieron un sticker con «¿me escuchan?» y las orejas."
+        },
+        {
+          "id": "filtro-meme-1",
+          "actionId": "meme",
+          "text": "El grupo lo bautizó «abuelo modo guardián»."
+        },
+        {
+          "id": "filtro-meme-2",
+          "actionId": "meme",
+          "text": "Le pusieron el sonido de un ladrido al saludo grabado."
+        }
+      ]
     },
     {
-      "id": "carpincho",
-      "original": "Un carpincho se instaló al lado de la conservadora en la costa del río.",
-      "subject": "el carpincho",
-      "place": "la costa del río",
-      "threat": "podría estar custodiando una sociedad secreta de sanguchitos",
-      "consequence": "todos los picnics necesitarán permiso de carpincho",
-      "lie": "trajo su propio tupper y pidió una servilleta",
-      "mistakes": [
-        "un almohadón con patas",
-        "un pan de campo con bigotes"
-      ],
-      "question": "¿Qué mensaje mandás sobre el invitado al picnic?",
-      "icebreaker": "¿Quién le prepararía un plato al carpincho?"
+      "id": "mufa",
+      "category": "memes",
+      "original": "Antes del partido uno escribió «ya está ganado» en el grupo de amigos.",
+      "anchor": "Uno dio el partido por ganado antes de jugar.",
+      "question": "¿Cómo reacciona el grupo al mensaje?",
+      "icebreaker": "¿Quién mandaría «anulo mufa» antes de leer el mensaje entero?",
+      "options": [
+        {
+          "id": "mufa-panico-0",
+          "actionId": "panico",
+          "text": "Ya temen que el mensaje sea la causa de cualquier pase errado."
+        },
+        {
+          "id": "mufa-panico-1",
+          "actionId": "panico",
+          "text": "Uno pide que lo borren antes de que lo vea otro hincha."
+        },
+        {
+          "id": "mufa-panico-2",
+          "actionId": "panico",
+          "text": "El grupo sospecha hasta del emoji que usó el confiado."
+        },
+        {
+          "id": "mufa-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que todos mandaron «anulo mufa» al mismo tiempo."
+        },
+        {
+          "id": "mufa-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El mensaje ya necesita un operativo de desmufación barrial."
+        },
+        {
+          "id": "mufa-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone dejar el celular afuera de la casa hasta que termine el partido."
+        },
+        {
+          "id": "mufa-mentir-0",
+          "actionId": "mentir",
+          "text": "Un amigo asegura que el mensaje anterior también fue antes de un empate."
+        },
+        {
+          "id": "mufa-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que el autor tenía preparada una foto festejando."
+        },
+        {
+          "id": "mufa-mentir-2",
+          "actionId": "mentir",
+          "text": "Uno jura que hay un chat secreto para controlar a los mufas."
+        },
+        {
+          "id": "mufa-confundir-0",
+          "actionId": "confundir",
+          "text": "El abuelo leyó «mufa» y preguntó si había humedad en la pared."
+        },
+        {
+          "id": "mufa-confundir-1",
+          "actionId": "confundir",
+          "text": "Uno entendió que «anulo» era el nombre de un suplente."
+        },
+        {
+          "id": "mufa-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien creyó que había que cancelar la juntada."
+        },
+        {
+          "id": "mufa-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz lo escribió para provocar a los del otro equipo."
+        },
+        {
+          "id": "mufa-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás vio una repetición y creyó que el partido ya había empezado."
+        },
+        {
+          "id": "mufa-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que confundió el amistoso de ayer con el de hoy."
+        },
+        {
+          "id": "mufa-meme-0",
+          "actionId": "meme",
+          "text": "Ya pegaron su mensaje sobre una foto de un extintor."
+        },
+        {
+          "id": "mufa-meme-1",
+          "actionId": "meme",
+          "text": "El grupo le hizo una credencial de «mufa bajo supervisión»."
+        },
+        {
+          "id": "mufa-meme-2",
+          "actionId": "meme",
+          "text": "A cada mensaje suyo le responden con un sello de «anulado»."
+        }
+      ]
     },
     {
-      "id": "peña",
-      "original": "En la peña alguien sacó a bailar a un perchero por error.",
-      "subject": "el perchero",
-      "place": "la peña del pueblo",
-      "threat": "podría empezar a elegir pareja por su cuenta",
-      "consequence": "los muebles tendrán categoría propia en el festival",
-      "lie": "el jurado lo invitó a la final de malambo",
-      "mistakes": [
-        "un arquero de madera",
-        "un árbol con poncho"
-      ],
-      "question": "¿Cómo contás el baile del perchero?",
-      "icebreaker": "¿Quién seguiría bailando para disimular?"
+      "id": "muchachos",
+      "category": "memes",
+      "original": "En un cumpleaños arrancaron Muchachos justo cuando el abuelo iba a soplar las velitas.",
+      "anchor": "Muchachos interrumpió las velitas.",
+      "question": "¿Cómo cuentan el festejo después?",
+      "icebreaker": "¿Quién seguiría cantando aunque ya hubieran cortado la torta?",
+      "options": [
+        {
+          "id": "muchachos-panico-0",
+          "actionId": "panico",
+          "text": "Uno teme que las velas se consuman antes del estribillo."
+        },
+        {
+          "id": "muchachos-panico-1",
+          "actionId": "panico",
+          "text": "La familia pide cuidar la torta de los saltos."
+        },
+        {
+          "id": "muchachos-panico-2",
+          "actionId": "panico",
+          "text": "Ya miran al vecino por si viene a reclamar por el volumen."
+        },
+        {
+          "id": "muchachos-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que el cumpleaños se convirtió en una vuelta olímpica."
+        },
+        {
+          "id": "muchachos-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El barrio cuenta que levantaron la torta como una copa."
+        },
+        {
+          "id": "muchachos-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno asegura que hubo más banderas que platos."
+        },
+        {
+          "id": "muchachos-mentir-0",
+          "actionId": "mentir",
+          "text": "Un primo dice que guardaron papelitos para el estribillo."
+        },
+        {
+          "id": "muchachos-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que el abuelo pidió un micrófono para seguirla."
+        },
+        {
+          "id": "muchachos-mentir-2",
+          "actionId": "mentir",
+          "text": "Una tía jura que alguien entró con una camiseta de suplente."
+        },
+        {
+          "id": "muchachos-confundir-0",
+          "actionId": "confundir",
+          "text": "Uno entendió que «Muchachos» era el aviso de que llegaba la comida."
+        },
+        {
+          "id": "muchachos-confundir-1",
+          "actionId": "confundir",
+          "text": "La abuela creyó que había que soplar al final de la canción."
+        },
+        {
+          "id": "muchachos-confundir-2",
+          "actionId": "confundir",
+          "text": "Un nene preguntó si la torta se entregaba al campeón."
+        },
+        {
+          "id": "muchachos-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz la playlist quedó en el último festejo de la Selección."
+        },
+        {
+          "id": "muchachos-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás el que manejaba la música tocó el favorito equivocado."
+        },
+        {
+          "id": "muchachos-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que el abuelo quería una entrada con más emoción."
+        },
+        {
+          "id": "muchachos-meme-0",
+          "actionId": "meme",
+          "text": "Ya hicieron una foto del abuelo con la torta como trofeo."
+        },
+        {
+          "id": "muchachos-meme-1",
+          "actionId": "meme",
+          "text": "El video circula con «campeón del mundo y del cumpleaños»."
+        },
+        {
+          "id": "muchachos-meme-2",
+          "actionId": "meme",
+          "text": "Le pusieron tres estrellas al cartel de feliz cumpleaños."
+        }
+      ]
     },
     {
-      "id": "fernet",
-      "original": "En la juntada apareció un vaso de fernet con una rodaja de zanahoria.",
-      "subject": "el vaso",
-      "place": "la juntada",
-      "threat": "podría estar intentando convertirnos en ensalada",
-      "consequence": "la previa será declarada huerta comunitaria",
-      "lie": "un conejo mandó la receta por audio",
-      "mistakes": [
-        "un florero de gaseosa",
-        "un licuado con bufanda"
-      ],
-      "question": "¿Qué teoría tirás sobre ese vaso?",
-      "icebreaker": "¿Quién diría que es una receta familiar?"
+      "id": "scaloneta",
+      "category": "memes",
+      "original": "El equipo de fútbol cinco del barrio encargó camisetas que dicen «La Scaloneta del jueves».",
+      "anchor": "El equipo del jueves se bautizó Scaloneta.",
+      "question": "¿Cómo agrandás la presentación del equipo?",
+      "icebreaker": "¿Quién pediría conferencia de prensa después del fútbol cinco?",
+      "options": [
+        {
+          "id": "scaloneta-panico-0",
+          "actionId": "panico",
+          "text": "Uno teme que ahora les exijan ganar todos los jueves."
+        },
+        {
+          "id": "scaloneta-panico-1",
+          "actionId": "panico",
+          "text": "El arquero pregunta si también esperan que ataje penales."
+        },
+        {
+          "id": "scaloneta-panico-2",
+          "actionId": "panico",
+          "text": "Ya les preocupa estrenarlas contra el equipo que siempre les gana."
+        },
+        {
+          "id": "scaloneta-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que presentaron las camisetas como si fueran la Selección."
+        },
+        {
+          "id": "scaloneta-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El grupo ya discute quién va a levantar la copa del estacionamiento."
+        },
+        {
+          "id": "scaloneta-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone llegar a la cancha en caravana."
+        },
+        {
+          "id": "scaloneta-mentir-0",
+          "actionId": "mentir",
+          "text": "Un compañero asegura que hicieron una lista de convocados en secreto."
+        },
+        {
+          "id": "scaloneta-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que el suplente pidió número fijo para la camiseta."
+        },
+        {
+          "id": "scaloneta-mentir-2",
+          "actionId": "mentir",
+          "text": "Uno jura que hay un discurso grabado para el entretiempo."
+        },
+        {
+          "id": "scaloneta-confundir-0",
+          "actionId": "confundir",
+          "text": "El estampador entendió que «Scaloneta» era el nombre de una empresa de fletes."
+        },
+        {
+          "id": "scaloneta-confundir-1",
+          "actionId": "confundir",
+          "text": "Uno creyó que el jueves jugaban en una cancha llamada así."
+        },
+        {
+          "id": "scaloneta-confundir-2",
+          "actionId": "confundir",
+          "text": "Un amigo preguntó si la camiseta venía con entrada a un partido."
+        },
+        {
+          "id": "scaloneta-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz el nombre salió después de ganar una sola vez."
+        },
+        {
+          "id": "scaloneta-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás copiaron el apodo de otro grupo de amigos."
+        },
+        {
+          "id": "scaloneta-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que el organizador necesitaba un nombre para hacer el pedido."
+        },
+        {
+          "id": "scaloneta-meme-0",
+          "actionId": "meme",
+          "text": "Ya hicieron figuritas de todos con fotos del DNI."
+        },
+        {
+          "id": "scaloneta-meme-1",
+          "actionId": "meme",
+          "text": "Le pusieron «lista de buena fe y pocas rodillas» al plantel."
+        },
+        {
+          "id": "scaloneta-meme-2",
+          "actionId": "meme",
+          "text": "El grupo editó un anuncio de convocatoria con música épica."
+        }
+      ]
     },
     {
-      "id": "torta-frita",
-      "original": "Una torta frita salió con forma del mapa de Argentina.",
-      "subject": "la torta frita",
-      "place": "la cocina de la abuela",
-      "threat": "podría estar planeando conquistar la fuente de azúcar",
-      "consequence": "habrá que estudiar geografía antes de merendar",
-      "lie": "la abuela ya le puso nombre a cada provincia",
-      "mistakes": [
-        "una alpargata de azúcar",
-        "una nube recién frita"
-      ],
-      "question": "¿Qué noticia sale de la merienda de la abuela?",
-      "icebreaker": "¿Por qué provincia empezarías a comer?"
+      "id": "fua",
+      "category": "memes",
+      "original": "El tío dijo «fua, el Diego» al ver una pelota firmada que era un adorno del kiosco.",
+      "anchor": "El tío confundió una pelota de adorno.",
+      "question": "¿Cómo cuentan la reacción del tío?",
+      "icebreaker": "¿Quién se emocionaría antes de preguntar si la firma es de verdad?",
+      "options": [
+        {
+          "id": "fua-panico-0",
+          "actionId": "panico",
+          "text": "El kiosquero teme que alguien quiera llevarse el adorno."
+        },
+        {
+          "id": "fua-panico-1",
+          "actionId": "panico",
+          "text": "Uno pide no tocar la pelota hasta aclarar de dónde salió."
+        },
+        {
+          "id": "fua-panico-2",
+          "actionId": "panico",
+          "text": "El tío teme haber hecho un papelón delante de todo el local."
+        },
+        {
+          "id": "fua-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que el tío le hizo un homenaje completo frente al mostrador."
+        },
+        {
+          "id": "fua-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El barrio ya cuenta que se armó una fila para ver la pelota."
+        },
+        {
+          "id": "fua-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone poner una placa con la frase del tío."
+        },
+        {
+          "id": "fua-mentir-0",
+          "actionId": "mentir",
+          "text": "Un cliente asegura que la pelota vino con una caja de alfajores."
+        },
+        {
+          "id": "fua-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que la firma la hizo el sobrino con un marcador."
+        },
+        {
+          "id": "fua-mentir-2",
+          "actionId": "mentir",
+          "text": "El vecino jura que guardaron la reacción en la cámara del local."
+        },
+        {
+          "id": "fua-confundir-0",
+          "actionId": "confundir",
+          "text": "El tío leyó «Diego» en la etiqueta del proveedor y pensó en Maradona."
+        },
+        {
+          "id": "fua-confundir-1",
+          "actionId": "confundir",
+          "text": "Uno creyó que el kiosquero se llamaba Diego."
+        },
+        {
+          "id": "fua-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien entendió que estaban vendiendo una pelota usada en un partido."
+        },
+        {
+          "id": "fua-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz el brillo de la vitrina hacía que pareciera una pieza de colección."
+        },
+        {
+          "id": "fua-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás el tío vio primero la firma y después el precio."
+        },
+        {
+          "id": "fua-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que la emoción le ganó a los anteojos."
+        },
+        {
+          "id": "fua-meme-0",
+          "actionId": "meme",
+          "text": "Ya usan la cara del tío como respuesta a cualquier oferta."
+        },
+        {
+          "id": "fua-meme-1",
+          "actionId": "meme",
+          "text": "El grupo editó su reacción cada vez que aparece un alfajor."
+        },
+        {
+          "id": "fua-meme-2",
+          "actionId": "meme",
+          "text": "Le pusieron «fua, el kiosco» a la foto del mostrador."
+        }
+      ]
     },
     {
-      "id": "barrio",
-      "original": "El grupo del barrio mandó treinta audios para preguntar de quién era una ojota.",
-      "subject": "la ojota",
-      "place": "la vereda",
-      "threat": "podría estar esperando a su dueña invisible",
-      "consequence": "nadie podrá salir a la calle sin identificar su calzado",
-      "lie": "la ojota tiene administrador propio en WhatsApp",
-      "mistakes": [
-        "una gaviota de goma",
-        "una empanada con tirita"
-      ],
-      "question": "¿Qué audio agregás al grupo del barrio?",
-      "icebreaker": "¿Quién mandaría un audio de tres minutos sobre una ojota?"
+      "id": "buenas",
+      "category": "memes",
+      "original": "Una vecina entró a la reunión de consorcio diciendo «buenas, buenas» como en un vivo.",
+      "anchor": "La vecina saludó al consorcio como en un vivo.",
+      "question": "¿Cómo se cuenta esa entrada a la reunión?",
+      "icebreaker": "¿Quién pediría que se suscriban antes de hablar de las expensas?",
+      "options": [
+        {
+          "id": "buenas-panico-0",
+          "actionId": "panico",
+          "text": "Uno teme que esté transmitiendo toda la reunión."
+        },
+        {
+          "id": "buenas-panico-1",
+          "actionId": "panico",
+          "text": "El administrador pregunta si la cámara del celular está prendida."
+        },
+        {
+          "id": "buenas-panico-2",
+          "actionId": "panico",
+          "text": "Ya piden no mostrar en internet la discusión por el ascensor."
+        },
+        {
+          "id": "buenas-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que saludó uno por uno como si leyera el chat."
+        },
+        {
+          "id": "buenas-exagerar-1",
+          "actionId": "exagerar",
+          "text": "La reunión ya parece un programa con público."
+        },
+        {
+          "id": "buenas-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone hacer una cortina musical para su próxima entrada."
+        },
+        {
+          "id": "buenas-mentir-0",
+          "actionId": "mentir",
+          "text": "Una vecina asegura que llevaba una luz de aro en la cartera."
+        },
+        {
+          "id": "buenas-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que pidió repetir el saludo porque nadie contestó."
+        },
+        {
+          "id": "buenas-mentir-2",
+          "actionId": "mentir",
+          "text": "El portero jura que tenía anotado un cierre para la reunión."
+        },
+        {
+          "id": "buenas-confundir-0",
+          "actionId": "confundir",
+          "text": "El administrador entendió que anunciaba buenas noticias sobre las expensas."
+        },
+        {
+          "id": "buenas-confundir-1",
+          "actionId": "confundir",
+          "text": "Uno creyó que «vivo» significaba que venía a confirmar su domicilio."
+        },
+        {
+          "id": "buenas-confundir-2",
+          "actionId": "confundir",
+          "text": "La vecina preguntó por el chat y le señalaron el libro de actas."
+        },
+        {
+          "id": "buenas-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz venía de ver varios vivos seguidos."
+        },
+        {
+          "id": "buenas-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás ensayaba un saludo para vender cosas por internet."
+        },
+        {
+          "id": "buenas-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que quiso romper el silencio de una reunión incómoda."
+        },
+        {
+          "id": "buenas-meme-0",
+          "actionId": "meme",
+          "text": "Ya hicieron una miniatura con su cara y el título «se picó el consorcio»."
+        },
+        {
+          "id": "buenas-meme-1",
+          "actionId": "meme",
+          "text": "El grupo le responde «activá la campanita» cada vez que toca timbre."
+        },
+        {
+          "id": "buenas-meme-2",
+          "actionId": "meme",
+          "text": "Le pusieron un cartel de «en vivo desde el palier»."
+        }
+      ]
+    },
+    {
+      "id": "cine",
+      "category": "memes",
+      "original": "Un amigo filmó en cámara lenta cómo servían la salsa del domingo y escribió «esto es cine».",
+      "anchor": "Filmaron la salsa del domingo como una película.",
+      "question": "¿Qué decís del video de la salsa?",
+      "icebreaker": "¿Quién haría repetir el servido porque no salió bien el plano?",
+      "options": [
+        {
+          "id": "cine-panico-0",
+          "actionId": "panico",
+          "text": "La abuela teme que se enfríen los fideos por esperar la toma."
+        },
+        {
+          "id": "cine-panico-1",
+          "actionId": "panico",
+          "text": "Uno pide sacar el celular de encima de la olla."
+        },
+        {
+          "id": "cine-panico-2",
+          "actionId": "panico",
+          "text": "Ya les preocupa que la salsa salpique la cámara."
+        },
+        {
+          "id": "cine-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que hubo más tomas que platos servidos."
+        },
+        {
+          "id": "cine-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El almuerzo ya tiene una presentación de festival."
+        },
+        {
+          "id": "cine-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone poner créditos después del postre."
+        },
+        {
+          "id": "cine-mentir-0",
+          "actionId": "mentir",
+          "text": "Un primo asegura que grabaron el sonido con otro celular."
+        },
+        {
+          "id": "cine-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que el director casero llevó una cuchara de reemplazo."
+        },
+        {
+          "id": "cine-mentir-2",
+          "actionId": "mentir",
+          "text": "Una tía jura que le pidieron firmar permiso para salir de fondo."
+        },
+        {
+          "id": "cine-confundir-0",
+          "actionId": "confundir",
+          "text": "El abuelo leyó «cine» y preguntó cuánto costaba la entrada."
+        },
+        {
+          "id": "cine-confundir-1",
+          "actionId": "confundir",
+          "text": "Uno entendió que tenían que comer mirando una película."
+        },
+        {
+          "id": "cine-confundir-2",
+          "actionId": "confundir",
+          "text": "La abuela creyó que «corte» era la indicación de cortar los tallarines."
+        },
+        {
+          "id": "cine-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz estaba probando la cámara nueva con buena luz."
+        },
+        {
+          "id": "cine-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás copió una receta que vio filmada así en TikTok."
+        },
+        {
+          "id": "cine-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que quería mostrarle la salsa a un amigo que faltó."
+        },
+        {
+          "id": "cine-meme-0",
+          "actionId": "meme",
+          "text": "Ya le pusieron «premio a mejor salsa de reparto»."
+        },
+        {
+          "id": "cine-meme-1",
+          "actionId": "meme",
+          "text": "El grupo usa una cucharada como escena de final épico."
+        },
+        {
+          "id": "cine-meme-2",
+          "actionId": "meme",
+          "text": "Al video le agregaron una alfombra roja hecha con un repasador."
+        }
+      ]
+    },
+    {
+      "id": "msn",
+      "category": "nostalgia",
+      "original": "En una reunión alguien puso el sonido del zumbido de MSN y todos buscaron el celular.",
+      "anchor": "El zumbido de MSN hizo mirar los celulares.",
+      "question": "¿Qué contás de esa reacción automática?",
+      "icebreaker": "¿Quién todavía se acuerda de su nick de MSN?",
+      "options": [
+        {
+          "id": "msn-panico-0",
+          "actionId": "panico",
+          "text": "Uno teme que haya vuelto a abrirse su cuenta vieja."
+        },
+        {
+          "id": "msn-panico-1",
+          "actionId": "panico",
+          "text": "Ya preguntan quién puede ver los nicks que usaban antes."
+        },
+        {
+          "id": "msn-panico-2",
+          "actionId": "panico",
+          "text": "Una amiga pide no compartir capturas de aquella época."
+        },
+        {
+          "id": "msn-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que todos reaccionaron como si alguien les hablara desde 2008."
+        },
+        {
+          "id": "msn-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El grupo ya quiere volver a ponerse estados con letras de canciones."
+        },
+        {
+          "id": "msn-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone hacer la próxima juntada en un ciber."
+        },
+        {
+          "id": "msn-mentir-0",
+          "actionId": "mentir",
+          "text": "Un amigo asegura que conserva su contraseña escrita en una agenda."
+        },
+        {
+          "id": "msn-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que alguien todavía tiene guardados los emoticones personalizados."
+        },
+        {
+          "id": "msn-mentir-2",
+          "actionId": "mentir",
+          "text": "Una prima jura que encontró el historial en una computadora vieja."
+        },
+        {
+          "id": "msn-confundir-0",
+          "actionId": "confundir",
+          "text": "Uno pensó que el zumbido era una alarma del router."
+        },
+        {
+          "id": "msn-confundir-1",
+          "actionId": "confundir",
+          "text": "El más chico creyó que «no conectado» era una excusa nueva."
+        },
+        {
+          "id": "msn-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien confundió el sonido con una notificación del banco."
+        },
+        {
+          "id": "msn-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz el sonido estaba en una playlist de nostalgia."
+        },
+        {
+          "id": "msn-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás alguien quería probar quién se acordaba."
+        },
+        {
+          "id": "msn-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que lo pusieron después de encontrar una foto con flequillo."
+        },
+        {
+          "id": "msn-meme-0",
+          "actionId": "meme",
+          "text": "Ya hicieron un sticker de «ocupado» para esquivar invitaciones."
+        },
+        {
+          "id": "msn-meme-1",
+          "actionId": "meme",
+          "text": "El grupo escribe sus nombres con símbolos imposibles."
+        },
+        {
+          "id": "msn-meme-2",
+          "actionId": "meme",
+          "text": "A la próxima foto le pusieron «aparecer sin conexión»."
+        }
+      ]
+    },
+    {
+      "id": "fotolog",
+      "category": "nostalgia",
+      "original": "Una amiga encontró su Fotolog y reconoció la misma pose en veinte fotos.",
+      "anchor": "Reaparecieron las fotos del Fotolog.",
+      "question": "¿Cómo contás el hallazgo del Fotolog?",
+      "icebreaker": "¿Quién escondería sus fotos antes de prestar la compu?",
+      "options": [
+        {
+          "id": "fotolog-panico-0",
+          "actionId": "panico",
+          "text": "Ya teme que alguien use su flequillo como sticker."
+        },
+        {
+          "id": "fotolog-panico-1",
+          "actionId": "panico",
+          "text": "Una amiga pide tapar los comentarios antes de compartir."
+        },
+        {
+          "id": "fotolog-panico-2",
+          "actionId": "panico",
+          "text": "El grupo sospecha que también van a aparecer dedicatorias viejas."
+        },
+        {
+          "id": "fotolog-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que la pose parecía un requisito para entrar a internet."
+        },
+        {
+          "id": "fotolog-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El grupo quiere organizar una muestra de arqueología digital."
+        },
+        {
+          "id": "fotolog-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone recrear todas las fotos en el mismo orden."
+        },
+        {
+          "id": "fotolog-mentir-0",
+          "actionId": "mentir",
+          "text": "Una amiga asegura que todavía tiene la campera de esas fotos."
+        },
+        {
+          "id": "fotolog-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que alguien guardó las firmas en un cuaderno."
+        },
+        {
+          "id": "fotolog-mentir-2",
+          "actionId": "mentir",
+          "text": "Un primo jura que salía de fondo en una foto famosa del grupo."
+        },
+        {
+          "id": "fotolog-confundir-0",
+          "actionId": "confundir",
+          "text": "Uno entendió «firmame» y buscó una lapicera."
+        },
+        {
+          "id": "fotolog-confundir-1",
+          "actionId": "confundir",
+          "text": "El más chico creyó que Fotolog era un local de revelado."
+        },
+        {
+          "id": "fotolog-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien pensó que «pasate» era una invitación a la casa."
+        },
+        {
+          "id": "fotolog-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz esa era la única esquina de la habitación con buena luz."
+        },
+        {
+          "id": "fotolog-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás copiaban la pose de la misma banda."
+        },
+        {
+          "id": "fotolog-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que la cámara tenía un temporizador difícil de usar."
+        },
+        {
+          "id": "fotolog-meme-0",
+          "actionId": "meme",
+          "text": "Ya hicieron un antes y después con la misma pose."
+        },
+        {
+          "id": "fotolog-meme-1",
+          "actionId": "meme",
+          "text": "El grupo responde a las fotos nuevas con «pasé, firmé, devolvé»."
+        },
+        {
+          "id": "fotolog-meme-2",
+          "actionId": "meme",
+          "text": "Le pusieron «patrimonio del flequillo» al álbum recuperado."
+        }
+      ]
+    },
+    {
+      "id": "videoclub",
+      "category": "nostalgia",
+      "original": "Ordenando un placard encontraron una película del videoclub con la etiqueta de devolver rebobinada.",
+      "anchor": "Apareció una película de videoclub.",
+      "question": "¿Qué rumor sale del cassette encontrado?",
+      "icebreaker": "¿Quién todavía tendría una película que nunca devolvió?",
+      "options": [
+        {
+          "id": "videoclub-panico-0",
+          "actionId": "panico",
+          "text": "Uno teme que sigan contando los días de atraso."
+        },
+        {
+          "id": "videoclub-panico-1",
+          "actionId": "panico",
+          "text": "La familia pregunta si también quedó la videocasetera prestada."
+        },
+        {
+          "id": "videoclub-panico-2",
+          "actionId": "panico",
+          "text": "Ya les preocupa que la cinta se haya pegado con los años."
+        },
+        {
+          "id": "videoclub-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que la multa podría pagarse con la casa entera."
+        },
+        {
+          "id": "videoclub-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El hallazgo ya parece una deuda transmitida por generaciones."
+        },
+        {
+          "id": "videoclub-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone pedir una amnistía para películas olvidadas."
+        },
+        {
+          "id": "videoclub-mentir-0",
+          "actionId": "mentir",
+          "text": "Un tío asegura que el dueño del videoclub se acuerda de esa familia."
+        },
+        {
+          "id": "videoclub-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que la ficha de socio quedó adentro de la caja."
+        },
+        {
+          "id": "videoclub-mentir-2",
+          "actionId": "mentir",
+          "text": "Una prima jura que el cassette traía grabado un cumpleaños."
+        },
+        {
+          "id": "videoclub-confundir-0",
+          "actionId": "confundir",
+          "text": "El más chico entendió que «rebobinar» era actualizar una aplicación."
+        },
+        {
+          "id": "videoclub-confundir-1",
+          "actionId": "confundir",
+          "text": "Uno creyó que la etiqueta decía que había que devolver la caja vacía."
+        },
+        {
+          "id": "videoclub-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien preguntó dónde se conectaban los auriculares al cassette."
+        },
+        {
+          "id": "videoclub-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz quedó guardada al mudarse de casa."
+        },
+        {
+          "id": "videoclub-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás la alquilaron justo cuando dejó de funcionar la video."
+        },
+        {
+          "id": "videoclub-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que estaba escondida detrás de una colección de manuales."
+        },
+        {
+          "id": "videoclub-meme-0",
+          "actionId": "meme",
+          "text": "Ya hicieron un aviso de «último deudor del videoclub»."
+        },
+        {
+          "id": "videoclub-meme-1",
+          "actionId": "meme",
+          "text": "El grupo compara la caja con un objeto de museo."
+        },
+        {
+          "id": "videoclub-meme-2",
+          "actionId": "meme",
+          "text": "Le pusieron música de excavación al abrir el placard."
+        }
+      ]
+    },
+    {
+      "id": "ciber",
+      "category": "nostalgia",
+      "original": "Un amigo guardó una tarjeta de horas de un ciber y quiere usar el saldo que le quedaba.",
+      "anchor": "Quiere gastar horas de un ciber viejo.",
+      "question": "¿Cómo contás el reclamo de esas horas?",
+      "icebreaker": "¿Quién conservaría un cupón durante veinte años?",
+      "options": [
+        {
+          "id": "ciber-panico-0",
+          "actionId": "panico",
+          "text": "Uno teme que también reaparezcan sus trabajos sin guardar."
+        },
+        {
+          "id": "ciber-panico-1",
+          "actionId": "panico",
+          "text": "Ya pregunta si el local sigue teniendo las mismas computadoras."
+        },
+        {
+          "id": "ciber-panico-2",
+          "actionId": "panico",
+          "text": "Su amigo sospecha que ni siquiera queda el cartel del ciber."
+        },
+        {
+          "id": "ciber-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que reclama las horas como si fueran una herencia."
+        },
+        {
+          "id": "ciber-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El grupo quiere presentar el caso en defensa del consumidor nostálgico."
+        },
+        {
+          "id": "ciber-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone organizar una LAN para saldar la deuda."
+        },
+        {
+          "id": "ciber-mentir-0",
+          "actionId": "mentir",
+          "text": "Un vecino asegura que el dueño guardó la libreta de turnos."
+        },
+        {
+          "id": "ciber-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que el amigo también tiene el número de máquina favorito."
+        },
+        {
+          "id": "ciber-mentir-2",
+          "actionId": "mentir",
+          "text": "Un primo jura que le debían una impresión en blanco y negro."
+        },
+        {
+          "id": "ciber-confundir-0",
+          "actionId": "confundir",
+          "text": "El más chico pensó que era una tarjeta de un gimnasio."
+        },
+        {
+          "id": "ciber-confundir-1",
+          "actionId": "confundir",
+          "text": "Uno entendió «saldo» y quiso cargarle una SUBE."
+        },
+        {
+          "id": "ciber-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien creyó que LAN era el nombre del antiguo encargado."
+        },
+        {
+          "id": "ciber-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz la tarjeta quedó dentro de una carpeta del colegio."
+        },
+        {
+          "id": "ciber-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás volvió a pasar por la cuadra y se acordó."
+        },
+        {
+          "id": "ciber-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que empezó a buscarla después de ver un video sobre cibers."
+        },
+        {
+          "id": "ciber-meme-0",
+          "actionId": "meme",
+          "text": "Ya hicieron una foto de la tarjeta como inversión a largo plazo."
+        },
+        {
+          "id": "ciber-meme-1",
+          "actionId": "meme",
+          "text": "El grupo pide «una hora más» cada vez que termina una juntada."
+        },
+        {
+          "id": "ciber-meme-2",
+          "actionId": "meme",
+          "text": "Le pusieron «ahorrista del Counter» al dueño de la tarjeta."
+        }
+      ]
+    },
+    {
+      "id": "family",
+      "category": "nostalgia",
+      "original": "En un asado conectaron un Family y todos discutieron cómo hacer andar el cartucho.",
+      "anchor": "Conectaron el Family en el asado.",
+      "question": "¿Qué cuentan del regreso del cartucho?",
+      "icebreaker": "¿Quién soplaría el cartucho aunque nadie se lo pidiera?",
+      "options": [
+        {
+          "id": "family-panico-0",
+          "actionId": "panico",
+          "text": "Uno teme que el único televisor no tenga la entrada correcta."
+        },
+        {
+          "id": "family-panico-1",
+          "actionId": "panico",
+          "text": "Ya piden no tocar el cable que hace aparecer la imagen."
+        },
+        {
+          "id": "family-panico-2",
+          "actionId": "panico",
+          "text": "Alguien sospecha que el joystick favorito tiene un botón trabado."
+        },
+        {
+          "id": "family-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que se suspendió la charla del asado por la primera partida."
+        },
+        {
+          "id": "family-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El grupo ya anuncia un torneo con relato profesional."
+        },
+        {
+          "id": "family-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone llevar el Family a todas las reuniones."
+        },
+        {
+          "id": "family-mentir-0",
+          "actionId": "mentir",
+          "text": "Un amigo asegura que recuerda una clave que da vidas infinitas."
+        },
+        {
+          "id": "family-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que el cartucho todavía guarda un récord del primo."
+        },
+        {
+          "id": "family-mentir-2",
+          "actionId": "mentir",
+          "text": "Uno jura que hay un juego escondido en el menú."
+        },
+        {
+          "id": "family-confundir-0",
+          "actionId": "confundir",
+          "text": "El más chico leyó «Family» y pensó que era una app de control parental."
+        },
+        {
+          "id": "family-confundir-1",
+          "actionId": "confundir",
+          "text": "Uno entendió «soplalo» y acercó el ventilador."
+        },
+        {
+          "id": "family-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien creyó que el segundo joystick servía para cambiar de canal."
+        },
+        {
+          "id": "family-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz el cartucho estaba apenas corrido en la ranura."
+        },
+        {
+          "id": "family-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás el cable se aflojó cuando movieron la mesa."
+        },
+        {
+          "id": "family-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que el televisor quedó en el canal equivocado."
+        },
+        {
+          "id": "family-meme-0",
+          "actionId": "meme",
+          "text": "Ya hicieron el meme de los adultos peleándose por el joystick."
+        },
+        {
+          "id": "family-meme-1",
+          "actionId": "meme",
+          "text": "El grupo tituló la foto «antes de que pidieran actualizar»."
+        },
+        {
+          "id": "family-meme-2",
+          "actionId": "meme",
+          "text": "Al cartucho le pusieron «tecnología a pulmón»."
+        }
+      ]
+    },
+    {
+      "id": "telefono",
+      "category": "nostalgia",
+      "original": "En casa de la abuela sonó el teléfono fijo y los nietos no sabían quién debía atender.",
+      "anchor": "Sonó el teléfono fijo de la abuela.",
+      "question": "¿Cómo contás la escena del teléfono fijo?",
+      "icebreaker": "¿Quién preguntaría dónde se ve el nombre de quien llama?",
+      "options": [
+        {
+          "id": "telefono-panico-0",
+          "actionId": "panico",
+          "text": "Uno teme que al atender le toque hablar con un pariente lejano."
+        },
+        {
+          "id": "telefono-panico-1",
+          "actionId": "panico",
+          "text": "Ya preguntan si la llamada puede cortar el wifi."
+        },
+        {
+          "id": "telefono-panico-2",
+          "actionId": "panico",
+          "text": "La abuela se preocupa porque nadie llega antes del último ring."
+        },
+        {
+          "id": "telefono-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que hicieron una reunión para decidir quién levantaba el tubo."
+        },
+        {
+          "id": "telefono-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El teléfono ya parece una prueba de supervivencia generacional."
+        },
+        {
+          "id": "telefono-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone practicar antes de la próxima llamada."
+        },
+        {
+          "id": "telefono-mentir-0",
+          "actionId": "mentir",
+          "text": "Una prima asegura que la abuela reconoce al que llama por el horario."
+        },
+        {
+          "id": "telefono-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que hay una lista de saludos al lado del aparato."
+        },
+        {
+          "id": "telefono-mentir-2",
+          "actionId": "mentir",
+          "text": "Un tío jura que el teléfono tiene el mismo número desde su infancia."
+        },
+        {
+          "id": "telefono-confundir-0",
+          "actionId": "confundir",
+          "text": "Un nieto deslizó el dedo por el tubo para atender."
+        },
+        {
+          "id": "telefono-confundir-1",
+          "actionId": "confundir",
+          "text": "Otro pensó que «levantalo» era sacar una foto desde arriba."
+        },
+        {
+          "id": "telefono-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien buscó el botón para mandar la llamada al grupo."
+        },
+        {
+          "id": "telefono-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz nunca habían atendido un teléfono con cable."
+        },
+        {
+          "id": "telefono-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás esperaban que la abuela dijera si conocía al que llamaba."
+        },
+        {
+          "id": "telefono-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que estaban acostumbrados a ignorar números desconocidos."
+        },
+        {
+          "id": "telefono-meme-0",
+          "actionId": "meme",
+          "text": "Ya hicieron un tutorial de «cómo atender sin pantalla»."
+        },
+        {
+          "id": "telefono-meme-1",
+          "actionId": "meme",
+          "text": "El grupo llama «modo vintage» a hablar sin altavoz."
+        },
+        {
+          "id": "telefono-meme-2",
+          "actionId": "meme",
+          "text": "Le pusieron un cartel de «no necesita cargador» al aparato."
+        }
+      ]
+    },
+    {
+      "id": "qr",
+      "category": "actualidad",
+      "original": "En un bar cambiaron la carta por un QR y el abuelo le sacó una foto al cuadradito.",
+      "anchor": "En el bar el menú está en un QR.",
+      "question": "¿Cómo sigue la historia del menú digital?",
+      "icebreaker": "¿Quién pediría una carta de papel después de probar tres veces?",
+      "options": [
+        {
+          "id": "qr-panico-0",
+          "actionId": "panico",
+          "text": "Uno teme quedarse sin batería antes de elegir la comida."
+        },
+        {
+          "id": "qr-panico-1",
+          "actionId": "panico",
+          "text": "La mesa se preocupa porque nadie tiene señal."
+        },
+        {
+          "id": "qr-panico-2",
+          "actionId": "panico",
+          "text": "El abuelo sospecha que el precio cambia mientras busca los anteojos."
+        },
+        {
+          "id": "qr-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que hizo falta una clase completa para pedir una tostada."
+        },
+        {
+          "id": "qr-exagerar-1",
+          "actionId": "exagerar",
+          "text": "La mesa ya propone nombrar un encargado de escanear."
+        },
+        {
+          "id": "qr-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno cuenta que tardaron más en abrir la carta que en cocinar."
+        },
+        {
+          "id": "qr-mentir-0",
+          "actionId": "mentir",
+          "text": "Un mozo asegura que guardan una carta impresa como emergencia."
+        },
+        {
+          "id": "qr-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que un cliente se llevó el código en una servilleta."
+        },
+        {
+          "id": "qr-mentir-2",
+          "actionId": "mentir",
+          "text": "Una amiga jura que el QR estaba pegado sobre otro QR."
+        },
+        {
+          "id": "qr-confundir-0",
+          "actionId": "confundir",
+          "text": "El abuelo creyó que había que mostrar la foto del código al mozo."
+        },
+        {
+          "id": "qr-confundir-1",
+          "actionId": "confundir",
+          "text": "Uno confundió el QR del menú con el de pagar."
+        },
+        {
+          "id": "qr-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien pensó que «escanear» requería una impresora."
+        },
+        {
+          "id": "qr-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz el celular abrió la cámara sin reconocer el enlace."
+        },
+        {
+          "id": "qr-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás el reflejo de la mesa tapaba una esquina del código."
+        },
+        {
+          "id": "qr-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que habían enfocado el mantel en vez del cartel."
+        },
+        {
+          "id": "qr-meme-0",
+          "actionId": "meme",
+          "text": "Ya hicieron una foto del QR con el texto «¿qué gusto tiene esto?»."
+        },
+        {
+          "id": "qr-meme-1",
+          "actionId": "meme",
+          "text": "El grupo tituló la escena «gastronomía con soporte técnico»."
+        },
+        {
+          "id": "qr-meme-2",
+          "actionId": "meme",
+          "text": "Le pusieron un diploma al primero que encontró las bebidas."
+        }
+      ]
+    },
+    {
+      "id": "ia",
+      "category": "actualidad",
+      "original": "Una vecina le pidió a una IA que redactara un mensaje y lo mandó con «aquí tienes el texto» incluido.",
+      "anchor": "Mandaron al grupo la respuesta completa de la IA.",
+      "question": "¿Qué se comenta del mensaje demasiado formal?",
+      "icebreaker": "¿Quién copiaría también las instrucciones sin darse cuenta?",
+      "options": [
+        {
+          "id": "ia-panico-0",
+          "actionId": "panico",
+          "text": "La vecina teme haber pegado también su pregunta original."
+        },
+        {
+          "id": "ia-panico-1",
+          "actionId": "panico",
+          "text": "Uno le avisa que el mensaje menciona un destinatario genérico."
+        },
+        {
+          "id": "ia-panico-2",
+          "actionId": "panico",
+          "text": "Ya pregunta si se puede editar antes de que lo lea el administrador."
+        },
+        {
+          "id": "ia-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que el saludo parece un discurso de apertura del Congreso."
+        },
+        {
+          "id": "ia-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El grupo ya pide índice y bibliografía para sus próximos mensajes."
+        },
+        {
+          "id": "ia-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone responderle con una carta documento de mentira."
+        },
+        {
+          "id": "ia-mentir-0",
+          "actionId": "mentir",
+          "text": "Un vecino asegura que pidió tres versiones antes de elegir esa."
+        },
+        {
+          "id": "ia-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que el texto venía con una despedida en otro idioma."
+        },
+        {
+          "id": "ia-mentir-2",
+          "actionId": "mentir",
+          "text": "Una amiga jura que la IA hasta inventó un cargo para la vecina."
+        },
+        {
+          "id": "ia-confundir-0",
+          "actionId": "confundir",
+          "text": "Uno entendió que «aquí tienes el texto» era el saludo nuevo del barrio."
+        },
+        {
+          "id": "ia-confundir-1",
+          "actionId": "confundir",
+          "text": "El administrador creyó que hablaba en nombre de una comisión."
+        },
+        {
+          "id": "ia-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien tomó «estimados vecinos» como una invitación formal."
+        },
+        {
+          "id": "ia-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz copió todo sin revisar dónde empezaba el mensaje."
+        },
+        {
+          "id": "ia-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás quería sonar amable y eligió una versión demasiado seria."
+        },
+        {
+          "id": "ia-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que apretó «copiar respuesta» mientras estaba haciendo otra cosa."
+        },
+        {
+          "id": "ia-meme-0",
+          "actionId": "meme",
+          "text": "Ya le responden «como modelo de vecino» a cada consulta."
+        },
+        {
+          "id": "ia-meme-1",
+          "actionId": "meme",
+          "text": "El grupo convirtió «aquí tienes el texto» en un sticker."
+        },
+        {
+          "id": "ia-meme-2",
+          "actionId": "meme",
+          "text": "Le pusieron «redacción asistida, revisión pendiente» a la captura."
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "category": "actualidad",
+      "original": "Un repartidor dejó una pizza en la casa de al lado y ambos vecinos bajaron con servilletas.",
+      "anchor": "La pizza llegó a la casa de al lado.",
+      "question": "¿Cómo cuentan la confusión del pedido?",
+      "icebreaker": "¿Quién ya tendría la mesa puesta antes de mirar el nombre?",
+      "options": [
+        {
+          "id": "delivery-panico-0",
+          "actionId": "panico",
+          "text": "Uno teme que la pizza se enfríe mientras verifican el pedido."
+        },
+        {
+          "id": "delivery-panico-1",
+          "actionId": "panico",
+          "text": "Ya preguntan si también se cruzaron las bebidas."
+        },
+        {
+          "id": "delivery-panico-2",
+          "actionId": "panico",
+          "text": "Un vecino mira la caja por si alguien alcanzó a probar una porción."
+        },
+        {
+          "id": "delivery-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que la cuadra armó una mesa para resolver la entrega."
+        },
+        {
+          "id": "delivery-exagerar-1",
+          "actionId": "exagerar",
+          "text": "La pizza ya tiene más seguimiento que un paquete internacional."
+        },
+        {
+          "id": "delivery-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone un sorteo por cada porción."
+        },
+        {
+          "id": "delivery-mentir-0",
+          "actionId": "mentir",
+          "text": "El repartidor asegura que los dos timbres tenían el mismo apellido."
+        },
+        {
+          "id": "delivery-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que uno había pedido exactamente la misma pizza."
+        },
+        {
+          "id": "delivery-mentir-2",
+          "actionId": "mentir",
+          "text": "Una vecina jura que salió un tercero con un vaso."
+        },
+        {
+          "id": "delivery-confundir-0",
+          "actionId": "confundir",
+          "text": "Uno entendió «es para el del medio» y buscó al vecino del segundo piso."
+        },
+        {
+          "id": "delivery-confundir-1",
+          "actionId": "confundir",
+          "text": "Leyeron «familiar» y pensaron que era un regalo de un pariente."
+        },
+        {
+          "id": "delivery-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien creyó que «retira en puerta» significaba cualquier puerta."
+        },
+        {
+          "id": "delivery-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz los números de las casas se ven mal de noche."
+        },
+        {
+          "id": "delivery-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás la ubicación del mapa quedó corrida unos metros."
+        },
+        {
+          "id": "delivery-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que respondieron los dos cuando gritaron el nombre."
+        },
+        {
+          "id": "delivery-meme-0",
+          "actionId": "meme",
+          "text": "Ya hicieron un meme de los dos bajando como finalistas de un reality."
+        },
+        {
+          "id": "delivery-meme-1",
+          "actionId": "meme",
+          "text": "El grupo tituló la foto «la última porción compartida»."
+        },
+        {
+          "id": "delivery-meme-2",
+          "actionId": "meme",
+          "text": "Le pusieron una flecha de GPS a cada servilleta."
+        }
+      ]
+    },
+    {
+      "id": "precio",
+      "category": "actualidad",
+      "original": "En el almacén el cartel del precio quedó dado vuelta y todos preguntaron por la oferta.",
+      "anchor": "El cartel del almacén quedó al revés.",
+      "question": "¿Qué versión circula de la supuesta oferta?",
+      "icebreaker": "¿Quién sacaría foto antes de preguntar el precio?",
+      "options": [
+        {
+          "id": "precio-panico-0",
+          "actionId": "panico",
+          "text": "El almacenero teme que ya hayan compartido la oferta en el barrio."
+        },
+        {
+          "id": "precio-panico-1",
+          "actionId": "panico",
+          "text": "Uno pide mirar la coma antes de llenar la bolsa."
+        },
+        {
+          "id": "precio-panico-2",
+          "actionId": "panico",
+          "text": "Una clienta sospecha que el cartel no corresponde a ese estante."
+        },
+        {
+          "id": "precio-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que se formó una fila por un número mal leído."
+        },
+        {
+          "id": "precio-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El barrio ya anuncia la oferta como un evento histórico."
+        },
+        {
+          "id": "precio-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone guardar el cartel como recuerdo del día."
+        },
+        {
+          "id": "precio-mentir-0",
+          "actionId": "mentir",
+          "text": "Un cliente asegura que el cartel se dio vuelta al abrir la persiana."
+        },
+        {
+          "id": "precio-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que alguien llamó a sus primos para aprovechar la oferta."
+        },
+        {
+          "id": "precio-mentir-2",
+          "actionId": "mentir",
+          "text": "El ayudante jura que era el precio de otra cosa."
+        },
+        {
+          "id": "precio-confundir-0",
+          "actionId": "confundir",
+          "text": "Uno leyó el seis como nueve y salió a avisar."
+        },
+        {
+          "id": "precio-confundir-1",
+          "actionId": "confundir",
+          "text": "Alguien confundió el peso del paquete con el precio."
+        },
+        {
+          "id": "precio-confundir-2",
+          "actionId": "confundir",
+          "text": "Una vecina entendió que la fecha del cartel era el descuento."
+        },
+        {
+          "id": "precio-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz el cartel se soltó de un lado cuando limpiaron."
+        },
+        {
+          "id": "precio-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás reutilizaron una etiqueta y quedó un número viejo detrás."
+        },
+        {
+          "id": "precio-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que el reflejo del vidrio tapaba un dígito."
+        },
+        {
+          "id": "precio-meme-0",
+          "actionId": "meme",
+          "text": "Ya hicieron el antes y después del cartel con música dramática."
+        },
+        {
+          "id": "precio-meme-1",
+          "actionId": "meme",
+          "text": "El grupo pide VAR para revisar la coma."
+        },
+        {
+          "id": "precio-meme-2",
+          "actionId": "meme",
+          "text": "Le pusieron «oferta válida hasta girar el papel»."
+        }
+      ]
+    },
+    {
+      "id": "teletrabajo",
+      "category": "actualidad",
+      "original": "En una reunión por videollamada apareció un gato tapando la cámara del jefe.",
+      "anchor": "El gato apareció en la reunión de trabajo.",
+      "question": "¿Qué se cuenta de la reunión con el gato?",
+      "icebreaker": "¿Quién le daría la palabra al gato para no hablar de trabajo?",
+      "options": [
+        {
+          "id": "teletrabajo-panico-0",
+          "actionId": "panico",
+          "text": "Uno teme que el gato pise el botón de compartir pantalla."
+        },
+        {
+          "id": "teletrabajo-panico-1",
+          "actionId": "panico",
+          "text": "Ya preguntan si puede desconectar la reunión con la cola."
+        },
+        {
+          "id": "teletrabajo-panico-2",
+          "actionId": "panico",
+          "text": "El jefe mira el teclado por si el gato está escribiendo al chat."
+        },
+        {
+          "id": "teletrabajo-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que el gato recibió más atención que toda la presentación."
+        },
+        {
+          "id": "teletrabajo-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El equipo ya propone hacerlo moderador de las reuniones."
+        },
+        {
+          "id": "teletrabajo-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno cuenta que hubo una ovación cuando se sentó frente a la cámara."
+        },
+        {
+          "id": "teletrabajo-mentir-0",
+          "actionId": "mentir",
+          "text": "Una compañera asegura que el gato aparece siempre a la misma hora."
+        },
+        {
+          "id": "teletrabajo-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que le dejaron una silla vacía al lado del jefe."
+        },
+        {
+          "id": "teletrabajo-mentir-2",
+          "actionId": "mentir",
+          "text": "Un colega jura que alguien lo agregó a la lista de asistentes."
+        },
+        {
+          "id": "teletrabajo-confundir-0",
+          "actionId": "confundir",
+          "text": "Uno creyó que el gato era un fondo animado."
+        },
+        {
+          "id": "teletrabajo-confundir-1",
+          "actionId": "confundir",
+          "text": "Alguien entendió «nuevo integrante» y pidió su correo."
+        },
+        {
+          "id": "teletrabajo-confundir-2",
+          "actionId": "confundir",
+          "text": "Un compañero pensó que el maullido era una notificación."
+        },
+        {
+          "id": "teletrabajo-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz se acercó al calor de la computadora."
+        },
+        {
+          "id": "teletrabajo-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás el plato de comida estaba justo al lado del escritorio."
+        },
+        {
+          "id": "teletrabajo-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que escuchó al jefe hablar y quiso que le abrieran la puerta."
+        },
+        {
+          "id": "teletrabajo-meme-0",
+          "actionId": "meme",
+          "text": "Ya le hicieron una credencial de supervisor de siestas."
+        },
+        {
+          "id": "teletrabajo-meme-1",
+          "actionId": "meme",
+          "text": "El chat usa su cara para pedir que termine la reunión."
+        },
+        {
+          "id": "teletrabajo-meme-2",
+          "actionId": "meme",
+          "text": "Le pusieron «el único que puede silenciar al jefe»."
+        }
+      ]
+    },
+    {
+      "id": "grupo",
+      "category": "actualidad",
+      "original": "El administrador del grupo del barrio cambió el nombre y nadie reconoció el chat.",
+      "anchor": "Le cambiaron el nombre al grupo del barrio.",
+      "question": "¿Cómo sigue el lío del chat rebautizado?",
+      "icebreaker": "¿Quién saldría del grupo antes de leer quiénes están?",
+      "options": [
+        {
+          "id": "grupo-panico-0",
+          "actionId": "panico",
+          "text": "Una vecina teme haber entrado a un grupo desconocido."
+        },
+        {
+          "id": "grupo-panico-1",
+          "actionId": "panico",
+          "text": "Uno pregunta si se perdieron los mensajes anteriores."
+        },
+        {
+          "id": "grupo-panico-2",
+          "actionId": "panico",
+          "text": "Ya sospechan que el administrador tocó más cosas de las que cuenta."
+        },
+        {
+          "id": "grupo-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que hubo más mensajes por el nombre que por todos los problemas del barrio."
+        },
+        {
+          "id": "grupo-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El cambio ya parece una reforma del reglamento vecinal."
+        },
+        {
+          "id": "grupo-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone llamar a una votación con boleta y urna."
+        },
+        {
+          "id": "grupo-mentir-0",
+          "actionId": "mentir",
+          "text": "El administrador asegura que probó siete nombres en borrador."
+        },
+        {
+          "id": "grupo-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que un vecino imprimió el nombre viejo para reclamar."
+        },
+        {
+          "id": "grupo-mentir-2",
+          "actionId": "mentir",
+          "text": "Una amiga jura que la foto nueva la eligió el hijo del administrador."
+        },
+        {
+          "id": "grupo-confundir-0",
+          "actionId": "confundir",
+          "text": "Uno creyó que «Vecinos unidos» era un equipo de fútbol."
+        },
+        {
+          "id": "grupo-confundir-1",
+          "actionId": "confundir",
+          "text": "Una vecina pensó que el nombre nuevo anunciaba una mudanza."
+        },
+        {
+          "id": "grupo-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien entendió que había que cambiar también el nombre del wifi."
+        },
+        {
+          "id": "grupo-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz querían distinguirlo del grupo de compra y venta."
+        },
+        {
+          "id": "grupo-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás el administrador lo confundió con otro chat al editar."
+        },
+        {
+          "id": "grupo-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que cambiaron el nombre después de una encuesta que nadie leyó."
+        },
+        {
+          "id": "grupo-meme-0",
+          "actionId": "meme",
+          "text": "Ya hicieron un escudo de fútbol con el nombre nuevo."
+        },
+        {
+          "id": "grupo-meme-1",
+          "actionId": "meme",
+          "text": "El grupo responde «yo al de antes lo conocía» a cada aviso."
+        },
+        {
+          "id": "grupo-meme-2",
+          "actionId": "meme",
+          "text": "Le pusieron una foto de reinauguración al icono."
+        }
+      ]
+    },
+    {
+      "id": "acto",
+      "category": "historia",
+      "original": "En el acto del 25 de Mayo el vendedor de velas apareció con una linterna.",
+      "anchor": "En el acto patrio vendieron velas con linterna.",
+      "question": "¿Cómo cuentan ese detalle del acto?",
+      "icebreaker": "¿Quién defendería la linterna diciendo que había que modernizarse?",
+      "options": [
+        {
+          "id": "acto-panico-0",
+          "actionId": "panico",
+          "text": "La maestra teme que alguien pregunte por las pilas en plena escena."
+        },
+        {
+          "id": "acto-panico-1",
+          "actionId": "panico",
+          "text": "Uno mira si también dejaron celulares sobre el escenario."
+        },
+        {
+          "id": "acto-panico-2",
+          "actionId": "panico",
+          "text": "La familia se preocupa porque el nene no encuentra sus velas."
+        },
+        {
+          "id": "acto-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que el vendedor adelantó dos siglos la iluminación del Cabildo."
+        },
+        {
+          "id": "acto-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El acto ya parece una exposición de inventos."
+        },
+        {
+          "id": "acto-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone ponerle «Revolución con batería» al programa."
+        },
+        {
+          "id": "acto-mentir-0",
+          "actionId": "mentir",
+          "text": "Una madre asegura que las velas quedaron en el auto."
+        },
+        {
+          "id": "acto-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que la linterna la prestó el encargado de la escuela."
+        },
+        {
+          "id": "acto-mentir-2",
+          "actionId": "mentir",
+          "text": "Un abuelo jura que el vendedor siguió cobrando por cada vela imaginaria."
+        },
+        {
+          "id": "acto-confundir-0",
+          "actionId": "confundir",
+          "text": "El nene entendió que «dar luz» permitía usar cualquier cosa."
+        },
+        {
+          "id": "acto-confundir-1",
+          "actionId": "confundir",
+          "text": "Uno confundió al vendedor de velas con el electricista del acto."
+        },
+        {
+          "id": "acto-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien creyó que la linterna era parte de una escena del presente."
+        },
+        {
+          "id": "acto-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz no querían llevar fuego cerca de los disfraces."
+        },
+        {
+          "id": "acto-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás cambiaron las velas por seguridad y olvidaron avisar."
+        },
+        {
+          "id": "acto-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que el utilero buscó lo primero que iluminaba."
+        },
+        {
+          "id": "acto-meme-0",
+          "actionId": "meme",
+          "text": "Ya hicieron una foto con «el Cabildo ahora viene con LED»."
+        },
+        {
+          "id": "acto-meme-1",
+          "actionId": "meme",
+          "text": "El grupo compara al vendedor con un emprendedor adelantado."
+        },
+        {
+          "id": "acto-meme-2",
+          "actionId": "meme",
+          "text": "Le pusieron «versión recargable» al cartel de las velas."
+        }
+      ]
+    },
+    {
+      "id": "cabildo",
+      "category": "historia",
+      "original": "En una visita al Cabildo un turista preguntó dónde se cargaba la SUBE en 1810.",
+      "anchor": "Preguntaron por la SUBE en el Cabildo.",
+      "question": "¿Cómo cuentan la pregunta durante la visita?",
+      "icebreaker": "¿Quién mezclaría una duda de hoy con la explicación del guía?",
+      "options": [
+        {
+          "id": "cabildo-panico-0",
+          "actionId": "panico",
+          "text": "El guía teme que ahora pregunten por el wifi colonial."
+        },
+        {
+          "id": "cabildo-panico-1",
+          "actionId": "panico",
+          "text": "Uno revisa si el turista estaba escuchando el recorrido."
+        },
+        {
+          "id": "cabildo-panico-2",
+          "actionId": "panico",
+          "text": "El grupo se preocupa porque la pregunta no parecía un chiste."
+        },
+        {
+          "id": "cabildo-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que la visita se convirtió en una clase sobre viajar en el tiempo."
+        },
+        {
+          "id": "cabildo-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El grupo ya arma una lista de preguntas imposibles para el guía."
+        },
+        {
+          "id": "cabildo-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone dibujar un molinete en la entrada del Cabildo."
+        },
+        {
+          "id": "cabildo-mentir-0",
+          "actionId": "mentir",
+          "text": "Un turista asegura que la duda venía de mirar el mapa del transporte."
+        },
+        {
+          "id": "cabildo-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que alguien preguntó después por una estación cercana."
+        },
+        {
+          "id": "cabildo-mentir-2",
+          "actionId": "mentir",
+          "text": "Una vecina jura que el guía respiró hondo antes de responder."
+        },
+        {
+          "id": "cabildo-confundir-0",
+          "actionId": "confundir",
+          "text": "Escuchó «cabildo abierto» y pensó en una terminal que atendía todo el día."
+        },
+        {
+          "id": "cabildo-confundir-1",
+          "actionId": "confundir",
+          "text": "Uno entendió «recorrido» como una línea de colectivo."
+        },
+        {
+          "id": "cabildo-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien confundió las paradas de la visita con paradas de bondi."
+        },
+        {
+          "id": "cabildo-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz la pregunta era sobre dónde cargar la tarjeta al salir."
+        },
+        {
+          "id": "cabildo-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás mezcló lo que decía el guía con lo que buscaba en el teléfono."
+        },
+        {
+          "id": "cabildo-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que había llegado tarde y se perdió el contexto."
+        },
+        {
+          "id": "cabildo-meme-0",
+          "actionId": "meme",
+          "text": "Ya hicieron una tarjeta SUBE con dibujo de carreta."
+        },
+        {
+          "id": "cabildo-meme-1",
+          "actionId": "meme",
+          "text": "El grupo tituló la escena «próxima parada: 1810»."
+        },
+        {
+          "id": "cabildo-meme-2",
+          "actionId": "meme",
+          "text": "Le pusieron un cartel de «sin combinación con la colonia»."
+        }
+      ]
     },
     {
       "id": "locro",
-      "original": "En el locro del club apareció una cuchara con nombre y apellido.",
-      "subject": "la cuchara",
-      "place": "el club",
-      "threat": "podría estar investigando cada plato",
-      "consequence": "el próximo locro necesitará lista de invitados por cubierto",
-      "lie": "la cuchara pagó la cuota social por adelantado",
-      "mistakes": [
-        "una guitarra de sopa",
-        "un cucharón con documento"
-      ],
-      "question": "¿Qué versión llega a la mesa del locro?",
-      "icebreaker": "¿Quién llevaría su propia cuchara por las dudas?"
+      "category": "historia",
+      "original": "En la fiesta patria del club llevaron locro y alguien pidió ketchup.",
+      "anchor": "Pidieron ketchup para el locro del club.",
+      "question": "¿Qué se dice de ese pedido en la mesa?",
+      "icebreaker": "¿Quién pediría una salsa antes de probar la comida?",
+      "options": [
+        {
+          "id": "locro-panico-0",
+          "actionId": "panico",
+          "text": "La cocinera teme que empiecen a pedir mayonesa también."
+        },
+        {
+          "id": "locro-panico-1",
+          "actionId": "panico",
+          "text": "Uno pide probar el locro antes de tocar las salsas."
+        },
+        {
+          "id": "locro-panico-2",
+          "actionId": "panico",
+          "text": "La mesa sospecha que el invitado no sabe qué le sirvieron."
+        },
+        {
+          "id": "locro-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que se hizo un silencio digno de cadena nacional."
+        },
+        {
+          "id": "locro-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El club ya debate el pedido como un asunto de identidad cultural."
+        },
+        {
+          "id": "locro-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone poner un reglamento de condimentos en la entrada."
+        },
+        {
+          "id": "locro-mentir-0",
+          "actionId": "mentir",
+          "text": "Un vecino asegura que el invitado trae sobres de ketchup en el bolsillo."
+        },
+        {
+          "id": "locro-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que preguntó por la salsa apenas vio la fila."
+        },
+        {
+          "id": "locro-mentir-2",
+          "actionId": "mentir",
+          "text": "Una cocinera jura que ya había hecho el mismo pedido el año pasado."
+        },
+        {
+          "id": "locro-confundir-0",
+          "actionId": "confundir",
+          "text": "Vio los granos de maíz y pensó que era una ensalada caliente."
+        },
+        {
+          "id": "locro-confundir-1",
+          "actionId": "confundir",
+          "text": "Uno creyó que el ketchup era parte de la salsa que estaban sirviendo."
+        },
+        {
+          "id": "locro-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien entendió «locro» como el nombre del puesto."
+        },
+        {
+          "id": "locro-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz le pone ketchup a todo por costumbre."
+        },
+        {
+          "id": "locro-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás nunca había probado locro y no sabía cómo acompañarlo."
+        },
+        {
+          "id": "locro-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que lo preguntó en broma y nadie captó el tono."
+        },
+        {
+          "id": "locro-meme-0",
+          "actionId": "meme",
+          "text": "Ya hicieron una foto del sobre con «objeto no autorizado»."
+        },
+        {
+          "id": "locro-meme-1",
+          "actionId": "meme",
+          "text": "El grupo pide un detector de ketchup para la próxima fiesta patria."
+        },
+        {
+          "id": "locro-meme-2",
+          "actionId": "meme",
+          "text": "Le pusieron «debate nacional en una cucharada» al video."
+        }
+      ]
+    },
+    {
+      "id": "radio",
+      "category": "historia",
+      "original": "El abuelo encontró una radio portátil y se puso a relatar un partido imaginario.",
+      "anchor": "El abuelo relata un partido con la radio vieja.",
+      "question": "¿Cómo cuentan el relato del abuelo?",
+      "icebreaker": "¿Quién se quedaría escuchando aunque no estuviera jugando nadie?",
+      "options": [
+        {
+          "id": "radio-panico-0",
+          "actionId": "panico",
+          "text": "Uno teme que el vecino crea que se está perdiendo un partido."
+        },
+        {
+          "id": "radio-panico-1",
+          "actionId": "panico",
+          "text": "La abuela avisa que va a gastar las pilas que guardó."
+        },
+        {
+          "id": "radio-panico-2",
+          "actionId": "panico",
+          "text": "El grupo se preocupa porque el abuelo ya está pidiendo silencio."
+        },
+        {
+          "id": "radio-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que gritó el gol como si fuera una final del mundo."
+        },
+        {
+          "id": "radio-exagerar-1",
+          "actionId": "exagerar",
+          "text": "Los nietos ya organizan una tribuna en el patio."
+        },
+        {
+          "id": "radio-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone transmitir el relato por los parlantes de la cuadra."
+        },
+        {
+          "id": "radio-mentir-0",
+          "actionId": "mentir",
+          "text": "Un tío asegura que el abuelo está repitiendo una jugada de su juventud."
+        },
+        {
+          "id": "radio-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que anotó los jugadores en un papel al lado de la radio."
+        },
+        {
+          "id": "radio-mentir-2",
+          "actionId": "mentir",
+          "text": "Una nieta jura que hubo publicidad inventada durante el entretiempo."
+        },
+        {
+          "id": "radio-confundir-0",
+          "actionId": "confundir",
+          "text": "Un nene pensó que el abuelo estaba adentro de la radio."
+        },
+        {
+          "id": "radio-confundir-1",
+          "actionId": "confundir",
+          "text": "Uno creyó que el ruido de estática era el público."
+        },
+        {
+          "id": "radio-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien entendió el nombre de un jugador como una marca de pilas."
+        },
+        {
+          "id": "radio-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz la radio le hizo acordar a los partidos que escuchaba de chico."
+        },
+        {
+          "id": "radio-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás estaba mostrando cómo se seguía el fútbol sin pantalla."
+        },
+        {
+          "id": "radio-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que quería enseñarles a los nietos a relatar."
+        },
+        {
+          "id": "radio-meme-0",
+          "actionId": "meme",
+          "text": "Ya editaron su grito con el gol del perro contra una maceta."
+        },
+        {
+          "id": "radio-meme-1",
+          "actionId": "meme",
+          "text": "El grupo lo nombró relator oficial de los cumpleaños."
+        },
+        {
+          "id": "radio-meme-2",
+          "actionId": "meme",
+          "text": "Le pusieron «señal antigua, pasión intacta» a la foto."
+        }
+      ]
+    },
+    {
+      "id": "patacones",
+      "category": "historia",
+      "original": "Ordenando papeles encontraron un patacón y lo llevaron a la sobremesa.",
+      "anchor": "Apareció un patacón entre papeles viejos.",
+      "question": "¿Qué historia cuentan alrededor del papel encontrado?",
+      "icebreaker": "¿Quién guarda papeles viejos pensando que algún día servirán?",
+      "options": [
+        {
+          "id": "patacones-panico-0",
+          "actionId": "panico",
+          "text": "Uno teme que haya quedado adentro de una carpeta para tirar."
+        },
+        {
+          "id": "patacones-panico-1",
+          "actionId": "panico",
+          "text": "La familia pide no confundirlo con los billetes de ahora."
+        },
+        {
+          "id": "patacones-panico-2",
+          "actionId": "panico",
+          "text": "Ya les preocupa que alguien lo use para anotar un teléfono."
+        },
+        {
+          "id": "patacones-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que la sobremesa se convirtió en una clase de historia económica."
+        },
+        {
+          "id": "patacones-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El grupo ya quiere armar un museo con los cajones de la abuela."
+        },
+        {
+          "id": "patacones-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone cobrar entrada para ver la colección de papeles."
+        },
+        {
+          "id": "patacones-mentir-0",
+          "actionId": "mentir",
+          "text": "Un tío asegura que lo guardó como recuerdo de una compra."
+        },
+        {
+          "id": "patacones-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que venía con un ticket de supermercado de la misma época."
+        },
+        {
+          "id": "patacones-mentir-2",
+          "actionId": "mentir",
+          "text": "Una prima jura que había otro detrás de una foto."
+        },
+        {
+          "id": "patacones-confundir-0",
+          "actionId": "confundir",
+          "text": "El más chico creyó que era plata de un juego de mesa."
+        },
+        {
+          "id": "patacones-confundir-1",
+          "actionId": "confundir",
+          "text": "Uno entendió «patacón» y preguntó si era una comida."
+        },
+        {
+          "id": "patacones-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien pensó que era un vale del almacén del barrio."
+        },
+        {
+          "id": "patacones-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz quedó guardado junto con documentos de una mudanza."
+        },
+        {
+          "id": "patacones-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás alguien lo separó porque le llamó la atención el diseño."
+        },
+        {
+          "id": "patacones-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que el cajón no se abría desde hacía años."
+        },
+        {
+          "id": "patacones-meme-0",
+          "actionId": "meme",
+          "text": "Ya hicieron una foto de «tesoros que aparecen limpiando»."
+        },
+        {
+          "id": "patacones-meme-1",
+          "actionId": "meme",
+          "text": "El grupo armó un ranking de objetos que delatan la edad."
+        },
+        {
+          "id": "patacones-meme-2",
+          "actionId": "meme",
+          "text": "Le pusieron «la billetera también tiene archivo histórico»."
+        }
+      ]
+    },
+    {
+      "id": "sereno",
+      "category": "historia",
+      "original": "En una obra escolar el sereno anunció la hora mirando un reloj inteligente.",
+      "anchor": "El sereno del acto usa reloj inteligente.",
+      "question": "¿Cómo se cuenta ese detalle de la obra?",
+      "icebreaker": "¿Quién revisaría los pasos caminados en pleno acto patrio?",
+      "options": [
+        {
+          "id": "sereno-panico-0",
+          "actionId": "panico",
+          "text": "La maestra teme que suene una notificación en medio del pregón."
+        },
+        {
+          "id": "sereno-panico-1",
+          "actionId": "panico",
+          "text": "Uno avisa que el reloj brilla desde la primera fila."
+        },
+        {
+          "id": "sereno-panico-2",
+          "actionId": "panico",
+          "text": "La familia se preocupa porque el nene olvidó qué hora debía anunciar."
+        },
+        {
+          "id": "sereno-exagerar-0",
+          "actionId": "exagerar",
+          "text": "Dicen que el sereno ya ofrece pronóstico y contador de pasos."
+        },
+        {
+          "id": "sereno-exagerar-1",
+          "actionId": "exagerar",
+          "text": "El acto parece tener más tecnología que la sala de informática."
+        },
+        {
+          "id": "sereno-exagerar-2",
+          "actionId": "exagerar",
+          "text": "Uno propone que avise también cuándo pasa el próximo bondi."
+        },
+        {
+          "id": "sereno-mentir-0",
+          "actionId": "mentir",
+          "text": "Una madre asegura que el reloj se lo prestaron para que no se olvidara la letra."
+        },
+        {
+          "id": "sereno-mentir-1",
+          "actionId": "mentir",
+          "text": "Dicen que tenía el pregón escrito en una notificación."
+        },
+        {
+          "id": "sereno-mentir-2",
+          "actionId": "mentir",
+          "text": "Un compañero jura que le vibró justo antes de salir a escena."
+        },
+        {
+          "id": "sereno-confundir-0",
+          "actionId": "confundir",
+          "text": "El nene entendió «avisá la hora» y activó una alarma."
+        },
+        {
+          "id": "sereno-confundir-1",
+          "actionId": "confundir",
+          "text": "Uno creyó que sereno significaba hablar sin subir la voz."
+        },
+        {
+          "id": "sereno-confundir-2",
+          "actionId": "confundir",
+          "text": "Alguien pensó que la pulsera brillante era parte del disfraz."
+        },
+        {
+          "id": "sereno-teoria-0",
+          "actionId": "teoria",
+          "text": "Capaz se olvidó de sacárselo al ponerse la ropa del acto."
+        },
+        {
+          "id": "sereno-teoria-1",
+          "actionId": "teoria",
+          "text": "Quizás quería asegurarse de no entrar antes de tiempo."
+        },
+        {
+          "id": "sereno-teoria-2",
+          "actionId": "teoria",
+          "text": "Dicen que ensayó siempre con el reloj y ya no podía salir sin él."
+        },
+        {
+          "id": "sereno-meme-0",
+          "actionId": "meme",
+          "text": "Ya hicieron un aviso de «sereno con actualización automática»."
+        },
+        {
+          "id": "sereno-meme-1",
+          "actionId": "meme",
+          "text": "El grupo tituló la foto «las doce y todo sincronizado»."
+        },
+        {
+          "id": "sereno-meme-2",
+          "actionId": "meme",
+          "text": "Le pusieron un código QR al farol en una edición."
+        }
+      ]
     }
   ],
   "actions": [
     {
       "id": "panico",
       "title": "Hacerse la cabeza",
-      "description": "Vio algo raro y ya se imaginó lo peor.",
-      "personality": "miedoso",
-      "kind": "fear",
-      "templates": [
-        "Che, ojo con {subject}: {threat}.",
-        "No es por meter miedo, pero {subject} {threat}.",
-        "Lo de {subject} me da cosa: {threat}. ¡Avisen al grupo!"
-      ]
+      "description": "Le sumó una preocupación relacionada con lo que pasó.",
+      "kind": "fear"
     },
     {
       "id": "exagerar",
       "title": "Hacerla enorme",
-      "description": "Lo contó como si fuera el evento del año.",
-      "personality": "exagerado",
-      "kind": "exaggerate",
-      "templates": [
-        "Lo de {subject} es tremendo: {consequence}.",
-        "¡Olvidate! Por culpa de {subject}, {consequence}.",
-        "Último momento desde {place}: por {subject}, {consequence}."
-      ]
+      "description": "Agrandó la repercusión de la misma historia.",
+      "kind": "exaggerate"
     },
     {
       "id": "mentir",
       "title": "Mandar fruta",
-      "description": "Inventó un detalle y lo contó con total seguridad.",
-      "personality": "mentiroso",
-      "kind": "lie",
-      "templates": [
-        "Me contó un vecino lo de {subject}: {lie}.",
-        "Tengo la posta sobre {subject}: {lie}.",
-        "Lo de {subject} está confirmado por mi primo: {lie}."
-      ]
+      "description": "Inventó un detalle que podría pertenecer a este chisme.",
+      "kind": "lie"
     },
     {
       "id": "confundir",
       "title": "Entender cualquiera",
-      "description": "Escuchó a medias y cambió al protagonista.",
-      "personality": "ignorante",
-      "kind": "misread",
-      "templates": [
-        "Ah, yo entendí que apareció {subject} en {place}.",
-        "Pará, ¿no estaban hablando de {subject} en {place}?",
-        "Escuché el audio sin auriculares: todo era por {subject} en {place}."
-      ]
+      "description": "Confundió una palabra o una intención, sin cambiar de historia.",
+      "kind": "misread"
+    },
+    {
+      "id": "teoria",
+      "title": "Tirar una teoría",
+      "description": "Propuso una explicación posible para lo que pasó.",
+      "kind": "theory"
+    },
+    {
+      "id": "meme",
+      "title": "Hacer un meme",
+      "description": "Convirtió el mismo episodio en un chiste para compartir.",
+      "kind": "meme"
     }
   ]
 }

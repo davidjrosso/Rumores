@@ -61,16 +61,18 @@ namespace Rumores.Core.Party
             int newsIndex=(int)(unchecked((uint)Seed)%(uint)catalog.news.Count);
             NewsId=catalog.news[newsIndex].id;
             Turn=0;Phase=PartyPhase.Handoff;LastChange=null;
-            branches.Clear();branches.Add(new PartyBranch {id="A",label="La plaza",rumor=new PartyRumor {newsId=News.id,original=News.original,headline=News.original,subject=News.subject}});
+            branches.Clear();branches.Add(new PartyBranch {id="A",label="La plaza",rumor=new PartyRumor {newsId=News.id,original=News.original,headline=News.original}});
         }
         void Require(PartyPhase phase,string token)
         {if(Phase!=phase||token!=Token)throw new InvalidOperationException("Ese turno ya cambió. Esperá la pantalla del jugador actual.");}
         public void Ready(string token) {Require(PartyPhase.Handoff,token);Phase=PartyPhase.Choosing;}
-        public IReadOnlyList<PartyAction> Choices()
+        public IReadOnlyList<PartyAction> Choices(int page=0)
         {
             if(Phase!=PartyPhase.Choosing)throw new InvalidOperationException("Esperá tu turno para elegir.");
-            int first=(int)((unchecked((uint)Seed)+(uint)Turn)%(uint)catalog.actions.Count);
-            return Enumerable.Range(0,3).Select(i=>catalog.actions[(first+i)%catalog.actions.Count]).ToList().AsReadOnly();
+            if(page<0||page>1)throw new ArgumentOutOfRangeException(nameof(page));
+            uint cycle=unchecked((uint)Seed)/(uint)catalog.news.Count;
+            int first=(int)((unchecked((uint)Seed)%(uint)catalog.news.Count+cycle+(uint)Turn)%(uint)catalog.actions.Count);
+            return Enumerable.Range(0,3).Select(i=>catalog.actions[(first+page*3+i)%catalog.actions.Count]).ToList().AsReadOnly();
         }
         public PartyChange Preview(string actionId)
         {

@@ -4,9 +4,9 @@ Objetivo actual: party game local Android, 2–8 jugadores en un teléfono, rond
 
 - Usar el checkout existente; las tareas cloud ya están aisladas. No crear worktrees salvo petición expresa.
 - Entrada actual: Assets/_Rumores/Scenes/Main.unity. El modo anterior se conserva en Legacy.unity y Git; no añadir sus sistemas a la ronda party.
-- Reglas puras en Scripts/Core/Party*.cs, contenido argentino en Resources/PartyContent.json (versión 2). No depender de frames, animaciones ni UnityEngine para turnos e historia.
+- Reglas puras en Scripts/Core/Party*.cs, contenido argentino en Resources/PartyContent.json (versión 3). No depender de frames, animaciones ni UnityEngine para turnos e historia.
 - Cada confirmación necesita el token del turno. Una vista previa o evento visual no puede consumir un turno ni repetir una acción.
-- Todo jugador dispone de dos turnos. Main ofrece tres respuestas completas por turno y una historia compartida. Sin atributos, puntos, objetivos numéricos, clasificación ni controles de ramas. No reintroducirlos sin pedido expreso. La API interna de ramas se conserva con copias y pruebas.
+- Todo jugador dispone de dos turnos. Main ofrece tres respuestas completas por página, seis estilos por turno y una historia compartida. «Ver otras 3» no consume turno. Cada continuación debe pertenecer a su noticia y conservar el aporte anterior; no sustituir protagonistas con mezclas arbitrarias. Sin atributos, puntos, objetivos numéricos, clasificación ni controles de ramas. No reintroducirlos sin pedido expreso. La API interna de ramas se conserva con copias y pruebas.
 - Presentación provisional con recursos existentes y prefabs; posponer arte definitivo y publicación Android hasta que se soliciten.
 - Ejecutar Tools/test.sh y comprobar sintaxis/asset wiring después de cambios pertinentes. Mantener las pruebas del legado mientras su código permanezca.
 - Reportar por separado pruebas .NET, comprobaciones estáticas y ejecución Unity. No hay editor Unity ni SDK Android en este entorno; nunca describirlos como ejecutados sin evidencia.

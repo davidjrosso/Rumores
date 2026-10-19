@@ -2,7 +2,7 @@
 
 ## Experiencia actual
 
-De 2 a 8 amigos, un teléfono, humor cotidiano argentino. Cada persona lee una pregunta y elige una de tres respuestas completas. La gracia está en contar la nueva versión en voz alta y escuchar cómo cambia el chisme.
+De 2 a 8 amigos, un teléfono, humor cotidiano argentino. Cada persona lee una pregunta y elige una de tres respuestas completas, con «Ver otras 3» para consultar el resto. La gracia está en contar la nueva versión en voz alta y escuchar cómo cambia el chisme.
 
 El pedido de simplificación reemplaza la puntuación y los objetivos anteriores. No hay atributos, puntos, estrategia numérica, clasificación ni ganador calculado. Al terminar, el grupo comenta la historia. No se agrega un sistema de votación que vuelva a complicar la ronda.
 
@@ -14,16 +14,18 @@ Todos siguen una sola historia. Se retiraron los controles de división y elecci
 
 ## Contenido
 
-20 noticias argentinas con 20 preguntas de turno y 20 preguntas de conversación. Temas: mate, bondi, kiosco, asado, empanadas, SUBE, truco, fútbol de barrio, Córdoba, Mendoza, peña, locro y otras situaciones cotidianas. Son ficción humorística; no se presentan rumores sobre personas reales.
+36 noticias con 36 preguntas de turno, 36 preguntas sociales y 648 continuaciones. Seis familias: cotidiano, internet/TikTok, memes argentinos, nostalgia, vida actual e historia. Incluyen MSN, Fotolog, Scaloneta, anulo mufa, QR, IA, videoclubes, actos patrios y costumbres de barrio. Son ficción humorística; no se presentan rumores sobre personas reales.
 
-Cuatro estilos locales, de los que se ofrecen tres por turno:
+Seis estilos locales, visibles de a tres. Cambiar de página no consume turno; se puede elegir libremente cualquiera de las seis alternativas:
 
 - Hacerse la cabeza: imaginar una amenaza absurda.
 - Hacerla enorme: agrandar las consecuencias.
 - Mandar fruta: inventar un dato con seguridad.
-- Entender cualquiera: confundir el protagonista; la confusión sigue en los textos posteriores.
+- Entender cualquiera: malinterpretar una palabra o intención dentro del mismo episodio.
+- Tirar una teoría: proponer una explicación posible.
+- Hacer un meme: convertir ese episodio en una referencia para compartir.
 
-Los avatares no dan habilidades. Las plantillas locales ofrecen variaciones de cada estilo. No se necesita conexión ni servicios de IA.
+Los avatares no dan habilidades. Cada noticia tiene tres continuaciones propias por estilo. La carta mantiene el contexto inicial y el aporte anterior; añade uno nuevo, priorizando variantes no usadas de ese estilo. El historial conserva todos los aportes. Las referencias de actualidad son escenas inventadas, no titulares verificados ni tendencias del día. No se necesita conexión ni servicios de IA.
 
 ## Alcance
 
