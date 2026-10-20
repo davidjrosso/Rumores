@@ -14,3 +14,12 @@ TestResults/
 .DS_Store
 __pycache__/
 *.pyc
+*.keystore
+*.jks
+*.p12
+*.pfx
+*.pem
+*.key
+keystore.properties
+.env
+.env.*

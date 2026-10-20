@@ -7,6 +7,14 @@ PlayerSettings:
   productGUID: 36e67621492b4d31a15509a655dc6659
   companyName: David J. Rosso
   productName: Rumores
+  m_BuildTargetIcons:
+  - m_BuildTarget:
+    m_Icons:
+    - serializedVersion: 3
+      m_Icon: {fileID: 2800000, guid: 6cb0947ff9a70274891b0c24b814a81d, type: 3}
+      m_Width: 128
+      m_Height: 128
+      m_Kind: 0
   defaultScreenWidth: 720
   defaultScreenHeight: 1280
   defaultScreenWidthWeb: 720

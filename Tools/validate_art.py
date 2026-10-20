@@ -72,4 +72,14 @@ for name, expected, pivot in characters + [('Pueblo', (1536, 1024, 3), 0.5)]:
                     'wrapU: 1', 'wrapV: 1', 'textureCompression: 0', 'maxTextureSize: 2048',
                     f'spritePivot: {{x: 0.5, y: {pivot}}}'):
         assert setting in meta, f'{name}: falta {setting}'
+icon = ROOT / 'Assets/_Rumores/Art/AppIcon.png'
+width, height, channels, rows = pixels(icon)
+assert width == height and width >= 512, 'El icono debe ser cuadrado y suficiente para launcher'
+if channels == 4:
+    assert all(a == 255 for row in rows for a in row[3::4]), 'El icono base debe ser opaco'
+meta = Path(str(icon)+'.meta').read_text()
+for setting in ('textureType: 0', 'spriteMode: 0', 'maxTextureSize: 1024',
+                'enableMipMap: 0', 'textureCompression: 0', 'filterMode: 1'):
+    assert setting in meta, f'Icono: falta {setting}'
+print(f'PASS AppIcon: {width}x{height}, opaque, default texture import capped at 1024')
 print('PASS source images/import metadata. Unity import, UI rendering and animation are NOT checked here.')

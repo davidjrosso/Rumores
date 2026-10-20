@@ -19,6 +19,40 @@ namespace Rumores.Tests
         }
         static void Press(string name){GameObject.Find(name).GetComponent<Button>().onClick.Invoke();}
         [UnityTest]
+        public IEnumerator RevealedTurnSurvivesPauseMenuAndSettingsWithoutRepeatingIt()
+        {
+            yield return SceneManager.LoadSceneAsync("Main");yield return null;yield return Ready();
+            var app=Object.FindObjectOfType<PartyApp>();
+            Press("Play");yield return Ready();Press("StartRound");yield return Ready();Press("Ready");yield return Ready();
+            Press("Action_"+app.Game.Choices()[0].id);Press("Confirm");yield return Ready();
+            string text=app.Game.LastChange.text,token=app.Game.Token;
+            app.SendMessage("OnApplicationPause",true);yield return Ready();
+            Assert.IsFalse(Object.FindObjectsOfType<Text>().Any(t=>t.text==text));
+            Press("Home");yield return Ready();Press("Settings");yield return Ready();
+            Press("Back");yield return Ready();Press("Continue");yield return Ready();Press("Ready");yield return Ready();
+            Assert.AreEqual(PartyPhase.Revealing,app.Game.Phase);Assert.AreEqual(token,app.Game.Token);
+            Assert.AreEqual(text,app.Game.LastChange.text);Assert.AreEqual(1,app.Game.Branches[0].rumor.history.Count);
+            Press("Next");yield return Ready();Assert.AreEqual(1,app.Game.Turn);
+            LogAssert.NoUnexpectedReceived();
+        }
+        [UnityTest]
+        public IEnumerator NewGameFromMenuDiscardsTheOldRoundAndOldCallbacks()
+        {
+            yield return SceneManager.LoadSceneAsync("Main");yield return null;yield return Ready();
+            var app=Object.FindObjectOfType<PartyApp>();
+            Press("Play");yield return Ready();Press("StartRound");yield return Ready();Press("Ready");yield return Ready();
+            Press("Action_"+app.Game.Choices()[0].id);Press("Confirm");yield return Ready();
+            Press("Next");yield return Ready();Press("Home");yield return Ready();
+            var old=app.Game;Assert.AreEqual(1,old.Turn);Assert.AreEqual(1,old.Branches[0].rumor.history.Count);
+            Press("Play");yield return Ready();
+            var start=GameObject.Find("StartRound").GetComponent<Button>();
+            start.onClick.Invoke();var current=app.Game;start.onClick.Invoke();
+            Assert.AreSame(current,app.Game);Assert.AreNotSame(old,app.Game);
+            Assert.AreEqual(0,app.Game.Turn);Assert.AreEqual(PartyPhase.Handoff,app.Game.Phase);
+            Assert.AreEqual(0,app.Game.Branches[0].rumor.history.Count);Assert.IsNull(app.Game.LastChange);
+            yield return Ready();LogAssert.NoUnexpectedReceived();
+        }
+        [UnityTest]
         public IEnumerator TransitionAndPrivacyRejectEarlyClicksWithoutChangingRules()
         {
             yield return SceneManager.LoadSceneAsync("Main");yield return null;yield return Ready();

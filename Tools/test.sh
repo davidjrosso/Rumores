@@ -16,3 +16,4 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 python3 Tools/validate_project.py
 python3 Tools/validate_art.py
 python3 Tools/validate_ux.py
+python3 Tools/test_unity_wrapper.py

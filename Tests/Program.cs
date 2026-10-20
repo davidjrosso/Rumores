@@ -26,6 +26,7 @@ class Program
         foreach(var test in SaveChecks.Cases(catalog,new SystemSaveJson()))cases.Add(test.Key,test.Value);
         var party=JsonSerializer.Deserialize<Rumores.Core.Party.PartyCatalog>(File.ReadAllText("Assets/_Rumores/Resources/PartyContent.json"),options);
         foreach(var test in PartyChecks.Cases(party))cases.Add(test.Key,test.Value);
+        foreach(var test in AndroidConfigChecks.Cases())cases.Add(test.Key,test.Value);
         int failed=0;
         foreach(var test in cases){try{test.Value();Console.WriteLine("PASS "+test.Key);}catch(Exception e){failed++;Console.WriteLine("FAIL "+test.Key+"\n"+e);}}
         Console.WriteLine("RESULT: "+(cases.Count-failed)+" passed, "+failed+" failed, "+cases.Count+" executed.");

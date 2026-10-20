@@ -7,6 +7,18 @@ namespace Rumores.Tests
 {
     public class ArtImportTests
     {
+        [Test]
+        public void AppIconImportsAndIsAssignedAsDefault()
+        {
+            const string path="Assets/_Rumores/Art/AppIcon.png";
+            var importer=(TextureImporter)AssetImporter.GetAtPath(path);
+            Assert.NotNull(importer);Assert.AreEqual(TextureImporterType.Default,importer.textureType);
+            Assert.IsFalse(importer.mipmapEnabled);
+            Assert.AreEqual(TextureImporterCompression.Uncompressed,importer.textureCompression);
+            var icon=AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+            Assert.NotNull(icon);Assert.AreEqual(icon.width,icon.height);Assert.LessOrEqual(icon.width,1024);
+            CollectionAssert.Contains(PlayerSettings.GetIconsForTargetGroup(BuildTargetGroup.Unknown),icon);
+        }
         [TestCase("Miedoso",1024,1536,0f)]
         [TestCase("Exagerado",1024,1536,0f)]
         [TestCase("Mentiroso",1024,1536,0f)]

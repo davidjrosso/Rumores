@@ -1,4 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net8.0</TargetFramework><ImplicitUsings>disable</ImplicitUsings><Nullable>disable</Nullable><TreatWarningsAsErrors>true</TreatWarningsAsErrors></PropertyGroup>
-  <ItemGroup><Compile Include="../Assets/_Rumores/Scripts/Core/**/*.cs"/><Compile Include="../Assets/_Rumores/Tests/Shared/*.cs"/></ItemGroup>
+  <ItemGroup><Compile Include="../Assets/_Rumores/Scripts/Core/**/*.cs"/><Compile Include="../Assets/_Rumores/Tests/Shared/*.cs"/><Compile Include="../Assets/_Rumores/Scripts/Editor/AndroidBuildConfig.cs"/></ItemGroup>
 </Project>

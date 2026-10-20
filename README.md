@@ -47,7 +47,7 @@ Se integraron música y siete efectos **sintetizados originales provisionales**,
 
 ## Validación
 
-**83 pruebas .NET aprobadas**: 23 del modo actual y 60 del legado. Incluyen 1296 rondas simuladas con opciones reales, protección contra doble pulsación, vista previa sin efectos y revancha. Referencias estáticas y sintaxis C# 9 comprobadas.
+**90 pruebas .NET aprobadas**: 23 del modo actual, 60 del legado y 7 de configuración Android. Incluyen 1296 rondas simuladas con opciones reales, protección contra doble pulsación, vista previa sin efectos y revancha. Además, 8 pruebas del script de ejecución aprobadas, referencias estáticas y sintaxis C# 9 de 43 archivos comprobadas.
 
 **Unity no está instalado en el entorno cloud:** la importación, compilación completa, pruebas visuales y PlayMode siguen pendientes. Se conserva la corrección de `CanvasRenderer` que faltaba en los avatares. La muestra tiene imágenes generadas con IA, controles estáticos de alfa/importación y nuevas pruebas de Unity aún no ejecutadas. No se publicó Android.
 
@@ -60,6 +60,16 @@ dotnet run --project Tests/Rumores.Tests.csproj -c Release -- --party-report Doc
 En cloud se usa `/workspace/tools/dotnet/dotnet`, SDK 8.0.426, con `DOTNET_CLI_HOME=/workspace/tools/dotnet-home`. `Tools/bootstrap-dotnet.sh` instala esa versión con verificación SHA-512. No se necesitan servicios ni claves.
 
 En Unity: **Window → General → Test Runner → EditMode / PlayMode**. También se pueden usar `Tools/unity.sh editmode` y `Tools/unity.sh playmode` con `UNITY_EDITOR` definido y licencia activa. Ver [TEST_PLAN.md](TEST_PLAN.md).
+
+## Android · fase 5
+
+Se auditó el proyecto sin modificar sus reglas. El compilador ahora conserva versión/ID/API y firma configurados, distingue APK de desarrollo de AAB firmado y rechaza salidas antiguas o parciales. Se integró un icono original de globos de diálogo.
+
+Para compilar una prueba: instalar Unity **2022.3.62f1** con **Android Build Support + SDK/NDK + OpenJDK**, abrir Main, ejecutar los tests y seleccionar **File → Build Settings → Android → Switch Platform**. Después usar **Rumores → Configurar Android → Compilar APK de desarrollo** (dos opciones del menú Rumores). Salida esperada: `Builds/Rumores-dev.apk`.
+
+**No se generó una APK aquí:** faltan Unity y su toolchain Android. Tampoco se probó en editor, emulador o teléfono. La consulta de políticas oficiales fue bloqueada por la red (403), por lo que no se certifican requisitos actuales de Play ni compatibilidad del editor con ellos. El AAB firmado requiere verificación de esas políticas, API explícita y una clave propia fuera del proyecto.
+
+Ver [ANDROID_RELEASE.md](ANDROID_RELEASE.md) para el procedimiento exacto y seguro, y [auditoría, correcciones y pendientes](Docs/FASE_5_QA.md). No se publicó la aplicación.
 
 ## Archivos principales
 

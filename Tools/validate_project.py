@@ -32,6 +32,14 @@ assert f'guid: {scene_guid}' in settings
 assert '2022.3.62f1' in (root/'ProjectSettings/ProjectVersion.txt').read_text()
 def guid_for(relative):
     return re.search(r'guid: ([0-9a-f]{32})',(root/(relative+'.meta')).read_text())[1]
+player_settings=(root/'ProjectSettings/ProjectSettings.asset').read_text()
+for guid in re.findall(r'guid: ([0-9a-f]{32})',player_settings):
+    assert guid in guids,f'PlayerSettings referencia un recurso inexistente: {guid}'
+assert guid_for('Assets/_Rumores/Art/AppIcon.png') in player_settings
+for setting in ('productName: Rumores','Android: com.davidjrosso.rumores',
+                'AndroidTargetArchitectures: 2','AndroidMinSdkVersion: 23',
+                'forceInternetPermission: 0','defaultScreenOrientation: 1'):
+    assert setting in player_settings,f'Configuración base Android: falta {setting}'
 main=(root/scene).read_text()
 for relative in ('Assets/_Rumores/Scripts/Presentation/PartyApp.cs','Assets/_Rumores/Resources/PartyCatalog.asset','Assets/_Rumores/Prefabs/PartyActionCard.prefab'):
     assert guid_for(relative) in main,f'Main no referencia {relative}'
