@@ -11,4 +11,5 @@ Objetivo actual: party game local Android, 2–8 jugadores en un teléfono, rond
 - Ejecutar Tools/test.sh y comprobar sintaxis/asset wiring después de cambios pertinentes. Mantener las pruebas del legado mientras su código permanezca.
 - Reportar por separado pruebas .NET, comprobaciones estáticas y ejecución Unity. No hay editor Unity ni SDK Android en este entorno; nunca describirlos como ejecutados sin evidencia.
 - No cargar archivos de guardado roguelike en el party game. La ronda inicial vive en memoria; los ajustes básicos se guardan por separado.
+- Fase 4: el usuario confirmó mantener el modo sencillo. UI en UiStrings.es-AR.json; narración en PartyContent.json. Sonidos sintetizados CC0 locales, volúmenes independientes. Las entradas deben respetar PageTransition además de versión/token; una pausa solo oculta la vista, no consume turno. No certificar audio, layout o resoluciones sin ejecución real de Unity.
 - Actualizar GDD.md, BALANCE.md, TECHNICAL_DESIGN.md y TEST_PLAN.md al cambiar las reglas. Mantener la documentación del modo anterior en Docs/Legacy.

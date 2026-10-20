@@ -57,21 +57,23 @@ namespace Rumores.Tests
             finally {UnityEngine.Object.DestroyImmediate(go);}
         }
         [UnityTest]
-        public IEnumerator NextAndRematchDoNotWaitForAnimation()
+        public IEnumerator NextAndRematchWaitOnlyForPageTransition()
         {
             yield return SceneManager.LoadSceneAsync("Main");yield return null;
             var app=UnityEngine.Object.FindObjectOfType<PartyApp>();app.FastAnimations=false;
-            Click("Play");Click("StartRound");
+            yield return Click("Play");yield return Click("StartRound");
             for(int turn=0;turn<4;turn++)
             {
-                Click("Ready");Click("Action_"+app.Game.Choices()[0].id);Click("Confirm");
+                yield return Click("Ready");yield return Click("Action_"+app.Game.Choices()[0].id);yield return Click("Confirm");
                 Assert.AreEqual(turn,app.Game.Turn);
                 Assert.IsTrue(UnityEngine.Object.FindObjectOfType<RumorSignal>().IsPlaying);
-                Click("Next"); // same frame: the visual effect must never gate the turn
+                GameObject.Find("Next").GetComponent<Button>().onClick.Invoke();
+                Assert.AreEqual(turn,app.Game.Turn,"La transición debe bloquear el avance accidental.");
+                yield return Click("Next"); // The short UI transition gates input, not the longer character animation.
                 yield return null;
                 Assert.AreEqual(turn+1,app.Game.Turn);
             }
-            Click("Rematch");yield return null;Assert.AreEqual(0,app.Game.Turn);
+            yield return Click("Rematch");yield return null;Assert.AreEqual(0,app.Game.Turn);
             Assert.AreEqual(0,app.Game.Branches[0].rumor.history.Count);
             LogAssert.NoUnexpectedReceived();
         }
@@ -87,11 +89,11 @@ namespace Rumores.Tests
             string[] ids={"miedoso","exagerado","mentiroso","ignorante"};
             for(int i=0;i<ids.Length;i++)
             {
-                var old=preview.Character;Click("PreviewCharacter_"+i);yield return null;
+                var old=preview.Character;yield return Click("PreviewCharacter_"+i);yield return null;
                 Assert.IsTrue(old==null);Assert.AreSame(art.Find(ids[i]),preview.Character.GetComponentInChildren<Image>().sprite);
             }
-            for(int i=0;i<9;i++){Click("Preview_"+i);yield return null;}
-            Assert.IsTrue(preview.Signal.IsPlaying);Click("PreviewFast");
+            for(int i=0;i<9;i++){yield return Click("Preview_"+i);yield return null;}
+            Assert.IsTrue(preview.Signal.IsPlaying);yield return Click("PreviewFast");
             LogAssert.NoUnexpectedReceived();
         }
 #endif
@@ -116,7 +118,7 @@ namespace Rumores.Tests
         public IEnumerator CardsBindTheSixIconsWithoutChangingChoices()
         {
             yield return SceneManager.LoadSceneAsync("Main");yield return null;
-            var app=UnityEngine.Object.FindObjectOfType<PartyApp>();Click("Play");Click("StartRound");Click("Ready");
+            var app=UnityEngine.Object.FindObjectOfType<PartyApp>();yield return Click("Play");yield return Click("StartRound");yield return Click("Ready");
             var seen=new System.Collections.Generic.HashSet<string>();
             for(int page=0;page<2;page++)
             {
@@ -126,12 +128,16 @@ namespace Rumores.Tests
                     Assert.AreEqual(card.name.Substring("Action_".Length),icon.ActionId);
                     Assert.IsFalse(icon.raycastTarget);seen.Add(icon.ActionId);
                 }
-                if(page==0){Click("MoreChoices");yield return null;}
+                if(page==0){yield return Click("MoreChoices");yield return null;}
             }
             Assert.AreEqual(6,seen.Count);Assert.AreEqual(0,app.Game.Turn);
             LogAssert.NoUnexpectedReceived();
         }
-        static void Click(string name)
-        {var go=GameObject.Find(name);Assert.NotNull(go,name);go.GetComponent<Button>().onClick.Invoke();}
+        static IEnumerator Click(string name)
+        {
+            var app=UnityEngine.Object.FindObjectOfType<PartyApp>();float deadline=Time.realtimeSinceStartup+2;
+            while(app!=null&&app.IsTransitioning){Assert.Less(Time.realtimeSinceStartup,deadline);yield return null;}
+            var go=GameObject.Find(name);Assert.NotNull(go,name);go.GetComponent<Button>().onClick.Invoke();
+        }
     }
 }

@@ -1,0 +1,361 @@
+{
+  "locale": "es-AR",
+  "entries": [
+    {
+      "key": "app.title",
+      "value": "RUMORES"
+    },
+    {
+      "key": "app.error",
+      "value": "No se pudo iniciar"
+    },
+    {
+      "key": "menu.tagline",
+      "value": "Un chisme, tus amigos y un montón de fruta."
+    },
+    {
+      "key": "menu.play",
+      "value": "Jugar"
+    },
+    {
+      "key": "menu.how",
+      "value": "Cómo jugar"
+    },
+    {
+      "key": "menu.settings",
+      "value": "Ajustes"
+    },
+    {
+      "key": "menu.continue",
+      "value": "Volver a la ronda"
+    },
+    {
+      "key": "menu.footer",
+      "value": "2–8 amigos · leé, elegí y pasá el celu"
+    },
+    {
+      "key": "back",
+      "value": "Volver"
+    },
+    {
+      "key": "home",
+      "value": "Menú"
+    },
+    {
+      "key": "how.body",
+      "value": "1. Anoten sus apodos. Juegan de 2 a 8 amigos con un solo celu.\n\n2. Pasen el celu a quien aparece en pantalla. Tocá «Estoy listo» cuando lo tengas.\n\n3. Leé el chisme y su pregunta. Deslizá para ver las tres respuestas; tocá una para conocer qué cambia. «Ver otras 3» muestra alternativas sin gastar el turno.\n\n4. Tocá «Contarlo así», leé tu versión en voz alta y pasá el celu. Cada persona juega dos veces.\n\n5. Al final, comparen el original con el resultado y repasen lo que contó cada amigo. No hay puntos ni respuesta correcta.\n\nLos chismes son inventados. La ronda dura mientras la app siga abierta. Los ajustes de sonido y movimiento sí se guardan."
+    },
+    {
+      "key": "settings.music",
+      "value": "Música: {0}%"
+    },
+    {
+      "key": "settings.effects",
+      "value": "Efectos: {0}%"
+    },
+    {
+      "key": "settings.silent",
+      "value": "silenciada"
+    },
+    {
+      "key": "settings.reduced",
+      "value": "Movimiento: reducido"
+    },
+    {
+      "key": "settings.normal",
+      "value": "Movimiento: normal"
+    },
+    {
+      "key": "settings.help",
+      "value": "Bajá cada volumen a 0 para silenciarlo. Reducir movimiento detiene el paseo del pueblo y las reacciones."
+    },
+    {
+      "key": "players.title",
+      "value": "¿Quiénes juegan?"
+    },
+    {
+      "key": "players.hint",
+      "value": "Tocá un avatar para cambiarlo."
+    },
+    {
+      "key": "players.summary",
+      "value": "{0} amigos · {1} turnos en total"
+    },
+    {
+      "key": "players.default",
+      "value": "Jugador {0}"
+    },
+    {
+      "key": "players.add",
+      "value": "+ Agregar participante ({0}/8)"
+    },
+    {
+      "key": "players.remove",
+      "value": "Quitar"
+    },
+    {
+      "key": "players.start",
+      "value": "Comenzar ronda"
+    },
+    {
+      "key": "players.error",
+      "value": "Revisá los apodos: distintos, de 1 a 16 caracteres."
+    },
+    {
+      "key": "players.empty",
+      "value": "Falta el apodo del participante {0}."
+    },
+    {
+      "key": "players.duplicate",
+      "value": "«{0}» se repite. Agregale una inicial o un número."
+    },
+    {
+      "key": "avatar.0",
+      "value": "Asombro"
+    },
+    {
+      "key": "avatar.1",
+      "value": "Risa"
+    },
+    {
+      "key": "avatar.2",
+      "value": "Rulo"
+    },
+    {
+      "key": "avatar.3",
+      "value": "Lentes"
+    },
+    {
+      "key": "avatar.4",
+      "value": "Asombro II"
+    },
+    {
+      "key": "avatar.5",
+      "value": "Risa II"
+    },
+    {
+      "key": "avatar.6",
+      "value": "Rulo II"
+    },
+    {
+      "key": "avatar.7",
+      "value": "Lentes II"
+    },
+    {
+      "key": "handoff.title",
+      "value": "Pasá el teléfono"
+    },
+    {
+      "key": "handoff.first",
+      "value": "Primera vuelta"
+    },
+    {
+      "key": "handoff.last",
+      "value": "Última vuelta"
+    },
+    {
+      "key": "handoff.help",
+      "value": "Solo {0}: tocá «Estoy listo» cuando tengas el celu. El chisme está oculto hasta entonces."
+    },
+    {
+      "key": "handoff.ready",
+      "value": "Estoy listo"
+    },
+    {
+      "key": "progress.turn",
+      "value": "Turno {0} de {1} · Vuelta {2} de 2"
+    },
+    {
+      "key": "turn.title",
+      "value": "Te toca, {0}"
+    },
+    {
+      "key": "turn.current",
+      "value": "EL CHISME HASTA AHORA"
+    },
+    {
+      "key": "turn.instructions",
+      "value": "Deslizá para ver las 3 respuestas. Elegí una y confirmá abajo."
+    },
+    {
+      "key": "turn.more",
+      "value": "Ver otras 3"
+    },
+    {
+      "key": "turn.history",
+      "value": "Lo anterior"
+    },
+    {
+      "key": "turn.confirm",
+      "value": "Contarlo así"
+    },
+    {
+      "key": "turn.selected",
+      "value": "Elegiste: {0}"
+    },
+    {
+      "key": "turn.explanation",
+      "value": "Qué cambia: {0}"
+    },
+    {
+      "key": "card.selected",
+      "value": "✓ Elegida"
+    },
+    {
+      "key": "history.title",
+      "value": "El chisme del grupo"
+    },
+    {
+      "key": "history.original",
+      "value": "ASÍ EMPEZÓ"
+    },
+    {
+      "key": "history.contribution",
+      "value": "{0}. {1} contó"
+    },
+    {
+      "key": "history.branch",
+      "value": "Versión {0}"
+    },
+    {
+      "key": "history.reason",
+      "value": "Qué cambió: {0}"
+    },
+    {
+      "key": "reveal.title",
+      "value": "Leelo en voz alta"
+    },
+    {
+      "key": "reveal.speaker",
+      "value": "{0} cuenta…"
+    },
+    {
+      "key": "reveal.last",
+      "value": "¡Listo! Veamos en qué terminó el chisme."
+    },
+    {
+      "key": "reveal.next",
+      "value": "Cuando termines de leer, pasá el celu."
+    },
+    {
+      "key": "reveal.finish",
+      "value": "Ver cómo terminó"
+    },
+    {
+      "key": "reveal.pass",
+      "value": "Pasar el celu"
+    },
+    {
+      "key": "results.title",
+      "value": "¡Mirá en qué terminó!"
+    },
+    {
+      "key": "results.original",
+      "value": "ASÍ EMPEZÓ"
+    },
+    {
+      "key": "results.final",
+      "value": "ASÍ LO DEJARON"
+    },
+    {
+      "key": "results.group",
+      "value": "{0} amigos, {1} aportes… y este chisme."
+    },
+    {
+      "key": "results.chat",
+      "value": "Para charlar entre todos"
+    },
+    {
+      "key": "results.history",
+      "value": "Paso a paso"
+    },
+    {
+      "key": "results.rematch",
+      "value": "¡Otra ronda!"
+    },
+    {
+      "key": "results.players",
+      "value": "Cambiar amigos"
+    },
+    {
+      "key": "art.title",
+      "value": "RUMORES · galería del barrio"
+    },
+    {
+      "key": "art.choose",
+      "value": "Tocá un vecino para probarlo"
+    },
+    {
+      "key": "art.fast",
+      "value": "Reducir movimiento"
+    },
+    {
+      "key": "art.reduced",
+      "value": "Movimiento reducido"
+    },
+    {
+      "key": "art.normal",
+      "value": "Movimiento normal"
+    },
+    {
+      "key": "art.footer",
+      "value": "Galería visual · mismas reglas"
+    },
+    {
+      "key": "art.character.0",
+      "value": "Miedoso"
+    },
+    {
+      "key": "art.character.1",
+      "value": "Exagerado"
+    },
+    {
+      "key": "art.character.2",
+      "value": "Mentiroso"
+    },
+    {
+      "key": "art.character.3",
+      "value": "Ignorante"
+    },
+    {
+      "key": "art.reaction.0",
+      "value": "Espera"
+    },
+    {
+      "key": "art.reaction.1",
+      "value": "Hablar"
+    },
+    {
+      "key": "art.reaction.2",
+      "value": "Sorpresa"
+    },
+    {
+      "key": "art.reaction.3",
+      "value": "Pánico"
+    },
+    {
+      "key": "art.reaction.4",
+      "value": "Risa"
+    },
+    {
+      "key": "art.reaction.5",
+      "value": "Festejo"
+    },
+    {
+      "key": "art.reaction.6",
+      "value": "Desánimo"
+    },
+    {
+      "key": "art.reaction.7",
+      "value": "Transmitir"
+    },
+    {
+      "key": "art.reaction.8",
+      "value": "Dividir"
+    },
+    {
+      "key": "turn.confirmSelected",
+      "value": "Contarlo así\n{0}"
+    }
+  ]
+}

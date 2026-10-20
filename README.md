@@ -2,7 +2,7 @@
 
 Un party game local de **2 a 8 personas** con un solo teléfono. Leés un chisme argentino, elegís cómo contarlo y pasás el celu. Al final comparan cómo empezó la historia y en qué terminó.
 
-**La partida ahora es más simple:** una historia compartida, tres respuestas en pantalla, seis opciones disponibles por turno y dos vueltas. Sin estadísticas, puntos, objetivos numéricos, ganadores automáticos ni selección de ramas.
+**La partida ahora es más simple:** una historia compartida, tres respuestas por página, seis opciones disponibles por turno y dos vueltas. Sin estadísticas, puntos, objetivos numéricos, ganadores automáticos ni selección de ramas.
 
 ## Abrir y jugar
 
@@ -10,11 +10,11 @@ Un party game local de **2 a 8 personas** con un solo teléfono. Leés un chisme
 2. Abrir `Assets/_Rumores/Scenes/Main.unity`, usar Game View vertical (por ejemplo 720×1280) y pulsar **Play**.
 3. Tocar **Jugar**, escribir los apodos y elegir avatares. Pueden jugar entre 2 y 8 amigos; la lista se desplaza.
 4. Pasar el teléfono a la persona indicada. Tocar **Estoy listo**, leer el rumor y su pregunta.
-5. Elegir una de las **tres respuestas completas** y tocar **Contarlo así**. **Ver otras 3** muestra las alternativas restantes sin gastar el turno ni cambiar el rumor. No hay respuesta correcta ni hay que hacer cuentas.
+5. Deslizar para leer las **tres respuestas completas**, elegir una y tocar **Contarlo así**. Cada carta explica qué cambia; la elegida tiene una marca textual. **Ver otras 3** muestra las alternativas restantes sin gastar el turno ni cambiar el rumor.
 6. Leer la nueva versión en voz alta y tocar **Pasar el celu**. Cada persona juega dos veces.
-7. Al final se muestra **Así empezó / Así lo dejaron**, una pregunta para charlar y el botón **¡Otra!**. **Ver el chisme completo** permite repasar lo que contó cada amigo.
+7. Al final se muestra **Así empezó / Así lo dejaron**, una pregunta para charlar, todos los aportes y el botón **¡Otra ronda!**. **Paso a paso** permite repasar lo que contó cada amigo.
 
-**Cómo jugar** explica estos pasos; **Ajustes** permite acelerar la aparición de los textos. La ronda se conserva mientras la app siga abierta. Cerrar la app la termina; la preferencia de animaciones sí se guarda.
+**Cómo jugar** explica estos pasos; **Ajustes** controla música, efectos y movimiento reducido de forma independiente. La ronda se conserva mientras la app siga abierta. Cerrar la app la termina; las preferencias sí se guardan. Al pasar el teléfono o volver de una pausa durante la partida, **Estoy listo** revela el chisme.
 
 ## Humor argentino
 
@@ -38,6 +38,12 @@ El menú incorpora un pueblo ilustrado original y una marca de globos con texto 
 Para revisar las siete reacciones y los efectos de transmisión/división, abrir **`Assets/_Rumores/Scenes/ArtPreview.unity`**, pulsar Play y tocar uno de los cuatro retratos. Para jugar, abrir **Main.unity**. La división y el desánimo de la galería no cambian las reglas del party game.
 
 **El usuario confirmó que la muestra anterior funcionó bien.** Esta ampliación está integrada y pasó los controles cloud; su revisión dentro de Unity sigue pendiente. Ver la [guía visual](Docs/Art/DIRECCION_VISUAL.md) y las [instrucciones, inventario y pendientes](Docs/Art/PRUEBA_UNITY.md).
+
+## UI y audio · fase 4
+
+Pueblo animado, transiciones breves protegidas, resumen de participantes, avance de ronda, tarjetas y resultados desplazables con texto de tamaño estable, confirmación fija e historial de autores/cambios. Se mantiene el modo sencillo por confirmación del usuario.
+
+Se integraron música y siete efectos **sintetizados originales provisionales**, bajo CC0, con volúmenes independientes. Los 89 textos de interfaz están centralizados para futuras traducciones. No se generó audio con IA. Ver [mejoras, pruebas y recorrido pendiente](Docs/FASE_4_UI_AUDIO.md).
 
 ## Validación
 

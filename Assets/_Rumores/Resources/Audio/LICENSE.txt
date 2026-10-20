@@ -1,0 +1,12 @@
+Rumores - audio provisional original
+
+Los ocho archivos WAV de esta carpeta fueron sintetizados para este proyecto
+con Tools/generate_audio.py el 20 de octubre de 2026. No contienen grabaciones,
+muestras, voces ni melodias de terceros. No se genero audio mediante IA.
+La melodia y los efectos se construyen con notas y osciladores matematicos.
+
+Se ofrecen bajo CC0 1.0 Universal (CC0-1.0), sin requisito de atribucion:
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Esta licencia cubre Music, Select, Transmit, Surprise, Panic, Reveal,
+Celebrate y Defeat (.wav). No cambia las licencias de fuentes ni otros assets.

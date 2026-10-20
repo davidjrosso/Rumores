@@ -14,8 +14,14 @@ namespace Rumores.Tests
 {
     public class FlowTests
     {
-        static void Click(string name)
+        static IEnumerator ReadyPage()
         {
+            var app=UnityEngine.Object.FindObjectOfType<PartyApp>();float deadline=Time.realtimeSinceStartup+2;
+            while(app!=null&&app.IsTransitioning){Assert.Less(Time.realtimeSinceStartup,deadline);yield return null;}
+        }
+        static IEnumerator Click(string name)
+        {
+            yield return ReadyPage();
             var go=GameObject.Find(name);Assert.NotNull(go,"Falta el botón "+name);
             var button=go.GetComponent<Button>();Assert.IsTrue(button.interactable,name+" desactivado");button.onClick.Invoke();
         }
@@ -44,7 +50,7 @@ namespace Rumores.Tests
             yield return SceneManager.LoadSceneAsync("Main");yield return null;
             for(int cycle=0;cycle<3;cycle++)
             {
-                Click("Play");yield return null;
+                yield return Click("Play");yield return null;
                 Canvas.ForceUpdateCanvases();
                 var avatars=UnityEngine.Object.FindObjectsOfType<CharacterView>();
                 Assert.AreEqual(2,avatars.Length);
@@ -55,12 +61,12 @@ namespace Rumores.Tests
                     Assert.NotNull(avatar.GetComponentInParent<RectMask2D>());
                 }
                 // These buttons rebuild the masked roster, disabling and destroying old avatars.
-                Click("Avatar_0");yield return null;
+                yield return Click("Avatar_0");yield return null;
                 Assert.IsTrue(avatars.All(avatar=>avatar==null));
-                Click("AddPlayer");yield return null;
+                yield return Click("AddPlayer");yield return null;
                 Assert.AreEqual(3,UnityEngine.Object.FindObjectsOfType<CharacterView>().Length);
-                Click("Remove_2");yield return null;
-                Click("Back");yield return null;
+                yield return Click("Remove_2");yield return null;
+                yield return Click("Back");yield return null;
                 Assert.AreEqual(0,UnityEngine.Object.FindObjectsOfType<CharacterView>().Length);
                 LogAssert.NoUnexpectedReceived();
             }
@@ -69,27 +75,27 @@ namespace Rumores.Tests
         {
             yield return SceneManager.LoadSceneAsync("Main");yield return null;
             var app=UnityEngine.Object.FindObjectOfType<PartyApp>();Assert.NotNull(app);app.FastAnimations=true;
-            Click("HowToPlay");yield return null;Click("Back");yield return null;
-            Click("Settings");yield return null;Click("ToggleAnimations");yield return null;Click("Back");yield return null;
-            Click("Play");yield return null;
-            for(int i=2;i<count;i++){Click("AddPlayer");yield return null;}
-            GameObject.Find("PlayerName_0").GetComponent<InputField>().text=" ";Click("StartRound");yield return null;Assert.IsNull(app.Game);
-            GameObject.Find("PlayerName_0").GetComponent<InputField>().text="Jugador 2";Click("StartRound");yield return null;Assert.IsNull(app.Game);
+            yield return Click("HowToPlay");yield return null;yield return Click("Back");yield return null;
+            yield return Click("Settings");yield return null;yield return Click("ToggleAnimations");yield return null;yield return Click("Back");yield return null;
+            yield return Click("Play");yield return null;
+            for(int i=2;i<count;i++){yield return Click("AddPlayer");yield return null;}
+            GameObject.Find("PlayerName_0").GetComponent<InputField>().text=" ";yield return Click("StartRound");yield return null;Assert.IsNull(app.Game);
+            GameObject.Find("PlayerName_0").GetComponent<InputField>().text="Jugador 2";yield return Click("StartRound");yield return null;Assert.IsNull(app.Game);
             GameObject.Find("PlayerName_0").GetComponent<InputField>().text="Ana";
-            Click("Avatar_0");yield return null;Click("StartRound");yield return null;
+            yield return Click("Avatar_0");yield return null;yield return Click("StartRound");yield return null;
             Assert.AreEqual(count,app.Game.Players.Count);Assert.AreEqual(1,app.Game.Players[0].avatar);
             for(int turn=0;turn<count*2;turn++)
             {
                 Assert.AreEqual("player-"+(turn%count),app.Game.Current.id);
-                Click("Ready");yield return null;
+                yield return Click("Ready");yield return null;
                 Assert.IsFalse(GameObject.Find("Confirm").GetComponent<Button>().interactable);
                 Assert.IsNull(GameObject.Find("Split"));Assert.IsNull(GameObject.Find("Branch_B"));
                 Assert.AreEqual(3,UnityEngine.Object.FindObjectsOfType<PartyActionCard>().Length);
                 int page=turn%2;
                 if(page==1)
                 {
-                    Click("Action_"+app.Game.Choices()[0].id);yield return null;
-                    Click("MoreChoices");yield return null;
+                    yield return Click("Action_"+app.Game.Choices()[0].id);yield return null;
+                    yield return Click("MoreChoices");yield return null;
                     Assert.IsFalse(GameObject.Find("Confirm").GetComponent<Button>().interactable);
                     Assert.AreEqual(turn,app.Game.Turn);
                     Assert.AreEqual(3,UnityEngine.Object.FindObjectsOfType<PartyActionCard>().Length);
@@ -97,16 +103,17 @@ namespace Rumores.Tests
                 string action=app.Game.Choices(page)[turn%3].id;
                 string preview=app.Game.Preview(action).text;
                 Assert.IsTrue(GameObject.Find("Action_"+action).GetComponentsInChildren<Text>().Any(t=>t.text==preview));
-                Click("Action_"+action);yield return null;
-                if(turn==1){Click("History");yield return null;Click("BackToTurn");yield return null;}
+                yield return Click("Action_"+action);yield return null;
+                if(turn==1){yield return Click("History");yield return null;yield return Click("BackToTurn");yield return null;}
+                yield return ReadyPage();
                 var confirm=GameObject.Find("Confirm").GetComponent<Button>();confirm.onClick.Invoke();
                 int events=app.Game.Branches[0].rumor.history.Count;confirm.onClick.Invoke();Assert.AreEqual(events,app.Game.Branches[0].rumor.history.Count);Assert.AreEqual(preview,app.Game.LastChange.text);
                 yield return null;Assert.AreEqual(Rumores.Core.Party.PartyPhase.Revealing,app.Game.Phase);
-                Click("Next");yield return null;
+                yield return Click("Next");yield return null;
             }
             Assert.AreEqual(Rumores.Core.Party.PartyPhase.Finished,app.Game.Phase);Assert.AreEqual(1,app.Game.Branches.Count);Assert.AreEqual(count*2,app.Game.Branches[0].rumor.history.Count);
-            Click("History");yield return null;Click("BackToTurn");yield return null;
-            string oldNews=app.Game.NewsId;Click("Rematch");yield return null;
+            yield return Click("History");yield return null;yield return Click("BackToTurn");yield return null;
+            string oldNews=app.Game.NewsId;yield return Click("Rematch");yield return null;
             Assert.AreEqual(0,app.Game.Turn);Assert.AreEqual(1,app.Game.Branches.Count);Assert.AreNotEqual(oldNews,app.Game.NewsId);
             Assert.AreEqual(0,app.Game.Branches[0].rumor.history.Count);Assert.AreEqual("Ana",app.Game.Current.name);
         }

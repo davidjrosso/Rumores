@@ -20,9 +20,9 @@ El validador exige seis estilos, al menos tres variantes por estilo/noticia, IDs
 
 ## Presentación
 
-PartyApp muestra pregunta, rumor actual y tres tarjetas verticales. PartyActionCard recibe el texto exacto de Preview; no calcula nada. «Ver otras 3» cambia la página y limpia la selección; volver del historial conserva página y selección. Solo el botón de confirmación altera la ronda. Pantallas antiguas se desactivan antes de destruirse, callbacks usan versión de pantalla y comandos usan token. El resultado muestra original/final y una pregunta social, con historial opcional.
+PartyApp muestra pregunta, rumor actual y tres tarjetas verticales en un ScrollRect de altura natural. PartyActionCard recibe el texto exacto de Preview y la explicación del catálogo; no calcula reglas. «Ver otras 3» cambia la página y limpia la selección; volver del historial conserva página y selección. Solo la confirmación aplica una transformación. Pantallas antiguas se desactivan antes de destruirse, callbacks usan versión de pantalla y comandos usan token. PageTransition agrega un bloqueo de 0,18 s (0,06 s con movimiento reducido). El resultado muestra original/final, pregunta social e historial de autores y cambios.
 
-La escena construye su UI al iniciar. No hacen falta nuevas conexiones ni assets. Se mantienen uGUI 1.0.0, Test Framework 1.1.33 y Unity 2022.3.62f1. La ronda vive en memoria; PlayerPrefs solo almacena `Rumores.Party.FastAnimations`.
+La escena construye su UI al iniciar y reutiliza sus referencias. Se mantienen uGUI 1.0.0, Test Framework 1.1.33 y Unity 2022.3.62f1. La ronda vive en memoria. PlayerPrefs almacena `Rumores.Party.FastAnimations`, `Rumores.Party.MusicVolume` y `Rumores.Party.EffectsVolume`. PartyAudio carga ocho clips locales; no muta el dominio. UiStrings carga la tabla es-AR y el contenido narrativo sigue en PartyContent.json. Una pausa oculta la vista activa de partida sin avanzar el estado del modelo. Ver Docs/FASE_4_UI_AUDIO.md.
 
 ## Verificación
 
